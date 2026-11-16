@@ -1,7 +1,7 @@
 // A moldura de todas as páginas (a da proposta B, «Destaques»): UM SÓ CABEÇALHO, claro e preso em cima
 // (o logótipo, Loja, A nossa história, Contactos, a lupa e o saco; no telemóvel, o menu de ecrã
 // inteiro, fora do cabeçalho), a faixa do aviso (só com uma campanha), o rodapé na faixa terracota (a
-// marca numa placa clara e três colunas: Loja, Ajuda e «Fala connosco»; em baixo o «©», os Termos, a
+// marca com o logótipo em branco e três colunas: Loja, Ajuda e «Fala connosco»; em baixo o «©», os Termos, a
 // Privacidade e o Livro de Reclamações discreto), a procura
 // numa folha e o recado de «juntou-se à encomenda».
 import { esc, numeroWhatsApp } from './util.mjs';
@@ -54,7 +54,8 @@ function cabecalho(ctx, caminho) {
 </nav>`;
 }
 
-/* O RODAPÉ (o Renato, 16 nov 2026: «tem pouca informação»): a marca (o logótipo numa placa clara, a
+/* O RODAPÉ (o Renato, 16 nov 2026: «tem pouca informação»; «o Logo no Rodapé devia de estar branco»):
+   a marca (o logótipo em branco, sem placa, a
    frase e os pontinhos dos ícones), e três colunas com título — a Loja (as categorias e o Natal), a
    Ajuda (as páginas) e «Fala connosco» (o WhatsApp e o Instagram, com o nome à vista e sem o número).
    Em baixo, «© ano Marca» e as legais. Nunca o nome do dono, o NIF nem a morada (vão nos Contactos,
@@ -73,7 +74,7 @@ function rodape(ctx) {
   return `<footer class="rodape">
   <div class="rodape__cima contentor">
     <div class="rodape__marca">
-      <a class="rodape__placa" href="${ctx.url('/')}">${logotipo(ctx, { alto: 50, alt: `${ctx.site.marca} — página inicial` })}</a>
+      <a class="rodape__logo" href="${ctx.url('/')}">${logotipo(ctx, { peca: 'logo-horizontal-branco', alto: 72, alt: `${ctx.site.marca} — página inicial` })}</a>
       <p class="rodape__frase">${esc(ctx.site.assinatura || '')}</p>
       <span class="rodape__pontos" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     </div>

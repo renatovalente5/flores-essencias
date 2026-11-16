@@ -72,8 +72,9 @@ export function miniatura(ctx, nome, { lado = 56, classe = '' } = {}) {
 // ---------------------------------------------------------------- a marca
 /* O logótipo horizontal (o símbolo ao lado do nome), como a cliente o tem: só recortado. «alto» é a
    altura em CSS; «tamanhos» troca o sizes quando a altura muda com o ecrã. */
-export function logotipo(ctx, { alto = 40, classe = '', alt = '', prioridade = false, tamanhos = '' } = {}) {
-  const m = ctx.manifesto.marca['logo-horizontal'];
+export function logotipo(ctx, { alto = 40, classe = '', alt = '', prioridade = false, tamanhos = '', peca = 'logo-horizontal' } = {}) {
+  const m = ctx.manifesto.marca[peca];
+  if (!m) throw new Error(`a peça do logótipo «${peca}» não existe em media/marca (scripts/imagens.py)`);
   const alturas = Object.keys(m.altura).map(Number).sort((a, b) => a - b);
   const largo = Math.round((m.w * alto) / m.h);
   const src = m.altura[alturas.find((h) => h >= alto * 2) || alturas[alturas.length - 1]];

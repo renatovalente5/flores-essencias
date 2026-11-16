@@ -457,7 +457,7 @@ await construcao('um só cabeçalho em todas as páginas (o logótipo, Loja, A n
     for (const t of ['>Loja<', '>A nossa história<', '>Contactos<', 'id="abrir-procura"', 'id="saco"', 'id="abrir-menu"', 'class="topo__logo"']) assert.ok(topo.includes(t), `${rel}: o cabeçalho não tem ${t}`);
     assert.match(html, /<\/header>\s*<nav class="menu" id="menu" aria-label="Menu" hidden>/, `${rel}: o menu do telemóvel não está logo a seguir ao cabeçalho`);
     const rodape = html.slice(html.indexOf('<footer class="rodape">'), html.indexOf('</footer>'));
-    for (const t of ['>Loja<', '>Ajuda<', '>Fala connosco<', '>Arranjos<', '>A nossa história<', '>Como encomendar<', '>A tua encomenda<', '>Contactos<', 'class="rodape__placa"', 'class="rodape__frase"', 'href="https://wa.me/351933007227"', 'WhatsApp</small>', '@essenciasflores1<small>Instagram</small>', '<!-- legal-comum:livro ', '>Termos e condições<', '>Privacidade<']) assert.ok(rodape.includes(t), `${rel}: o rodapé não tem ${t}`);
+    for (const t of ['>Loja<', '>Ajuda<', '>Fala connosco<', '>Arranjos<', '>A nossa história<', '>Como encomendar<', '>A tua encomenda<', '>Contactos<', 'class="rodape__logo"', 'logo-horizontal-branco-', 'class="rodape__frase"', 'href="https://wa.me/351933007227"', 'WhatsApp</small>', '@essenciasflores1<small>Instagram</small>', '<!-- legal-comum:livro ', '>Termos e condições<', '>Privacidade<']) assert.ok(rodape.includes(t), `${rel}: o rodapé não tem ${t}`);
     assert.match(rodape, new RegExp(`<p>© ${hojeEmLisboa().slice(0, 4)} Flores &amp; Essências</p>`), `${rel}: a linha do ©`);
     for (const t of ['Nome de Ensaio', '123456789', 'Rua do Ensaio', '933', '351933']) assert.ok(!rodape.replace(/href="[^"]*"/g, '').includes(t), `${rel}: o rodapé tem «${t}»`);
   }

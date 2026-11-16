@@ -965,13 +965,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .rodape__pontos i:nth-child(3) { left: 42px; top: 18px; width: 10px; height: 10px; background: var(--cor-mostarda); }
 .rodape__pontos i:nth-child(4) { left: 64px; top: 4px; width: 7px; height: 7px; background: var(--cor-claro); }
 
-.rodape__placa {
-  display: inline-block;
-  padding: 14px 18px;
-  border-radius: 18px;
-  background: var(--cor-fundo);
-}
-.rodape__placa img { width: auto; height: 50px; }
+.rodape__logo { display: inline-block; border-radius: 8px; }
+.rodape__logo img { width: auto; height: 64px; }
+@media (min-width: 1000px) { .rodape__logo img { height: 72px; } }
 
 .rodape__marca p {
   max-width: 21em;
@@ -1010,7 +1006,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (min-width: 640px) {
   .rodape__cima { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .rodape__coluna--falar { grid-column: auto; }
-  .rodape__pontos { right: auto; left: 250px; }
+  .rodape__pontos { right: auto; left: 236px; }
 }
 @media (min-width: 1000px) {
   .rodape { padding-top: 56px; }
