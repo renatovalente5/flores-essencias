@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flores &amp; Essências — Flores com óleos essenciais, feitas à mão pelo Martim</title>
+  <meta name="description" content="Arranjos, velas e lembranças em cera com óleos essenciais. Cada encomenda ajuda as terapias do Martim.">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="../comum/marca/logo-simbolo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..600&amp;family=Italiana&amp;display=swap">
+  <link rel="preload" as="image" href="../comum/videos/produto-natal.jpg">
+  <link rel="stylesheet" href="estilo.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
+
+  <!-- Um só cabeçalho: logótipo, 3 ligações, lupa e saco (no telemóvel: logótipo, lupa, saco e menu) -->
+  <header class="topo">
+    <div class="topo__barra">
+      <a class="topo__marca" href="#inicio">
+        <img src="../comum/marca/logo-horizontal.png" alt="Flores &amp; Essências" width="1044" height="334">
+      </a>
+
+      <nav class="topo__nav" id="menu" aria-label="Principal">
+        <ul role="list">
+          <li><a href="#loja">Loja</a></li>
+          <li><a href="#historia">A nossa história</a></li>
+          <li><a href="#contactos">Contactos</a></li>
+        </ul>
+      </nav>
+
+      <div class="topo__accoes">
+        <button class="icone-topo" type="button" aria-label="Procurar">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+        </button>
+        <a class="icone-topo" href="#encomendar" aria-label="A minha encomenda">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1 11.5h-11z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg>
+        </a>
+        <button class="icone-topo topo__menu" type="button" aria-label="Abrir o menu" aria-expanded="false" aria-controls="menu">
+          <svg class="topo__menu-abrir" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"/></svg>
+          <svg class="topo__menu-fechar" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- Capa: título e frase ao centro, os botões e, por baixo, o vídeo largo -->
+    <section class="capa" id="inicio" aria-labelledby="capa-titulo">
+      <div class="contentor capa__texto">
+        <h1 class="capa__titulo" id="capa-titulo">Flores que perfumam, feitas à&nbsp;mão pelo Martim</h1>
+        <p class="capa__frase">Arranjos, velas e lembranças em cera com óleos essenciais. Cada encomenda ajuda as terapias do Martim.</p>
+        <div class="botoes">
+          <a class="botao botao--cheio" href="#loja">Ver a loja</a>
+          <a class="botao botao--linha" href="#historia">Conhecer o Martim</a>
+        </div>
+      </div>
+
+      <div class="contentor">
+        <div class="video capa__video">
+          <video data-video autoplay muted loop playsinline preload="auto" width="720" height="1280"
+                 poster="../comum/videos/produto-natal.jpg"
+                 aria-label="Arranjo de Natal com flores em cera numa cesta de madeira">
+            <source src="../comum/videos/produto-natal.mp4" type="video/mp4">
+          </video>
+          <button class="video__botao" type="button" aria-label="Pausar o vídeo" hidden>
+            <svg class="video__pausa" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2"/></svg>
+            <svg class="video__tocar" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5.6c0-.8.9-1.3 1.6-.9l9.3 5.7c.7.4.7 1.4 0 1.8l-9.3 5.7c-.7.4-1.6-.1-1.6-.9z"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categorias: os 6 destaques, como no Instagram -->
+    <section class="seccao categorias" aria-labelledby="categorias-titulo">
+      <div class="contentor">
+        <h2 class="titulo categorias__titulo" id="categorias-titulo">O que fazemos</h2>
+      </div>
+      <ul class="categorias__lista" role="list">
+        <li><a class="categoria" href="#loja"><span class="categoria__disco"><img src="../comum/icones/arranjos.png" alt="" width="150" height="150"></span><span class="categoria__nome">Arranjos</span></a></li>
+        <li><a class="categoria" href="#loja"><span class="categoria__disco"><img src="../comum/icones/prendas.png" alt="" width="150" height="150"></span><span class="categoria__nome">Prendas</span></a></li>
+        <li><a class="categoria" href="#loja"><span class="categoria__disco"><img src="../comum/icones/religioso.png" alt="" width="150" height="150"></span><span class="categoria__nome">Religioso</span></a></li>
+        <li><a class="categoria" href="#loja"><span class="categoria__disco"><img src="../comum/icones/eventos.png" alt="" width="150" height="150"></span><span class="categoria__nome">Eventos</span></a></li>
+        <li><a class="categoria" href="#loja"><span class="categoria__disco"><img src="../comum/icones/aniversario.png" alt="" width="150" height="150"></span><span class="categoria__nome">Aniversário</span></a></li>
+        <li><a class="categoria" href="#loja"><span class="categoria__disco"><img src="../comum/icones/artigos-3d.png" alt="" width="150" height="150"></span><span class="categoria__nome">Artigos 3D</span></a></li>
+      </ul>
+    </section>
+
+    <!-- Natal: fila de produtos com encaixe -->
+    <section class="seccao" id="loja" aria-labelledby="natal-titulo">
+      <div class="contentor seccao__cabeca">
+        <div>
+          <h2 class="titulo" id="natal-titulo">Natal na Flores&nbsp;&amp; Essências</h2>
+          <p class="seccao__texto">Arranjos, calendários do Advento e pequenas lembranças para a época.</p>
+        </div>
+        <div class="setas" data-setas="fila-natal" hidden>
+          <button class="seta" type="button" data-anterior aria-controls="fila-natal" aria-label="Ver os anteriores">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+          </button>
+          <button class="seta" type="button" data-seguinte aria-controls="fila-natal" aria-label="Ver os seguintes">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <ul class="fila fila--produtos" id="fila-natal" data-fila role="list">
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/arranjo-anjinho-branco-dourado.jpg" alt="Arranjo branco com uma estrela dourada, sobre uma base de madeira" width="756" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#arranjo-branco-e-dourado-com-anjinho">Arranjo branco e dourado com anjinho</a></h3>
+            <p class="produto__preco">14,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/calendario-advento-24.jpg" alt="Calendário do Advento com o Pai Natal e 24 portinhas numeradas" width="562" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#calendario-do-advento-de-24-dias">Calendário do Advento de 24 dias</a></h3>
+            <p class="produto__preco">15,99 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/arvore-natal-branca-dourada.jpg" alt="Pequena árvore de Natal branca com estrela dourada, numa mesa de vidro" width="758" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#arvore-de-natal-branca-e-dourada">Árvore de Natal branca e dourada</a></h3>
+            <p class="produto__preco">14,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/caneca-chocolate-quente.jpg" alt="Vela em forma de caneca branca e vermelha, com natas e doces cor-de-rosa" width="756" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#caneca-de-chocolate-quente">Caneca de chocolate quente (vela)</a></h3>
+            <p class="produto__preco">9,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/arranjo-natal-luzes.jpg" alt="Tulipas brancas com ramos verdes e laço vermelho, num vaso branco" width="758" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#arranjo-natalicio-com-luzes">Arranjo natalício com luzes</a></h3>
+            <p class="produto__preco">25,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/coroa-natal-rosa.jpg" alt="Coroa de Natal com rosas em tons de rosa, pendurada numa fita" width="758" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#coroa-de-natal-em-tons-de-rosa">Coroa de Natal em tons de rosa</a></h3>
+            <p class="produto__preco">15,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Feitos esta semana -->
+    <section class="seccao" aria-labelledby="novidades-titulo">
+      <div class="contentor seccao__cabeca">
+        <div>
+          <h2 class="titulo" id="novidades-titulo">Feitos esta semana</h2>
+        </div>
+        <div class="setas" data-setas="fila-novidades" hidden>
+          <button class="seta" type="button" data-anterior aria-controls="fila-novidades" aria-label="Ver os anteriores">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+          </button>
+          <button class="seta" type="button" data-seguinte aria-controls="fila-novidades" aria-label="Ver os seguintes">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <ul class="fila fila--produtos" id="fila-novidades" data-fila role="list">
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/arranjo-menina-rosas.jpg" alt="Vaso em forma de menina com rosas cor-de-rosa e tule vermelho" width="756" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#arranjo-com-menina-e-rosas">Arranjo com menina e rosas</a></h3>
+            <p class="produto__preco">10,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/nossa-senhora-flores.jpg" alt="Nossa Senhora em cera sobre flores amarelas e cor de pêssego" width="758" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#nossa-senhora-com-flores-em-cera">Nossa Senhora com flores em cera</a></h3>
+            <p class="produto__preco">17,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/tres-rosas-pessego.jpg" alt="Três rosas cor de pêssego com mimosas e laço dourado, num vaso branco" width="756" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#tres-rosas-cor-de-pessego">Três rosas cor de pêssego</a></h3>
+            <p class="produto__preco">13,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img class="produto__img--dragao" src="../comum/fotos/dragao-articulado-rosa.jpg" alt="O Martim a trabalhar à mesa e, em destaque, o dragão rosa articulado" width="562" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#dragao-articulado-rosa">Dragão articulado rosa (3D)</a></h3>
+            <p class="produto__preco">15,90 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/nossa-senhora-cupula-luzes.jpg" alt="Nossa Senhora branca numa cúpula de vidro com luzes" width="756" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#nossa-senhora-na-cupula-com-luzes">Nossa Senhora na cúpula com luzes</a></h3>
+            <p class="produto__preco">13,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/cupcake-flores-lilas.jpg" alt="Mão a segurar um cupcake com flores em cera lilás, rosa e brancas" width="756" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#cupcake-de-flores-lilas">Cupcake de flores lilás</a></h3>
+            <p class="produto__preco">9,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/arranjo-vermelho-rosa.jpg" alt="Flores vermelhas, cor-de-rosa e brancas numa caixa redonda vermelha" width="915" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#arranjo-vermelho-rosa-e-branco">Arranjo vermelho, rosa e branco</a></h3>
+            <p class="produto__preco">16,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+        <li class="produto">
+          <div class="produto__foto"><img src="../comum/fotos/porta-cartoes-3d.jpg" alt="Porta-cartões vermelho impresso em 3D, sobre uma base de madeira" width="756" height="1000" loading="lazy" decoding="async"></div>
+          <div class="produto__info">
+            <h3 class="produto__nome"><a class="produto__ligacao" href="#porta-cartoes-3d">Porta-cartões (3D)</a></h3>
+            <p class="produto__preco">6,00 €</p>
+          </div>
+          <span class="produto__seta" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- História -->
+    <section class="seccao historia" id="historia" aria-labelledby="historia-titulo">
+      <div class="contentor historia__grelha">
+        <h2 class="titulo historia__titulo" id="historia-titulo">Uma marca que nasceu de uma vela</h2>
+        <div class="historia__foto">
+          <img src="../comum/fotos/martim-mae-banca.jpg" alt="O Martim e a mãe, Tatiana, atrás da banca com velas, flores e imagens religiosas" width="1000" height="1000" loading="lazy" decoding="async">
+        </div>
+        <div class="historia__texto">
+          <p>O Martim é um jovem com autismo. Para acalmar a ansiedade, ele e a mãe, Tatiana, começaram a fazer velas aromáticas juntos. A rotina ganhou voz, e o projeto tornou-se a Flores &amp; Essências.</p>
+          <figure class="citacao">
+            <blockquote>
+              <p>«Tu sabes que eu acredito e confio.»</p>
+            </blockquote>
+            <figcaption>O Martim, no «Dois às 10» (TVI)</figcaption>
+          </figure>
+          <a class="botao botao--linha" href="#historia">Ler a história</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bastidores: vídeos sem som, a tocar só quando estão à vista -->
+    <section class="seccao" aria-labelledby="bastidores-titulo">
+      <div class="contentor seccao__cabeca">
+        <div>
+          <h2 class="titulo" id="bastidores-titulo">Nos bastidores</h2>
+          <p class="seccao__texto">Do atelier aos correios, cada encomenda passa pelas mãos do Martim.</p>
+        </div>
+        <div class="setas" data-setas="fila-bastidores" hidden>
+          <button class="seta" type="button" data-anterior aria-controls="fila-bastidores" aria-label="Ver os anteriores">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg>
+          </button>
+          <button class="seta" type="button" data-seguinte aria-controls="fila-bastidores" aria-label="Ver os seguintes">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <ul class="fila fila--videos" id="fila-bastidores" data-fila role="list">
+        <li>
+          <figure class="bastidor">
+            <div class="video bastidor__video">
+              <video data-video autoplay muted loop playsinline preload="none" width="720" height="1280" poster="../comum/videos/bastidores-atelier.jpg" aria-labelledby="legenda-atelier">
+                <source src="../comum/videos/bastidores-atelier.mp4" type="video/mp4">
+              </video>
+              <button class="video__botao" type="button" aria-label="Pausar o vídeo" hidden>
+                <svg class="video__pausa" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2"/></svg>
+                <svg class="video__tocar" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5.6c0-.8.9-1.3 1.6-.9l9.3 5.7c.7.4.7 1.4 0 1.8l-9.3 5.7c-.7.4-1.6-.1-1.6-.9z"/></svg>
+              </button>
+            </div>
+            <figcaption id="legenda-atelier">No atelier, ao fim do dia</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="bastidor">
+            <div class="video bastidor__video">
+              <video data-video autoplay muted loop playsinline preload="none" width="576" height="1024" poster="../comum/videos/bastidores-ctt.jpg" aria-labelledby="legenda-ctt">
+                <source src="../comum/videos/bastidores-ctt.mp4" type="video/mp4">
+              </video>
+              <button class="video__botao" type="button" aria-label="Pausar o vídeo" hidden>
+                <svg class="video__pausa" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2"/></svg>
+                <svg class="video__tocar" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5.6c0-.8.9-1.3 1.6-.9l9.3 5.7c.7.4.7 1.4 0 1.8l-9.3 5.7c-.7.4-1.6-.1-1.6-.9z"/></svg>
+              </button>
+            </div>
+            <figcaption id="legenda-ctt">A enviar as encomendas</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="bastidor">
+            <div class="video bastidor__video bastidor__video--barras">
+              <video data-video autoplay muted loop playsinline preload="none" width="720" height="1280" poster="../comum/videos/bastidores-mae.jpg" aria-labelledby="legenda-mae">
+                <source src="../comum/videos/bastidores-mae.mp4" type="video/mp4">
+              </video>
+              <button class="video__botao" type="button" aria-label="Pausar o vídeo" hidden>
+                <svg class="video__pausa" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2"/></svg>
+                <svg class="video__tocar" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5.6c0-.8.9-1.3 1.6-.9l9.3 5.7c.7.4.7 1.4 0 1.8l-9.3 5.7c-.7.4-1.6-.1-1.6-.9z"/></svg>
+              </button>
+            </div>
+            <figcaption id="legenda-mae">Centros de mesa com a mãe</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="bastidor">
+            <div class="video bastidor__video">
+              <video data-video autoplay muted loop playsinline preload="none" width="576" height="1024" poster="../comum/videos/bastidores-encomendas.jpg" aria-labelledby="legenda-encomendas">
+                <source src="../comum/videos/bastidores-encomendas.mp4" type="video/mp4">
+              </video>
+              <button class="video__botao" type="button" aria-label="Pausar o vídeo" hidden>
+                <svg class="video__pausa" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2"/></svg>
+                <svg class="video__tocar" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5.6c0-.8.9-1.3 1.6-.9l9.3 5.7c.7.4.7 1.4 0 1.8l-9.3 5.7c-.7.4-1.6-.1-1.6-.9z"/></svg>
+              </button>
+            </div>
+            <figcaption id="legenda-encomendas">Encomendas prontas a seguir</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Como encomendar: uma vez, no fim -->
+    <section class="seccao encomendar" id="encomendar" aria-labelledby="encomendar-titulo">
+      <div class="contentor">
+        <h2 class="titulo encomendar__titulo" id="encomendar-titulo">Como encomendar</h2>
+        <ul class="passos" role="list">
+          <li class="passo">
+            <img class="passo__icone" src="../comum/icones/contactos.png" alt="" width="150" height="150" loading="lazy">
+            <h3 class="passo__titulo">Pelo WhatsApp</h3>
+            <p class="passo__texto">Escolhe as peças e envia a encomenda numa mensagem.</p>
+          </li>
+          <li class="passo">
+            <img class="passo__icone" src="../comum/icones/arranjos.png" alt="" width="150" height="150" loading="lazy">
+            <h3 class="passo__titulo">Cores e aromas à escolha</h3>
+            <p class="passo__texto">Chocolate, baunilha, maçã, canela e muitos mais.</p>
+          </li>
+          <li class="passo">
+            <img class="passo__icone" src="../comum/icones/entregas.png" alt="" width="150" height="150" loading="lazy">
+            <h3 class="passo__titulo">Em mão ou por CTT</h3>
+            <p class="passo__texto">Entregamos em mão ou enviamos pelos CTT.</p>
+          </li>
+          <li class="passo">
+            <img class="passo__icone" src="../comum/icones/clientes.png" alt="" width="150" height="150" loading="lazy">
+            <h3 class="passo__titulo">Cada compra ajuda</h3>
+            <p class="passo__texto">As vendas revertem para as terapias do Martim.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé compacto -->
+  <footer class="rodape" id="contactos">
+    <div class="contentor rodape__cima">
+      <div class="rodape__marca">
+        <img src="../comum/marca/logo-horizontal.png" alt="Flores &amp; Essências" width="1044" height="334" loading="lazy">
+        <p>Flores com óleos essenciais, feitas à mão pelo Martim.</p>
+      </div>
+
+      <nav class="rodape__nav" aria-label="Rodapé">
+        <ul role="list">
+          <li><a href="#loja">Loja</a></li>
+          <li><a href="#historia">A nossa história</a></li>
+          <li><a href="#encomendar">Como encomendar</a></li>
+          <li><a href="#contactos">Contactos</a></li>
+        </ul>
+      </nav>
+
+      <ul class="rodape__redes" role="list">
+        <li>
+          <a class="redondo" href="https://www.instagram.com/essenciasflores1/" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="redondo" href="https://wa.me/351933007227" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.2 7.6c-.3 0-.6.1-.8.4-.3.3-1 1-1 2.3s1 2.6 1.1 2.8c.1.2 1.9 3 4.6 4 2.3.9 2.8.7 3.3.7.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.5-1.8-.2-.3 0-.4.1-.5l.4-.5.3-.5c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4z" fill="currentColor"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contentor rodape__baixo">
+      <p class="rodape__copy">© 2026 Flores &amp; Essências</p>
+      <ul class="rodape__legais" role="list">
+        <li><a href="#termos">Termos e condições</a></li>
+        <li><a href="#privacidade">Privacidade</a></li>
+        <li>
+          <a class="livro" href="https://www.livroreclamacoes.pt/">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.8C10 5.3 7.3 4.9 3.8 5.1v12.6c3.5-.2 6.2.2 8.2 1.7 2-1.5 4.7-1.9 8.2-1.7V5.1c-3.5-.2-6.2.2-8.2 1.7zM12 6.8v12.6"/></svg>
+            Livro de Reclamações
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

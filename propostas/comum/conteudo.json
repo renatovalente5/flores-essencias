@@ -1,0 +1,117 @@
+{
+  "_nota": "Conteúdo comum às três propostas da página inicial (textos curtos, pt-PT). Os produtos e preços são reais, do Instagram da marca.",
+  "marca": {
+    "nome": "Flores & Essências",
+    "frase": "Flores com óleos essenciais, feitas à mão pelo Martim.",
+    "instagram": "https://www.instagram.com/essenciasflores1/",
+    "whatsapp": "https://wa.me/351933007227",
+    "logo": "comum/marca/logo.png",
+    "logoHorizontal": "comum/marca/logo-horizontal.png",
+    "logoSimbolo": "comum/marca/logo-simbolo.png",
+    "cores": {
+      "petroleo": "#2C5B69",
+      "petroleoEscuro": "#174855",
+      "cremeChama": "#F8EFE2",
+      "iconesCreme": "#F8F0E4",
+      "iconesTerracota": "#C46B48",
+      "iconesSalva": "#719664",
+      "iconesRosa": "#E08A93",
+      "iconesMostarda": "#DDA23F",
+      "iconesCastanho": "#4B2F2A"
+    }
+  },
+  "menu": [
+    { "nome": "Loja", "ligacao": "#loja" },
+    { "nome": "A nossa história", "ligacao": "#historia" },
+    { "nome": "Contactos", "ligacao": "#contactos" }
+  ],
+  "capa": {
+    "titulo": "Flores que perfumam, feitas à mão pelo Martim",
+    "texto": "Arranjos, velas e lembranças em cera com óleos essenciais. Cada encomenda ajuda as terapias do Martim.",
+    "botao": { "nome": "Ver a loja", "ligacao": "#loja" },
+    "botao2": { "nome": "Conhecer o Martim", "ligacao": "#historia" },
+    "foto": "comum/fotos/arranjo-rosas-dourado.jpg",
+    "video": "comum/videos/produto-natal.mp4",
+    "videoCapa": "comum/videos/produto-natal.jpg"
+  },
+  "categorias": {
+    "titulo": "O que fazemos",
+    "itens": [
+      { "nome": "Arranjos", "icone": "comum/icones/arranjos.png" },
+      { "nome": "Prendas", "icone": "comum/icones/prendas.png" },
+      { "nome": "Religioso", "icone": "comum/icones/religioso.png" },
+      { "nome": "Eventos", "icone": "comum/icones/eventos.png" },
+      { "nome": "Aniversário", "icone": "comum/icones/aniversario.png" },
+      { "nome": "Artigos 3D", "icone": "comum/icones/artigos-3d.png" }
+    ]
+  },
+  "natal": {
+    "titulo": "Natal na Flores & Essências",
+    "texto": "Arranjos, calendários do Advento e pequenas lembranças para a época.",
+    "produtos": [
+      { "nome": "Arranjo branco e dourado com anjinho", "preco": "14,00 €", "foto": "comum/fotos/arranjo-anjinho-branco-dourado.jpg" },
+      { "nome": "Calendário do Advento de 24 dias", "preco": "15,99 €", "foto": "comum/fotos/calendario-advento-24.jpg" },
+      { "nome": "Árvore de Natal branca e dourada", "preco": "14,00 €", "foto": "comum/fotos/arvore-natal-branca-dourada.jpg" },
+      { "nome": "Caneca de chocolate quente (vela)", "preco": "9,00 €", "foto": "comum/fotos/caneca-chocolate-quente.jpg" },
+      { "nome": "Arranjo natalício com luzes", "preco": "25,00 €", "foto": "comum/fotos/arranjo-natal-luzes.jpg" },
+      { "nome": "Coroa de Natal em tons de rosa", "preco": "15,00 €", "foto": "comum/fotos/coroa-natal-rosa.jpg" }
+    ]
+  },
+  "novidades": {
+    "titulo": "Feitos esta semana",
+    "produtos": [
+      { "nome": "Arranjo com menina e rosas", "preco": "10,00 €", "foto": "comum/fotos/arranjo-menina-rosas.jpg" },
+      { "nome": "Nossa Senhora com flores em cera", "preco": "17,00 €", "foto": "comum/fotos/nossa-senhora-flores.jpg" },
+      { "nome": "Três rosas cor de pêssego", "preco": "13,00 €", "foto": "comum/fotos/tres-rosas-pessego.jpg" },
+      { "nome": "Dragão articulado rosa (3D)", "preco": "15,90 €", "foto": "comum/fotos/dragao-articulado-rosa.jpg" },
+      { "nome": "Nossa Senhora na cúpula com luzes", "preco": "13,00 €", "foto": "comum/fotos/nossa-senhora-cupula-luzes.jpg" },
+      { "nome": "Cupcake de flores lilás", "preco": "9,00 €", "foto": "comum/fotos/cupcake-flores-lilas.jpg" },
+      { "nome": "Arranjo vermelho, rosa e branco", "preco": "16,00 €", "foto": "comum/fotos/arranjo-vermelho-rosa.jpg" },
+      { "nome": "Porta-cartões (3D)", "preco": "6,00 €", "foto": "comum/fotos/porta-cartoes-3d.jpg" }
+    ]
+  },
+  "historia": {
+    "titulo": "Uma marca que nasceu de uma vela",
+    "texto": "O Martim é um jovem com autismo. Para acalmar a ansiedade, ele e a mãe, Tatiana, começaram a fazer velas aromáticas juntos. A rotina ganhou voz, e o projeto tornou-se a Flores & Essências.",
+    "citacao": "Tu sabes que eu acredito e confio.",
+    "citacaoAutor": "O Martim, no «Dois às 10» (TVI)",
+    "botao": { "nome": "Ler a história", "ligacao": "#historia" },
+    "foto": "comum/fotos/martim-sorriso.jpg",
+    "foto2": "comum/fotos/martim-mae-banca.jpg",
+    "icone": "comum/icones/historia.png"
+  },
+  "bastidores": {
+    "titulo": "Nos bastidores",
+    "texto": "Do atelier aos correios, cada encomenda passa pelas mãos do Martim.",
+    "icone": "comum/icones/bastidores.png",
+    "videos": [
+      { "video": "comum/videos/bastidores-atelier.mp4", "capa": "comum/videos/bastidores-atelier.jpg", "legenda": "No atelier, ao fim do dia" },
+      { "video": "comum/videos/bastidores-ctt.mp4", "capa": "comum/videos/bastidores-ctt.jpg", "legenda": "A enviar as encomendas" },
+      { "video": "comum/videos/bastidores-mae.mp4", "capa": "comum/videos/bastidores-mae.jpg", "legenda": "Centros de mesa com a mãe" },
+      { "video": "comum/videos/bastidores-encomendas.mp4", "capa": "comum/videos/bastidores-encomendas.jpg", "legenda": "Encomendas prontas a seguir" }
+    ]
+  },
+  "comoEncomendar": {
+    "titulo": "Como encomendar",
+    "itens": [
+      { "titulo": "Pelo WhatsApp", "texto": "Escolhe as peças e envia a encomenda numa mensagem.", "icone": "comum/icones/contactos.png" },
+      { "titulo": "Cores e aromas à escolha", "texto": "Chocolate, baunilha, maçã, canela e muitos mais.", "icone": "comum/icones/arranjos.png" },
+      { "titulo": "Em mão ou por CTT", "texto": "Entregamos em mão ou enviamos pelos CTT.", "icone": "comum/icones/entregas.png" },
+      { "titulo": "Cada compra ajuda", "texto": "As vendas revertem para as terapias do Martim.", "icone": "comum/icones/clientes.png" }
+    ]
+  },
+  "rodape": {
+    "ligacoes": [
+      { "nome": "Loja", "ligacao": "#loja" },
+      { "nome": "A nossa história", "ligacao": "#historia" },
+      { "nome": "Como encomendar", "ligacao": "#encomendar" },
+      { "nome": "Contactos", "ligacao": "#contactos" }
+    ],
+    "legais": [
+      { "nome": "Termos e condições", "ligacao": "#termos" },
+      { "nome": "Privacidade", "ligacao": "#privacidade" },
+      { "nome": "Livro de Reclamações", "ligacao": "https://www.livroreclamacoes.pt/" }
+    ],
+    "copyright": "© 2026 Flores & Essências"
+  }
+}

@@ -1,0 +1,14 @@
+# material do cliente (Instagram, WhatsApp, originais): fica só no Mac
+_cliente/
+# construção e caches
+_site/
+.cache/
+node_modules/
+.DS_Store
+# propostas: as capturas pesadas ficam fora do git
+propostas/capturas/*.png
+# o estado local do wrangler (traz a localização aproximada de quem o correu): nunca para o repositório
+.wrangler/
+# capturas e provas de revisão (fora do repositório)
+_capturas/
+*.log
