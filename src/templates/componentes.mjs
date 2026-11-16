@@ -93,14 +93,17 @@ export function iconeDaMarca(ctx, nome, { lado = 150, classe = '', cedo = false 
 /* O preço como se mostra: o de hoje, e o anterior riscado quando há promoção. «Desde» quando o preço
    muda conforme o modelo (precoDesde). Sem preço (ainda não dito): «Preço por confirmar» (no domínio
    aberto o artigo nem chega aqui: as regras escondem-no). */
+/* O ATRIBUTO data-preco (para os testes e para o painel): o preço de hoje com duas casas e ponto
+   («14.00»), ou «por-confirmar»; data-desde quando o preço é «desde». */
 export function preco(ctx, p, { classe = 'preco', nota = false } = {}) {
   const v = precoDe(p, ctx.hoje);
-  if (v.atual === null) return `<p class="${classe} ${classe}--confirmar">Preço por confirmar</p>`;
+  if (v.atual === null) return `<p class="${classe} ${classe}--confirmar" data-preco="por-confirmar">Preço por confirmar</p>`;
+  const dados = ` data-preco="${v.atual.toFixed(2)}"${p.precoDesde === true ? ' data-desde' : ''}`;
   const desde = p.precoDesde === true ? '<span class="preco__desde">Desde </span>' : '';
   const n = nota && typeof p.precoNota === 'string' && p.precoNota.trim() ? ` <span class="preco__nota">${esc(p.precoNota.trim())}</span>` : '';
   const atual = `${desde}<span class="preco__valor">${euros(v.atual)}</span>`;
-  if (!v.anterior) return `<p class="${classe}">${atual}${n}</p>`;
-  return `<p class="${classe} ${classe}--promocao">${atual} <s class="preco__antes"><span class="so-leitor">em vez de </span>${euros(v.anterior)}</s>${n}</p>`;
+  if (!v.anterior) return `<p class="${classe}"${dados}>${atual}${n}</p>`;
+  return `<p class="${classe} ${classe}--promocao"${dados}>${atual} <s class="preco__antes"><span class="so-leitor">em vez de </span>${euros(v.anterior)}</s>${n}</p>`;
 }
 
 /* A nota legal da promoção, por baixo do preço da ficha (DL 70/2007, art. 5.º): o período e o preço
@@ -117,13 +120,15 @@ export function promocaoNota(ctx, p) {
 // ---------------------------------------------------------------- cartões de artigo
 /* O CARTÃO DE UM ARTIGO NÃO COMPRA (o Renato, 13 nov 2026): a fotografia, o nome, o preço e a mesma
    setinha num círculo em todos. O cartão inteiro leva à ficha (a ligação do nome estende-se por cima
-   dele, ::after); compra-se só na ficha. */
+   dele, ::after); compra-se só na ficha. Os ganchos estáveis (para os testes e para o painel):
+   data-produto (o slug) e data-categoria no cartão, data-nome no título e data-preco no preço.
+   data-revelar: entra ao descer (interface.js), só com JavaScript e sem «reduzir movimento». */
 export const TAMANHOS_GRELHA = '(min-width: 1360px) 296px, (min-width: 900px) calc(25vw - 38px), (min-width: 600px) calc(50vw - 34px), calc(50vw - 22px)';
 export const TAMANHOS_FILA = '(min-width: 1200px) 262px, (min-width: 860px) calc(28.6vw - 30px), (min-width: 600px) calc(38.5vw - 24px), calc(62.5vw - 18px)';
-export function cartao(ctx, p, { titulo = 'h3', tamanhos = TAMANHOS_GRELHA, cedo = false } = {}) {
-  return `<li class="produto">
+export function cartao(ctx, p, { titulo = 'h3', tamanhos = TAMANHOS_GRELHA, cedo = false, revelar = false } = {}) {
+  return `<li class="produto" data-produto="${esc(p.slug)}" data-categoria="${esc(p.categoria)}"${revelar ? ' data-revelar' : ''}>
   <div class="produto__foto">${imagem(ctx, p.fotos[0], { tamanhos, cedo, ate: 1280, moldura: 0.8 })}</div>
-  <${titulo} class="produto__nome"><a class="produto__ligacao" href="${ctx.url(`/produtos/${p.slug}/`)}">${esc(p.nome)}</a></${titulo}>
+  <${titulo} class="produto__nome" data-nome><a class="produto__ligacao" href="${ctx.url(`/produtos/${p.slug}/`)}">${esc(p.nome)}</a></${titulo}>
   <div class="produto__fim">${preco(ctx, p, { classe: 'produto__preco' })}<span class="produto__seta" aria-hidden="true">${ico('seta')}</span></div>
 </li>`;
 }
@@ -131,7 +136,7 @@ export function cartao(ctx, p, { titulo = 'h3', tamanhos = TAMANHOS_GRELHA, cedo
 export const grelha = (ctx, lista, { cedo = 0, ...opcoes } = {}) => `<ul class="grelha-produtos" role="list">${lista.map((p, i) => cartao(ctx, p, { ...opcoes, cedo: i < cedo })).join('\n')}</ul>`;
 
 /* Uma fila que desliza (o Natal da página inicial), com as setas no computador. */
-export const fila = (ctx, id, lista, opcoes = {}) => `<ul class="fila fila--produtos" id="${esc(id)}" role="list">${lista.map((p) => cartao(ctx, p, { tamanhos: TAMANHOS_FILA, ...opcoes })).join('\n')}</ul>`;
+export const fila = (ctx, id, lista, { revelar = false, ...opcoes } = {}) => `<ul class="fila fila--produtos" id="${esc(id)}" role="list"${revelar ? ' data-revelar' : ''}>${lista.map((p) => cartao(ctx, p, { tamanhos: TAMANHOS_FILA, ...opcoes })).join('\n')}</ul>`;
 export function setas(id, nome) {
   return `<div class="setas" data-setas-de="${esc(id)}" hidden>
   <button class="seta-botao" type="button" aria-controls="${esc(id)}" aria-label="${esc(`${nome}: anteriores`)}" data-seta="-1">${ico('anterior')}</button>
@@ -144,8 +149,8 @@ export function setas(id, nome) {
 export const categoriasComArtigos = (ctx) => ctx.categorias.filter((c) => ctx.produtos.some((p) => p.categoria === c.slug));
 
 /* Os círculos das categorias (como os destaques do Instagram): o ícone da capa do destaque e o nome. */
-export function circulos(ctx, { cedo = false } = {}) {
-  return `<ul class="categorias__fila" role="list">${categoriasComArtigos(ctx).map((c) => `<li><a class="categoria" href="${ctx.url(`/loja/${c.slug}/`)}"><span class="categoria__disco">${iconeDaMarca(ctx, c.icone, { cedo })}</span>${esc(c.nome)}</a></li>`).join('')}</ul>`;
+export function circulos(ctx, { cedo = false, revelar = false } = {}) {
+  return `<ul class="categorias__fila" role="list"${revelar ? ' data-revelar' : ''}>${categoriasComArtigos(ctx).map((c) => `<li><a class="categoria" href="${ctx.url(`/loja/${c.slug}/`)}" data-categoria="${esc(c.slug)}"><span class="categoria__disco">${iconeDaMarca(ctx, c.icone, { cedo, lado: 80 })}</span>${esc(c.nome)}</a></li>`).join('')}</ul>`;
 }
 
 /* As pastilhas da loja: «Tudo» e cada categoria; a página em que se está fica marcada. */

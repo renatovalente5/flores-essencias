@@ -1,6 +1,7 @@
-/* Flores & Essências — a interface: o menu do telemóvel, a procura numa folha, as setas da fila do
-   Natal, os vídeos dos bastidores (só tocam à vista), o entrar ao descer, a galeria da ficha e o aviso
-   do topo. Tudo o que está na página vê-se sem JavaScript; isto só junta o movimento. */
+/* Flores & Essências — a interface: o menu do telemóvel, a procura numa folha, as setas das filas (o
+   Natal, os bastidores da história), os vídeos dos bastidores (só tocam à vista), o entrar ao descer,
+   a galeria da ficha e o aviso do topo. Tudo o que está na página vê-se sem JavaScript; isto só junta
+   o movimento. */
 (function () {
   'use strict';
   const { $, $$, menosMovimento } = window.FE;
@@ -68,7 +69,7 @@
   /* ---------- O aviso do topo com data: sai sozinho no dia seguinte ---------- */
   $$('.aviso[data-ate]').forEach((a) => { if (window.FE.hojeLisboa() > a.dataset.ate) a.hidden = true; });
 
-  /* ---------- As setas da fila do Natal (computador) ---------- */
+  /* ---------- As setas das filas que deslizam (computador) ---------- */
   $$('[data-setas-de]').forEach((grupo) => {
     const fila = document.getElementById(grupo.getAttribute('data-setas-de'));
     if (!fila) return;
@@ -127,28 +128,38 @@
     videos.forEach((v) => vigia.observe(v));
   }
 
-  /* ---------- Entrar ao descer (só o que começa abaixo do primeiro ecrã) ---------- */
-  if (!menosMovimento.matches && 'IntersectionObserver' in window) {
-    const alvos = $$('.pagina-inicio .seccao').filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.top >= window.innerHeight; });
-    const vigia = new IntersectionObserver((entradas) => {
-      let ordem = 0;
-      entradas.forEach((e) => {
-        if (!e.isIntersecting) return;
-        const el = e.target;
-        vigia.unobserve(el);
-        el.style.setProperty('--d', `${(Math.min(ordem, 5) * 0.08).toFixed(2)}s`);
-        ordem += 1;
-        el.classList.add('visivel');
-        el.addEventListener('transitionend', function fim(ev) {
-          if (ev.target !== el || ev.propertyName !== 'opacity') return;
-          el.removeEventListener('transitionend', fim);
-          el.classList.remove('revelar', 'visivel');
-          el.style.removeProperty('--d');
+  /* ---------- Entrar ao descer (como na proposta B) ---------- */
+  // O que tem data-revelar e começa abaixo do primeiro ecrã entra quando chega à vista, um a seguir ao
+  // outro (no máximo 0,4 s de espera). Sem JavaScript, ou com «reduzir movimento», está tudo à vista
+  // desde o princípio. A loja chama-o outra vez quando troca o painel (FE.revelar).
+  let vigiaRevelar = null;
+  function revelar(dentro = document) {
+    if (menosMovimento.matches || !('IntersectionObserver' in window)) return;
+    if (!vigiaRevelar) {
+      vigiaRevelar = new IntersectionObserver((entradas) => {
+        let ordem = 0;
+        entradas.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          vigiaRevelar.unobserve(el);
+          el.style.setProperty('--d', `${(Math.min(ordem, 5) * 0.08).toFixed(2)}s`);
+          ordem += 1;
+          el.classList.add('visivel');
+          el.addEventListener('transitionend', function fim(ev) {
+            if (ev.target !== el || ev.propertyName !== 'opacity') return;
+            el.removeEventListener('transitionend', fim);
+            el.classList.remove('revelar', 'visivel');
+            el.style.removeProperty('--d');
+          });
         });
-      });
-    }, { rootMargin: '0px 0px -10% 0px' });
-    alvos.forEach((el) => { el.classList.add('revelar'); vigia.observe(el); });
+      }, { rootMargin: '0px 0px -10% 0px' });
+    }
+    $$('[data-revelar]', dentro)
+      .filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.top >= window.innerHeight; })
+      .forEach((el) => { el.classList.add('revelar'); vigiaRevelar.observe(el); });
   }
+  revelar();
+  window.FE.revelar = revelar;
 
   /* ---------- A galeria da ficha: as miniaturas escolhem a fotografia ---------- */
   $$('[data-galeria]').forEach((g) => {

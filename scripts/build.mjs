@@ -26,7 +26,7 @@ import { esc, euros, hojeEmLisboa, markdown, numeroWhatsApp, numeroLegivel, nota
 import { pagina } from '../src/templates/layout.mjs';
 import * as R from '../src/lib/regras.mjs';
 import * as paginas from '../src/templates/paginas.mjs';
-import { pecaLegal, categoriasComArtigos, imagem, videoBastidores } from '../src/templates/componentes.mjs';
+import { pecaLegal, categoriasComArtigos, imagem, videoBastidores, setas } from '../src/templates/componentes.mjs';
 /* As peças legais comuns aos sites do Renato (a cópia em legal-comum/; não se edita aqui): o CSS do
    Livro de Reclamações, os destinatários da política de privacidade, a lista dos centros de
    arbitragem, as guardas da identificação, das promoções e das fichas, e a conta do contraste. */
@@ -196,12 +196,15 @@ const CSS_FONTE = fs.readFileSync(path.join(RAIZ, 'src/estilos/site.css'), 'utf8
     // o texto no creme da página, nos cartões e nas pílulas
     ['cor-tinta', 'cor-fundo', 4.5], ['cor-suave', 'cor-fundo', 4.5], ['cor-tinta', 'cor-cartao', 4.5], ['cor-suave', 'cor-cartao', 4.5],
     ['cor-tinta', 'cor-areia', 4.5], ['cor-tinta', 'cor-areia-2', 4.5], ['cor-tinta', 'cor-branco', 4.5], ['cor-suave', 'cor-branco', 4.5],
+    ['cor-suave', 'cor-areia', 4.5], ['cor-tinta', 'cor-folha', 4.5], ['cor-suave', 'cor-folha', 4.5],
     // o terracota: o branco dos botões e do rodapé, o creme claro do rodapé, as ligações no creme
     ['cor-branco', 'cor-marca', 4.5], ['cor-branco', 'cor-marca-escura', 4.5], ['cor-claro', 'cor-marca', 4.5], ['cor-marca-texto', 'cor-fundo', 4.5],
-    ['cor-marca', 'cor-claro', 4.5],
+    ['cor-marca', 'cor-claro', 4.5], ['cor-marca-texto', 'cor-cartao', 4.5],
+    // o verde do WhatsApp (só nos botões que enviam a encomenda), com o rato e sem ele
+    ['cor-branco', 'cor-whatsapp', 4.5], ['cor-branco', 'cor-whatsapp-escura', 4.5],
     // os erros e os contornos dos campos
     ['cor-erro', 'cor-branco', 4.5], ['cor-erro', 'cor-fundo', 4.5], ['cor-erro', 'cor-cartao', 4.5],
-    ['cor-linha-campo', 'cor-branco', 3], ['cor-linha-campo', 'cor-fundo', 3],
+    ['cor-linha-campo', 'cor-branco', 3], ['cor-linha-campo', 'cor-fundo', 3], ['cor-linha-campo', 'cor-cartao', 3], ['cor-linha-campo', 'cor-folha', 3],
     // a marca «[por confirmar]» da pré-visualização
     ['cor-tinta', 'cor-marcador', 4.5],
   ];
@@ -346,12 +349,13 @@ ctx.identificacaoCurta = ({ nif = true, email = false } = {}) => {
   if (email) partes.push(R.dito(site.contactos.email) ? esc(site.contactos.email) : porConfirmar('o email', ''));
   return partes.filter(Boolean).join(' · ');
 };
-/* A segunda linha da ficha: quem faz a peça (Regulamento (UE) 2023/988, art. 19.º: nome, morada e
-   email do fabricante). */
+/* A segunda linha da ficha: «Feito à mão pelo Martim» e, por baixo, em letra pequena, quem faz a peça
+   (Regulamento (UE) 2023/988, art. 19.º: o nome, a morada e o email do fabricante — a lei pede-os na
+   própria oferta). */
 ctx.linhaFeitoAMao = (p) => {
   const fab = paginas.fabricanteDoArtigo(p);
   const quem = fab ? [fab.nome, fab.morada, fab.email].map(esc).join(' · ') : ctx.identificacaoCurta({ nif: false, email: true });
-  return `${p.categoria === 'artigos-3d' ? 'Feito pelo Martim, na impressora 3D' : 'Feito à mão pelo Martim'} · ${quem}`;
+  return `${p.categoria === 'artigos-3d' ? 'Feito pelo Martim, na impressora 3D' : 'Feito à mão pelo Martim'}<span class="ficha__quem"><span class="so-leitor"> — </span>${quem}</span>`;
 };
 if (inicio.capa?.botao?.ligacao && !ctx.existe(inicio.capa.botao.ligacao)) avisos.push(`Página inicial › A capa: o botão «${inicio.capa.botao.texto}» leva a ${inicio.capa.botao.ligacao}, que não existe: vai para a loja.`);
 
@@ -480,14 +484,15 @@ function resolverMarcadores(fonte, onde, meta = {}) {
         if (!manifesto.fotos[f] || !fotos[f]) { erros.push(`${onde}: a fotografia «${f}» não existe`); return false; }
         return true;
       });
-      return guardar(`<div class="galeria-texto" role="list">${lista.map((f) => `<figure class="galeria-texto__foto" role="listitem">${imagem(ctx, f, { tamanhos: '(min-width: 900px) 360px, calc(50vw - 24px)', ate: 960, moldura: 1 })}</figure>`).join('')}</div>`);
+      return guardar(`<div class="galeria-texto" role="list">${lista.map((f) => `<figure class="galeria-texto__foto" role="listitem" data-revelar>${imagem(ctx, f, { tamanhos: '(min-width: 1376px) 302px, (min-width: 900px) calc(25vw - 36px), calc(50vw - 22px)', ate: 960, moldura: 1 })}</figure>`).join('')}</div>`);
     },
     bastidores: () => {
       const lista = listaDe(meta.videos).filter((v) => {
         if (!ficheiros.videos[v]) { erros.push(`${onde}: o vídeo «${v}» não existe`); return false; }
         return true;
       });
-      return guardar(`<ul class="fila fila--videos fila--texto" role="list">${lista.map((v) => videoBastidores(ctx, v)).join('\n')}</ul>`);
+      // a fila desliza de lado; no computador, as setas por baixo (como a fila do Natal)
+      return guardar(`<ul class="fila fila--videos fila--texto" id="fila-bastidores" role="list" data-revelar>${lista.map((v) => videoBastidores(ctx, v)).join('\n')}</ul>${setas('fila-bastidores', 'Vídeos dos bastidores')}`);
     },
   };
   const texto = fonte.replace(/\{\{([\w.]+)\}\}/g, (todo, chave) => {
@@ -502,8 +507,11 @@ function paginaMarkdown(ficheiro) {
   const [cabeca, ...corpo] = fonte.split(/\n---\n/);
   const meta = Object.fromEntries(cabeca.split('\n').filter(Boolean).map((l) => { const i = l.indexOf(':'); return [l.slice(0, i).trim(), l.slice(i + 1).trim()]; }));
   const { texto, tokens } = resolverMarcadores(corpo.join('\n---\n'), `Páginas › ${ficheiro}`, meta);
-  // um marcador sozinho num parágrafo (quadro, figura, botões) sai do <p> que o Markdown lhe põe
-  let html = markdown(texto, ctx.url).replace(/<p>\u0000(\d+)\u0000<\/p>/g, (_, i) => tokens[Number(i)]);
+  /* Um marcador sozinho num parágrafo sai do <p> que o Markdown lhe põe quando é um bloco (quadro,
+     figura, botões, lista); um marcador de texto (os portes, o pagamento, os contactos) fica no seu
+     parágrafo. */
+  const bloco = (h) => /^\s*<(?:div|figure|ul|ol|table|section|p|!--)/i.test(h);
+  let html = markdown(texto, ctx.url).replace(/<p>\u0000(\d+)\u0000<\/p>/g, (todo, i) => (bloco(tokens[Number(i)]) ? tokens[Number(i)] : todo));
   html = html.replace(/\u0000(\d+)\u0000/g, (_, i) => tokens[Number(i)]);
   const slug = ficheiro.replace(/\.md$/, '');
   /* As páginas legais (com «atualizado» no cabeçalho) ficam fora do Google: noindex e fora do sitemap

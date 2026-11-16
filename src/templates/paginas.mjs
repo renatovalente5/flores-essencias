@@ -1,6 +1,6 @@
 // As páginas do site. Cada função devolve { caminho, titulo, descricao, conteudo, … } e o build.mjs
-// veste-a com a moldura (layout.mjs). A página inicial tem a estrutura da proposta B, «Destaques»
-// (escolhida pelo dono a 16 nov 2026); as outras são HTML semântico, com o essencial.
+// veste-a com a moldura (layout.mjs). A página inicial é a proposta B, «Destaques» (escolhida pelo
+// dono a 16 nov 2026), e as outras têm o mesmo desenho: HTML semântico, só com o essencial.
 import { esc, euros, precoDe, markdown, textoSimples, resumir, numeroWhatsApp, numeroLegivel, notaChamada } from './util.mjs';
 import { ico } from './icones.mjs';
 import { numeroPortugues, personalizacaoDe, OCASIOES } from '../lib/regras.mjs';
@@ -69,6 +69,7 @@ export function inicio(ctx) {
   const capa = `<section class="capa contentor" aria-labelledby="capa-titulo">
   <div class="capa__cartao">${fundoCapa}</div>
   <div class="capa__painel">
+    <span class="pontos pontos--capa" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <h1 id="capa-titulo">${esc(c.titulo)}</h1>
     ${c.texto ? `<p>${esc(c.texto)}</p>` : ''}
     <div class="capa__botoes">${botoes.map((b, i) => botao(ctx.url(ligacaoQueExiste(ctx, b.ligacao)), b.texto, { classe: `botao ${i === 0 ? 'botao--principal' : 'botao--suave'}` })).join('')}</div>
@@ -77,14 +78,14 @@ export function inicio(ctx) {
 
   const categorias = categoriasComArtigos(ctx).length ? `<section class="categorias contentor" aria-labelledby="categorias-titulo">
   <h2 class="so-leitor" id="categorias-titulo">${esc(h.categorias?.titulo || 'O que fazemos')}</h2>
-  ${circulos(ctx, { cedo: true })}
+  ${circulos(ctx, { cedo: true, revelar: true })}
 </section>` : '';
 
   const o = ocasiaoDaEpoca(ctx);
   const d = h.destaque || {};
   const listaD = o ? produtosDaOcasiao(ctx, o).slice(0, 10) : [];
   const destaque = o ? `<section class="seccao destaque" aria-labelledby="destaque-titulo">
-  <div class="seccao__cabeca contentor">
+  <div class="seccao__cabeca contentor" data-revelar>
     <div>
       <h2 id="destaque-titulo">${esc(d.titulo)}</h2>
       ${d.texto ? `<p>${esc(d.texto)}</p>` : ''}
@@ -92,7 +93,7 @@ export function inicio(ctx) {
     </div>
     ${setas('fila-destaque', d.titulo)}
   </div>
-  ${fila(ctx, 'fila-destaque', listaD)}
+  ${fila(ctx, 'fila-destaque', listaD, { revelar: true })}
 </section>` : '';
 
   /* As novidades: as marcadas «novidade», sem as que já estão na fila da época (a mesma peça duas
@@ -101,18 +102,18 @@ export function inicio(ctx) {
   const naFila = new Set(listaD.map((p) => p.slug));
   const listaN = ctx.produtos.filter((p) => p.novidade === true && !naFila.has(p.slug)).slice(0, Number.isInteger(n.quantas) ? n.quantas : 8);
   const novidades = listaN.length ? `<section class="seccao novidades contentor" aria-labelledby="novidades-titulo">
-  <div class="seccao__cabeca"><h2 id="novidades-titulo">${esc(n.titulo)}</h2></div>
-  ${grelha(ctx, listaN)}
+  <div class="seccao__cabeca" data-revelar><h2 id="novidades-titulo">${esc(n.titulo)}</h2></div>
+  ${grelha(ctx, listaN, { revelar: true })}
 </section>` : '';
 
   const hi = h.historia || {};
   const [f1, f2] = Array.isArray(hi.fotos) ? hi.fotos : [];
   const historia = hi.titulo ? `<section class="seccao historia contentor" aria-labelledby="historia-titulo">
-  <div class="historia__fotos">
+  <div class="historia__fotos" data-revelar>
     ${f1 && ctx.manifesto.fotos[f1] ? imagem(ctx, f1, { classe: 'historia__foto', tamanhos: '(min-width: 1360px) 616px, (min-width: 1080px) calc(51vw - 80px), calc(100vw - 32px)', ate: 1280, moldura: 1 }) : ''}
     ${f2 && ctx.manifesto.fotos[f2] ? imagem(ctx, f2, { classe: 'historia__foto2', tamanhos: '(min-width: 1080px) 222px, 38vw', ate: 720, moldura: 0.9 }) : ''}
   </div>
-  <div class="historia__texto">
+  <div class="historia__texto" data-revelar>
     <h2 id="historia-titulo">${esc(hi.titulo)}</h2>
     <p>${esc(hi.texto)}</p>
     ${hi.citacao ? `<figure class="citacao"><blockquote><p>${esc(hi.citacao)}</p></blockquote>${hi.autor ? `<figcaption>${esc(hi.autor)}</figcaption>` : ''}</figure>` : ''}
@@ -123,19 +124,19 @@ export function inicio(ctx) {
   const b = h.bastidores || {};
   const vids = (Array.isArray(b.videos) ? b.videos : []).filter((v) => ctx.ficheiros.videos[v]).slice(0, 8);
   const bastidores = vids.length ? `<section class="seccao bastidores contentor" aria-labelledby="bastidores-titulo">
-  <div class="bastidores__texto">
+  <div class="bastidores__texto" data-revelar>
     <h2 id="bastidores-titulo">${esc(b.titulo)}</h2>
     ${b.texto ? `<p>${esc(b.texto)}</p>` : ''}
   </div>
-  <ul class="fila fila--videos" role="list">${vids.map((v) => videoBastidores(ctx, v)).join('\n')}</ul>
+  <ul class="fila fila--videos" role="list" data-revelar>${vids.map((v) => videoBastidores(ctx, v)).join('\n')}</ul>
 </section>` : '';
 
   const ce = h.comoEncomendar || {};
   const itens = (Array.isArray(ce.itens) ? ce.itens : []).filter((x) => x && x.titulo).slice(0, 4);
   const encomendar = itens.length ? `<section class="seccao encomendar contentor" aria-labelledby="encomendar-titulo">
-  <div class="seccao__cabeca"><h2 id="encomendar-titulo">${esc(ce.titulo)}</h2></div>
+  <div class="seccao__cabeca" data-revelar><h2 id="encomendar-titulo">${esc(ce.titulo)}</h2></div>
   <ul class="passos" role="list">
-    ${itens.map((x) => `<li class="passo">${ctx.manifesto.icones[x.icone] ? iconeDaMarca(ctx, x.icone, { classe: 'passo__icone' }) : ''}<div><h3>${esc(x.titulo)}</h3><p>${esc(x.texto)}</p></div></li>`).join('\n    ')}
+    ${itens.map((x) => `<li class="passo" data-revelar>${ctx.manifesto.icones[x.icone] ? iconeDaMarca(ctx, x.icone, { classe: 'passo__icone' }) : ''}<div><h3>${esc(x.titulo)}</h3><p>${esc(x.texto)}</p></div></li>`).join('\n    ')}
   </ul>
 </section>` : '';
 
@@ -167,7 +168,7 @@ export function loja(ctx, slug = null) {
       <h1>${esc(c ? c.nome : 'Loja')}</h1>
       <p>${esc(c ? c.frase : 'Arranjos, velas, wax melts e lembranças em cera perfumada, e as peças 3D do Martim.')}</p>
     </div>
-    ${grelha(ctx, lista, { titulo: 'h2', cedo: 4 })}
+    ${grelha(ctx, lista, { titulo: 'h2', cedo: 4, revelar: true })}
   </div>
   <p class="so-leitor" aria-live="polite" data-loja-anuncio></p>
 </div>`;
@@ -194,7 +195,7 @@ export function ocasiao(ctx, o) {
     <h1>${esc(d.titulo || OCASIOES[o])}</h1>
     ${d.texto ? `<p>${esc(d.texto)}</p>` : ''}
   </div>
-  ${grelha(ctx, lista, { titulo: 'h2', cedo: 4 })}
+  ${grelha(ctx, lista, { titulo: 'h2', cedo: 4, revelar: true })}
 </div>`;
   return {
     caminho,
@@ -252,13 +253,13 @@ export function produto(ctx, p) {
   const fotos = p.fotos.filter((f) => ctx.manifesto.fotos[f]);
   const temVideo = Boolean(p.video && ctx.ficheiros.videos[p.video]);
   const itens = fotos.length + (temVideo ? 1 : 0);
-  const tamanhos = '(min-width: 1360px) 620px, (min-width: 860px) calc(50vw - 60px), calc(100vw - 32px)';
+  const tamanhos = '(min-width: 1376px) 640px, (min-width: 720px) 46vw, calc(100vw - 32px)';
   const galeria = `<div class="ficha__galeria" data-galeria>
     <div class="ficha__pista"${itens > 1 ? ` tabindex="0" role="region" aria-label="Fotografias de ${nome}"` : ''}>
       ${fotos.map((f, i) => `<figure class="ficha__foto">${imagem(ctx, f, { tamanhos, prioridade: i === 0, moldura: 0.8 })}</figure>`).join('\n      ')}
       ${temVideo ? `<figure class="ficha__foto ficha__foto--video">${videoFicha(ctx, p)}</figure>` : ''}
     </div>
-    ${itens > 1 ? `<ul class="ficha__miniaturas" role="list">${fotos.map((f, i) => `<li><button type="button" data-foto="${i}"${i === 0 ? ' aria-current="true"' : ''} aria-label="Fotografia ${i + 1} de ${itens}"><img src="${urlFoto(ctx, f, ctx.manifesto.fotos[f].larguras[0])}" width="64" height="64" alt="" loading="lazy" decoding="async"></button></li>`).join('')}${temVideo ? `<li><button type="button" data-foto="${fotos.length}" aria-label="O vídeo"><span class="ficha__mini-video">${ico('tocar')}</span></button></li>` : ''}</ul>` : ''}
+    ${itens > 1 ? `<ul class="ficha__miniaturas" role="list">${fotos.map((f, i) => `<li><button type="button" data-foto="${i}"${i === 0 ? ' aria-current="true"' : ''} aria-label="Fotografia ${i + 1} de ${itens}"><img src="${urlFoto(ctx, f, ctx.manifesto.fotos[f].larguras[0])}" width="64" height="64" alt="" loading="lazy" decoding="async"></button></li>`).join('')}${temVideo ? `<li><button type="button" data-foto="${fotos.length}" aria-label="O vídeo"><span class="ficha__mini-video">${capaPequena(ctx, p.video)}${ico('tocar')}</span></button></li>` : ''}</ul>` : ''}
   </div>`;
 
   /* A informação legal do artigo, só quando está preenchida: avisos de segurança e perigos (um por
@@ -273,11 +274,13 @@ export function produto(ctx, p) {
       ${p.referencia ? `<p><strong>Referência:</strong> ${esc(p.referencia)}</p>` : ''}
     </div>` : '';
 
-  const conteudo = `<section class="ficha contentor">
+  /* Os ganchos estáveis da ficha (para os testes e para o painel): data-ficha (o slug) e
+     data-categoria na secção, data-nome no título e data-preco no preço. */
+  const conteudo = `<section class="ficha contentor" data-ficha="${esc(p.slug)}" data-categoria="${esc(p.categoria)}">
   ${galeria}
   <div class="ficha__info">
     ${c ? `<a class="ficha__categoria" href="${ctx.url(`/loja/${c.slug}/`)}">${esc(c.nome)}</a>` : ''}
-    <h1 class="ficha__nome">${nome}</h1>
+    <h1 class="ficha__nome" data-nome>${nome}</h1>
     ${preco(ctx, p, { classe: 'ficha__preco', nota: true })}
     ${promocaoNota(ctx, p)}
     <p class="ficha__descricao">${esc(p.descricao)}</p>
@@ -285,8 +288,8 @@ export function produto(ctx, p) {
     ${formulario(ctx, p)}
     <noscript><p class="nota">A encomenda precisa de JavaScript. Podes sempre encomendar pelo <a href="${ctx.whatsapp(`Olá! Gostava de encomendar: ${p.nome}.`)}">WhatsApp</a>.</p></noscript>
     <ul class="ficha__linhas" role="list">
-      <li>${ctx.linhaEntrega()}</li>
-      <li>${ctx.linhaFeitoAMao(p)}</li>
+      <li>${ico('caixa')}<span>${ctx.linhaEntrega()}</span></li>
+      <li>${ico('coracao')}<span>${ctx.linhaFeitoAMao(p)}</span></li>
     </ul>
   </div>
 </section>`;
@@ -333,6 +336,12 @@ export function produto(ctx, p) {
   };
 }
 
+/* A capa de um vídeo, pequena (a miniatura da ficha). */
+function capaPequena(ctx, video) {
+  const poster = ctx.manifesto.posters[`video-${video}`];
+  return poster ? `<img src="${ctx.asset(`img/video-${video}-${poster.resumo}-${poster.larguras[0]}.webp`)}" width="64" height="64" alt="" loading="lazy" decoding="async">` : '';
+}
+
 function videoFicha(ctx, p) {
   const poster = ctx.manifesto.posters[`video-${p.video}`];
   const posterUrl = poster ? ` poster="${ctx.asset(`img/video-${p.video}-${poster.resumo}-${poster.larguras.at(-1)}.webp`)}"` : '';
@@ -343,7 +352,8 @@ function videoFicha(ctx, p) {
 /* A ENCOMENDA (o saco do cabeçalho). Não há pagamentos no site: as peças (com as escolhas), as
    quantidades, a entrega, o nome e a morada seguem pelo WhatsApp, numa mensagem já escrita
    (carrinho.js). Antes do botão, o que a lei pede que se saiba antes de encomendar (DL 24/2014,
-   art. 4.º): o prazo, o pagamento, os portes e que as peças personalizadas não têm livre resolução. */
+   art. 4.º): o prazo, o pagamento, os portes e que as peças personalizadas não têm livre resolução.
+   O verde do WhatsApp só nos botões que enviam a encomenda (o resto do site é terracota). */
 export function encomenda(ctx) {
   const en = ctx.site.entrega || {};
   const zonas = en.zonas || [];
@@ -382,14 +392,14 @@ export function encomenda(ctx) {
           <li>As peças feitas à tua medida (com um nome, ou com as cores e o aroma que pedires) não têm direito de livre resolução.${temTermos ? ` <a href="${ctx.url('/termos-e-condicoes/')}">Termos e condições</a>` : ''}</li>
         </ul>
         <p class="juntar__erro" data-erro-encomenda role="alert" hidden></p>
-        <button class="botao botao--principal botao--largo" type="submit">${ico('whatsapp')}<span>Encomendar pelo WhatsApp</span></button>
+        <button class="botao botao--whatsapp botao--largo" type="submit">${ico('whatsapp')}<span>Encomendar pelo WhatsApp</span></button>
         <p class="encomenda__nota">A encomenda fica feita quando a confirmarmos contigo pelo WhatsApp.</p>
       </div>
       <div class="enviada" data-enviada hidden>
         <h2 class="encomenda__titulo" id="t-enviada" tabindex="-1">Encomenda enviada</h2>
         <p>Abrimos o WhatsApp com a tua encomenda<span data-enviada-quando></span>. Se ainda não a enviaste, podes enviá-la agora: respondemos a confirmar.</p>
-        <a class="botao botao--principal botao--largo" href="${ctx.whatsapp('')}" target="_blank" rel="noopener" data-continuar>${ico('whatsapp')}<span>Abrir o WhatsApp</span></a>
-        <button class="botao botao--principal botao--largo" type="button" data-reenviar hidden>${ico('whatsapp')}<span>Enviar outra vez</span></button>
+        <a class="botao botao--whatsapp botao--largo" href="${ctx.whatsapp('')}" target="_blank" rel="noopener" data-continuar>${ico('whatsapp')}<span>Abrir o WhatsApp</span></a>
+        <button class="botao botao--whatsapp botao--largo" type="button" data-reenviar hidden>${ico('whatsapp')}<span>Enviar outra vez</span></button>
         <div class="enviada__mais">
           <button class="botao botao--suave" type="button" data-alterar>Alterar a encomenda</button>
           <button class="botao botao--texto" type="button" data-esvaziar>Fazer outra encomenda</button>
@@ -425,14 +435,28 @@ function comoPassos(html) {
   const passos = lista.filter(numerado);
   const notas = lista.filter((x) => !numerado(x) && x.corpo.replace(/<[^>]+>/g, '').trim());
   return `${intro ? `<div class="prosa">${intro}</div>` : ''}
-    <ol class="etapas" role="list">${passos.map((x, i) => `<li class="etapa"><span class="etapa__numero" aria-hidden="true">${i + 1}</span><div class="prosa"><h2 id="${x.id}">${x.titulo.replace(/^\d+\.\s*/, '')}</h2>${x.corpo}</div></li>`).join('')}</ol>
-    ${notas.length ? `<div class="notas">${notas.map((x) => `<section class="nota-cartao prosa"><h2 id="${x.id}">${x.titulo}</h2>${x.corpo}</section>`).join('')}</div>` : ''}`;
+    <ol class="etapas" role="list">${passos.map((x, i) => `<li class="etapa" data-revelar><span class="etapa__numero" aria-hidden="true">${i + 1}</span><div class="prosa"><h2 id="${x.id}">${x.titulo.replace(/^\d+\.\s*/, '')}</h2>${x.corpo}</div></li>`).join('')}</ol>
+    ${notas.length ? `<div class="notas">${notas.map((x) => `<section class="nota-cartao prosa" data-revelar><h2 id="${x.id}">${x.titulo}</h2>${x.corpo}</section>`).join('')}</div>` : ''}`;
+}
+
+/* A HISTÓRIA: o texto dos donos e, em grande, a citação da página inicial (content/inicio.json, a
+   mesma frase e o mesmo autor), logo a seguir à secção que a conta (a da televisão); se nenhuma a
+   contar, a seguir à introdução. Sem marcador novo: o texto da página não muda. */
+function comCitacao(ctx, html) {
+  const hi = ctx.inicio.historia || {};
+  if (!hi.citacao) return html;
+  const figura = `<figure class="citacao citacao--grande" data-revelar><blockquote><p>${esc(hi.citacao)}</p></blockquote>${hi.autor ? `<figcaption>${esc(hi.autor)}</figcaption>` : ''}</figure>`;
+  const onde = html.indexOf(esc(hi.citacao));
+  const seguinte = html.indexOf('<h2', onde < 0 ? 0 : onde);
+  return seguinte < 0 ? `${html}${figura}` : `${html.slice(0, seguinte)}${figura}${html.slice(seguinte)}`;
 }
 
 export function texto(ctx, pag) {
   const legal = Boolean(pag.atualizado);
   const data = legal ? `Atualizado a ${new Date(`${pag.atualizado}T12:00:00Z`).toLocaleDateString('pt-PT', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Lisbon' })}` : '';
-  const corpo = pag.modelo === 'passos' ? comoPassos(pag.html) : `<div class="prosa">${pag.html}</div>`;
+  const corpo = pag.modelo === 'passos' ? comoPassos(pag.html)
+    : pag.modelo === 'historia' ? `<div class="prosa">${comCitacao(ctx, pag.html)}</div>`
+      : `<div class="prosa">${pag.html}</div>`;
   const conteudo = `${cabecaDePagina({ titulo: pag.titulo, sub: pag.subtitulo ? `<p>${esc(pag.subtitulo)}</p>` : '', data })}
 <article class="leitura contentor${pag.modelo ? ` leitura--${esc(pag.modelo)}` : ''}">
   ${corpo}
@@ -483,8 +507,8 @@ export function contactos(ctx) {
 }
 
 export function erro404(ctx) {
-  const conteudo = `${cabecaDePagina({ titulo: 'Esta página não existe', sub: '<p>Pode ter mudado de sítio, ou o endereço tem um erro.</p>' })}
-<section class="categorias contentor" aria-label="Categorias">
+  const conteudo = `${cabecaDePagina({ titulo: 'Esta página não existe', sub: '<p>Pode ter mudado de sítio, ou o endereço tem um erro.</p>', classe: 'cabeca-pagina--centro' })}
+<section class="categorias categorias--erro contentor" aria-label="Categorias">
   ${circulos(ctx)}
   <p class="erro__fim">${botao(ctx.url('/loja/'), 'Ver a loja')}</p>
 </section>`;

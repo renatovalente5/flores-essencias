@@ -90,6 +90,7 @@
     if (falta > 0) painel.style.minHeight = `${painel.getBoundingClientRect().height + falta}px`;
     if (Math.abs(window.scrollY - lugar) > 0.5) window.scrollTo({ top: lugar, behavior: 'auto' });
     marcar(caminho);
+    if (window.FE.revelar) window.FE.revelar(painel);
     if (anuncio) {
       const h = $('h1', painel);
       const n = $$('.produto', painel).length;

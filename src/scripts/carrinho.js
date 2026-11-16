@@ -138,13 +138,14 @@
 
   function linhaHtml(cat, d, i) {
     if (!d.p) {
-      return `<li class="linha linha--saiu"><span class="linha__foto"></span><div><p class="linha__nome">Peça que já não está à venda</p><p class="linha__un">Saiu da loja e não entra na encomenda.</p></div><div class="linha__fundo"><button class="botao-icone" type="button" data-tirar="${i}" aria-label="Tirar da encomenda">${ico('lixo')}</button></div></li>`;
+      return `<li class="linha linha--saiu" data-produto="${esc(d.linha.produto)}"><span class="linha__foto"></span><div><p class="linha__nome">Peça que já não está à venda</p><p class="linha__un">Saiu da loja e não entra na encomenda.</p></div><div class="linha__fundo"><button class="botao-icone" type="button" data-tirar="${i}" aria-label="Tirar da encomenda">${ico('lixo')}</button></div></li>`;
     }
     const p = d.p;
     const nome = esc(p.nome);
     const extras = pormenores(d).map(([k, v]) => `<li>${esc(k)}: <strong>${esc(v)}</strong></li>`).join('');
     const un = d.unidade === null ? 'Preço por confirmar' : `${d.desde ? 'Desde ' : ''}${euros(d.unidade)} / unidade`;
-    return `<li class="linha">
+    // data-produto (o slug): o gancho estável da linha, para os testes
+    return `<li class="linha" data-produto="${esc(d.linha.produto)}">
       <a class="linha__foto" href="${esc(p.url)}" tabindex="-1" aria-hidden="true">${miniaturaHtml(cat, p.img, 144)}</a>
       <div>
         <p class="linha__nome"><a href="${esc(p.url)}">${nome}</a></p>
