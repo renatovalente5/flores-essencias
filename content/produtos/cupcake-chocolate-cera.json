@@ -1,0 +1,21 @@
+{
+  "nome": "Cupcake de chocolate em cera",
+  "fotos": [
+    "cupcake-chocolate-cera"
+  ],
+  "descricao": "Peça decorativa em forma de cupcake, com efeito realista e detalhes que lembram chocolate.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 940
+}

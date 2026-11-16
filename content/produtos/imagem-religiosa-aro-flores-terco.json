@@ -1,0 +1,25 @@
+{
+  "nome": "Imagem religiosa no aro com flores e terço",
+  "fotos": [
+    "imagem-religiosa-aro-flores-terco",
+    "imagem-religiosa-aro-flores-terco-2"
+  ],
+  "descricao": "Imagem religiosa dentro de um aro de madeira, rodeada de flores em tons suaves; algumas versões levam terço. Boa para batizados, comunhões, crismas ou aniversários.",
+  "preco": 16,
+  "precoDesde": true,
+  "precoNota": "16 € a 18 €, conforme a imagem",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [
+    "batizado",
+    "comunhao"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 620
+}

@@ -1,0 +1,25 @@
+{
+  "nome": "Vela de Natal em frasco com laço",
+  "fotos": [
+    "vela-natal-frasco-laco",
+    "vela-natal-frasco-laco-2",
+    "vela-natal-frasco-laco-3"
+  ],
+  "descricao": "Velas artesanais em frasco de vidro com motivos natalícios, como uma árvore ou um boneco de gengibre, e laços coloridos. Há três modelos.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 590
+}

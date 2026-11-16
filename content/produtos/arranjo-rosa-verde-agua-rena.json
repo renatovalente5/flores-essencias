@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo rosa e verde-água com rena",
+  "fotos": [
+    "arranjo-rosa-verde-agua-rena"
+  ],
+  "descricao": "Arranjo em tons de rosa, branco e verde-água, com uma rena e uma árvore de Natal.",
+  "preco": 14,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "arranjo-rosa-verde-agua-rena",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 450
+}

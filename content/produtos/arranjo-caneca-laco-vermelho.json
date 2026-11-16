@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo em caneca com laço vermelho",
+  "fotos": [
+    "arranjo-caneca-laco-vermelho"
+  ],
+  "descricao": "Flores em tons quentes dentro de uma caneca com laço vermelho, com aromas de café e chocolate.",
+  "preco": 14,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 570
+}

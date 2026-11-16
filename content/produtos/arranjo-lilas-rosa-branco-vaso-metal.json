@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo lilás, rosa e branco em vaso de metal",
+  "fotos": [
+    "arranjo-lilas-rosa-branco-vaso-metal"
+  ],
+  "descricao": "Arranjo artesanal com flores em tons de lilás, rosa e branco, num pequeno vaso de metal.",
+  "preco": 17,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 200
+}

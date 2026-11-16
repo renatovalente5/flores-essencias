@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo rosa e branco em vaso preto",
+  "fotos": [
+    "arranjo-rosa-branco-vaso-preto"
+  ],
+  "descricao": "Arranjo pequenino em tons de rosa e branco, com apontamentos florais, num vaso preto.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 760
+}

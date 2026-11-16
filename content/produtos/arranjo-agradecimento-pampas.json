@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo de agradecimento com pampas",
+  "fotos": [
+    "arranjo-agradecimento-pampas"
+  ],
+  "descricao": "Flores em tons suaves e pequenos brilhos, feitas flor a flor, para dizer «obrigado» a alguém especial.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1080
+}

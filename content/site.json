@@ -1,0 +1,52 @@
+{
+  "marca": "Flores & Essências",
+  "descricao": "Flores, arranjos, velas, wax melts e lembranças em cera perfumada com óleos essenciais, feitos à mão pelo Martim, e peças em impressão 3D. As vendas revertem para as terapias do Martim.",
+  "assinatura": "Flores com óleos essenciais, feitas à mão pelo Martim.",
+  "contactos": {
+    "whatsapp": "933 007 227",
+    "telefone": "933 007 227",
+    "email": "",
+    "instagram": "https://www.instagram.com/essenciasflores1/",
+    "tiktok": "",
+    "facebook": ""
+  },
+  "empresa": {
+    "nome": "",
+    "tipo": "",
+    "nif": "",
+    "morada": "",
+    "codigoPostal": "",
+    "localidade": "",
+    "concelho": "",
+    "iva": ""
+  },
+  "aviso": {
+    "texto": "",
+    "ate": "",
+    "ligacao": ""
+  },
+  "entrega": {
+    "zonas": [
+      {
+        "id": "em-mao",
+        "nome": "Entrega em mão",
+        "curto": "Em mão",
+        "morada": false
+      },
+      {
+        "id": "ctt",
+        "nome": "Envio pelos CTT",
+        "curto": "Pelos CTT",
+        "morada": true
+      }
+    ],
+    "emMao": "",
+    "portes": {
+      "ctt": null,
+      "gratisAPartirDe": null
+    },
+    "portesNota": "",
+    "prazo": ""
+  },
+  "pagamento": ""
+}

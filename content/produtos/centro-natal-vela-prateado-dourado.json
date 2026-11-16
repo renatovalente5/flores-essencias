@@ -1,0 +1,24 @@
+{
+  "nome": "Centro de Natal com vela (prateado ou dourado)",
+  "fotos": [
+    "centro-natal-vela-prateado-dourado",
+    "centro-natal-vela-prateado-dourado-2"
+  ],
+  "descricao": "Arranjo de Natal com vela, em duas combinações: prateado e rosa, ou dourado e verde. Para a mesa de Natal ou para oferecer.",
+  "preco": 18,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": true,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 490
+}

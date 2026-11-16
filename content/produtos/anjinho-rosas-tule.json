@@ -1,0 +1,21 @@
+{
+  "nome": "Anjinho com rosas e tule",
+  "fotos": [
+    "anjinho-rosas-tule"
+  ],
+  "descricao": "Pequeno arranjo com um anjinho sobre rosas em cera e tule, numa base de madeira.",
+  "preco": 7,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 680
+}

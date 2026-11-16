@@ -1,0 +1,23 @@
+{
+  "nome": "Vela fantasminha",
+  "fotos": [
+    "vela-fantasminha"
+  ],
+  "descricao": "Vela em forma de fantasminha, feita à mão pelo Martim. Pequena e divertida, para a decoração de Halloween ou como miminho.",
+  "preco": 2.5,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "vela-fantasminha",
+  "categoria": "prendas",
+  "ocasioes": [
+    "halloween"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 810
+}

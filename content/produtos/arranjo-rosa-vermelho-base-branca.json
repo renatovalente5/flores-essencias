@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo rosa e vermelho em base branca",
+  "fotos": [
+    "arranjo-rosa-vermelho-base-branca"
+  ],
+  "descricao": "Pequeno arranjo artesanal em tons de rosa e vermelho, numa base branca.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 550
+}

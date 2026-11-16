@@ -1,0 +1,21 @@
+{
+  "nome": "Cupcake de flores em vaso castanho",
+  "fotos": [
+    "cupcake-flores-vaso-castanho"
+  ],
+  "descricao": "Pequeno arranjo em forma de cupcake, com flores em tons de lilás, rosa e branco.",
+  "preco": 9,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 360
+}

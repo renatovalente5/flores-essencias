@@ -1,0 +1,21 @@
+{
+  "nome": "Taça com pequenas peças de cera coloridas",
+  "fotos": [
+    "taca-pecas-cera-coloridas"
+  ],
+  "descricao": "Taça branca com pequenas peças de cera coloridas, em tons suaves e acolhedores.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "taca-pecas-cera-coloridas",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 730
+}

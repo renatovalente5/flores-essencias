@@ -1,0 +1,23 @@
+{
+  "nome": "Coruja «Adoro-te»",
+  "fotos": [
+    "coruja-adoro-te"
+  ],
+  "descricao": "Coruja em cera com uma placa «Adoro-te», trabalhada à mão. Uma pequena declaração de amor.",
+  "preco": 9,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "namorados"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1230
+}

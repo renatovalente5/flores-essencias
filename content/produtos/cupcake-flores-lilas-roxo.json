@@ -1,0 +1,21 @@
+{
+  "nome": "Cupcake de flores lilás e roxo",
+  "fotos": [
+    "cupcake-flores-lilas-roxo"
+  ],
+  "descricao": "Flores em tons de lilás, roxo e branco, num vaso em forma de cupcake.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 930
+}

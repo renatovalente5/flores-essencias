@@ -1,0 +1,21 @@
+{
+  "nome": "Flores azuis em vaso branco",
+  "fotos": [
+    "flores-azuis-vaso-branco"
+  ],
+  "descricao": "Flores em tons de azul num vaso branco com laço.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1590
+}

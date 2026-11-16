@@ -1,0 +1,23 @@
+{
+  "nome": "Rosas brancas com anjinho e luzes",
+  "fotos": [
+    "rosas-brancas-anjinho-luzes"
+  ],
+  "descricao": "Arranjo com rosas brancas, apontamentos natalícios em verde e vermelho, um anjinho e pequenas luzes.",
+  "preco": 22,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 600
+}

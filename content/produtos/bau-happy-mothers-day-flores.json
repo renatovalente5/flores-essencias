@@ -1,0 +1,23 @@
+{
+  "nome": "Baú «Happy Mother's Day» com flores",
+  "fotos": [
+    "bau-happy-mothers-day-flores"
+  ],
+  "descricao": "Flores em tons de roxo, rosa e branco num pequeno baú, com o topo «Happy Mother's Day».",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "dia-da-mae"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1620
+}

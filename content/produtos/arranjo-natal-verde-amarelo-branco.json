@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de Natal verde, amarelo e branco",
+  "fotos": [
+    "arranjo-natal-verde-amarelo-branco"
+  ],
+  "descricao": "Flores em tons de verde, amarelo e branco, com árvores de Natal e um coração, numa caixa amarela com laço.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 440
+}

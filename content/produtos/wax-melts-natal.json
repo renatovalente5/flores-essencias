@@ -1,0 +1,21 @@
+{
+  "nome": "Wax melts de Natal",
+  "fotos": [],
+  "descricao": "Pequenas peças de cera perfumada, sem pavio, em formas natalícias (árvores, estrelas, presentes ou tablete de chocolate), para derreter num queimador próprio.",
+  "preco": 2,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1360
+}

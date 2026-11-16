@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo amarelo e branco em vaso cinzento",
+  "fotos": [
+    "arranjo-amarelo-branco-vaso-cinzento"
+  ],
+  "descricao": "Flores em tons de amarelo e branco, num vaso cinzento.",
+  "preco": 12,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1150
+}

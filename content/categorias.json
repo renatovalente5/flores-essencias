@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "arranjos",
+    "nome": "Arranjos",
+    "titulo": "Arranjos de flores em cera perfumada",
+    "frase": "Flores em cera, perfumadas com óleos essenciais, em caixas, vasos e cestos.",
+    "icone": "arranjos",
+    "ordem": 1
+  },
+  {
+    "slug": "prendas",
+    "nome": "Prendas",
+    "titulo": "Prendas em cera perfumada: velas, canecas e caixas musicais",
+    "frase": "Velas, canecas, caixas musicais e pequenos mimos para oferecer.",
+    "icone": "prendas",
+    "ordem": 2
+  },
+  {
+    "slug": "religioso",
+    "nome": "Religioso",
+    "titulo": "Nossa Senhora, anjos e Sagrada Família entre flores em cera",
+    "frase": "Nossa Senhora, anjos e a Sagrada Família, entre flores em cera.",
+    "icone": "religioso",
+    "ordem": 3
+  },
+  {
+    "slug": "eventos",
+    "nome": "Eventos",
+    "titulo": "Lembranças e centros de mesa para batizados, comunhões e casamentos",
+    "frase": "Lembranças e centros de mesa para batizados, comunhões e casamentos.",
+    "icone": "eventos",
+    "ordem": 4
+  },
+  {
+    "slug": "aniversario",
+    "nome": "Aniversário",
+    "titulo": "Prendas de aniversário com o nome e as cores à escolha",
+    "frase": "Prendas de anos, com o nome e as cores à escolha.",
+    "icone": "aniversario",
+    "ordem": 5
+  },
+  {
+    "slug": "artigos-3d",
+    "nome": "Artigos 3D",
+    "titulo": "Artigos em impressão 3D feitos pelo Martim",
+    "frase": "Peças que o Martim faz na impressora 3D.",
+    "icone": "artigos-3d",
+    "ordem": 6
+  }
+]

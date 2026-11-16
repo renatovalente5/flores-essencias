@@ -1,0 +1,23 @@
+{
+  "nome": "Wax melts boneco de neve",
+  "fotos": [
+    "wax-melts-boneco-neve"
+  ],
+  "descricao": "Wax melts natalícios em forma de boneco de neve, para perfumar a casa ou oferecer como pequena lembrança.",
+  "preco": 1.5,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 340
+}

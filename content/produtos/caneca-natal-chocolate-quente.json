@@ -1,0 +1,23 @@
+{
+  "nome": "Caneca natalícia de chocolate quente em cera",
+  "fotos": [
+    "caneca-natal-chocolate-quente"
+  ],
+  "descricao": "Caneca de Natal em vermelho e branco com uma criação em cera que parece um chocolate quente com chantilly, com pequenos detalhes brilhantes.",
+  "preco": 9,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 300
+}

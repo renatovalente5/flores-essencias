@@ -1,0 +1,22 @@
+{
+  "nome": "Cesto de flores em cera",
+  "fotos": [
+    "cesto-flores-cera",
+    "cesto-flores-cera-2"
+  ],
+  "descricao": "Cestos artesanais com combinações de flores diferentes; cada um é único.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1090
+}

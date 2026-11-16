@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa rosa com flores rosa e lilás",
+  "fotos": [
+    "caixa-rosa-flores-rosa-lilas"
+  ],
+  "descricao": "Flores em tons de rosa, lilás e branco numa caixa cor-de-rosa com laço.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1580
+}

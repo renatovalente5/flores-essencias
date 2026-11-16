@@ -1,0 +1,21 @@
+{
+  "nome": "Vaso dourado com coração e flores",
+  "fotos": [
+    "vaso-dourado-coracao-flores"
+  ],
+  "descricao": "Arranjo com flores em tons de rosa e castanho e um coração, num vaso dourado.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1170
+}

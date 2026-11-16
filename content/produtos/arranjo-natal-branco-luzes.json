@@ -1,0 +1,24 @@
+{
+  "nome": "Arranjo de Natal branco com luzes",
+  "fotos": [
+    "arranjo-natal-branco-luzes",
+    "arranjo-natal-branco-luzes-2"
+  ],
+  "descricao": "Flores brancas com apontamentos em vermelho, verde e dourado e luzes incorporadas. Há com laço vermelho ou verde.",
+  "preco": 25,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 540
+}

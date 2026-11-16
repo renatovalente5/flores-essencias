@@ -1,0 +1,21 @@
+{
+  "nome": "Fonte de água com flores em sabonete",
+  "fotos": [
+    "fonte-agua-flores-sabonete"
+  ],
+  "descricao": "Fonte de água decorativa acompanhada de flores artesanais em sabonete.",
+  "preco": 45,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1280
+}

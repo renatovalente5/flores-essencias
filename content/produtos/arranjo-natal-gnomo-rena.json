@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de Natal com gnomo e rena",
+  "fotos": [
+    "arranjo-natal-gnomo-rena"
+  ],
+  "descricao": "Flores em cera com um pequeno gnomo, uma rena e vários detalhes natalícios, numa base rústica.",
+  "preco": 17,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 110
+}

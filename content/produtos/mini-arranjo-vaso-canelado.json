@@ -1,0 +1,23 @@
+{
+  "nome": "Mini arranjo em vaso canelado",
+  "fotos": [
+    "mini-arranjo-vaso-canelado",
+    "mini-arranjo-vaso-canelado-2",
+    "mini-arranjo-vaso-canelado-3"
+  ],
+  "descricao": "Pequeno arranjo de flores em cera num vaso canelado, em vermelho, rosa ou lilás.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": true,
+    "aroma": false
+  },
+  "video": "mini-arranjo-vaso-canelado",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 520
+}

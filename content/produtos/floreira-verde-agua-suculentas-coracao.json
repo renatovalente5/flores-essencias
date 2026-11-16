@@ -1,0 +1,21 @@
+{
+  "nome": "Floreira verde-água com suculentas e coração",
+  "fotos": [
+    "floreira-verde-agua-suculentas-coracao"
+  ],
+  "descricao": "Flores e suculentas em tons de verde e branco, com um coração, numa floreira verde-água com laço.",
+  "preco": 12.5,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1490
+}

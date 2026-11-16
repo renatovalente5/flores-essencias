@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo de Natal amarelo ou azul",
+  "fotos": [],
+  "descricao": "Dois modelos: em amarelo e creme, com laço dourado; ou em azul e branco, com uma árvore de Natal e um coração com asas.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": true,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1380
+}

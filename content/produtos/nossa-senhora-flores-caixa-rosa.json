@@ -1,0 +1,21 @@
+{
+  "nome": "Nossa Senhora com flores em caixa rosa",
+  "fotos": [
+    "nossa-senhora-flores-caixa-rosa"
+  ],
+  "descricao": "Imagem de Nossa Senhora com flores em tons de rosa e branco, numa caixa redonda cor-de-rosa com laço.",
+  "preco": 11,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1440
+}

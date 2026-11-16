@@ -1,0 +1,22 @@
+{
+  "nome": "Placa decorativa com corujinhas ou flores",
+  "fotos": [
+    "placa-decorativa-corujas-flores",
+    "placa-decorativa-corujas-flores-2"
+  ],
+  "descricao": "Peças decorativas feitas uma a uma pelo Martim, em dois modelos: floral em azul e branco ou com corujinhas em tons de rosa.",
+  "preco": 7,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "placa-decorativa-corujas-flores",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1410
+}

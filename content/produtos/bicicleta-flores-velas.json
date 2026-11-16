@@ -1,0 +1,21 @@
+{
+  "nome": "Bicicleta com flores e velas",
+  "fotos": [
+    "bicicleta-flores-velas"
+  ],
+  "descricao": "Pequena bicicleta decorativa carregada de flores e velas em cera, finalizada com laço.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1110
+}

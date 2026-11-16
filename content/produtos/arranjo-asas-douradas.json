@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo com asas douradas",
+  "fotos": [
+    "arranjo-asas-douradas"
+  ],
+  "descricao": "Flores delicadas em tons suaves e pequenos detalhes dourados, numa caixa decorada com asas.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1040
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo em vaso de gesso",
+  "fotos": [
+    "arranjo-vaso-gesso"
+  ],
+  "descricao": "Flores em tons quentes e elegantes com apontamentos dourados, num vaso de gesso com laço.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1020
+}

@@ -1,0 +1,30 @@
+{
+  "nome": "Lembranças perfumadas para eventos",
+  "fotos": [
+    "lembrancas-perfumadas-eventos",
+    "lembrancas-perfumadas-eventos-2",
+    "lembrancas-perfumadas-eventos-3",
+    "lembrancas-perfumadas-eventos-4",
+    "lembrancas-perfumadas-eventos-5"
+  ],
+  "descricao": "Corações, anjinhos e outras peças perfumadas, embaladas e prontas a oferecer aos convidados. A cor pode ser escolhida.",
+  "preco": 1.5,
+  "precoDesde": true,
+  "precoNota": "1,50 € a 2 € cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": true,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "eventos",
+  "ocasioes": [
+    "batizado",
+    "comunhao",
+    "casamento",
+    "aniversario"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1160
+}

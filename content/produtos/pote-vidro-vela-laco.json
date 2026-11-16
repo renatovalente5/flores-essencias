@@ -1,0 +1,25 @@
+{
+  "nome": "Pote de vidro com vela e laço",
+  "fotos": [
+    "pote-vidro-vela-laco",
+    "pote-vidro-vela-laco-2",
+    "pote-vidro-vela-laco-3"
+  ],
+  "descricao": "Potes de vidro com tampa, com velas artesanais e laços, em vários modelos.",
+  "preco": 7,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 560
+}

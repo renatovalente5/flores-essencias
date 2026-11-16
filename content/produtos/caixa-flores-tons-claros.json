@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa de flores em tons claros",
+  "fotos": [
+    "caixa-flores-tons-claros"
+  ],
+  "descricao": "Arranjo em tons claros numa caixa creme, feito flor a flor.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1100
+}

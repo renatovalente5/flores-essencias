@@ -1,0 +1,21 @@
+{
+  "nome": "Coração com asas embalado",
+  "fotos": [],
+  "descricao": "Coração com asas embalado com laço vermelho, pronto a oferecer como lembrança de Natal.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1350
+}

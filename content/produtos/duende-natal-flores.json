@@ -1,0 +1,23 @@
+{
+  "nome": "Duende de Natal com flores",
+  "fotos": [
+    "duende-natal-flores"
+  ],
+  "descricao": "Duende natalício envolvido por flores em tons de rosa, branco e vermelho.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 580
+}

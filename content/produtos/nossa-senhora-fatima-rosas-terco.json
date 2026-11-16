@@ -1,0 +1,21 @@
+{
+  "nome": "Nossa Senhora de Fátima com rosas e terço",
+  "fotos": [
+    "nossa-senhora-fatima-rosas-terco"
+  ],
+  "descricao": "Arranjo dedicado a Nossa Senhora de Fátima, com rosas em tons de rosa e um terço, numa caixa branca. Para oferecer ou criar um cantinho de fé em casa.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1010
+}

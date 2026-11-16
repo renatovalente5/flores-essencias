@@ -1,0 +1,23 @@
+{
+  "nome": "Mãe e bebé em cera",
+  "fotos": [
+    "mae-bebe-cera"
+  ],
+  "descricao": "Figura de uma mãe com o seu bebé ao colo. Para oferecer a uma mãe ou celebrar um nascimento.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "dia-da-mae"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 830
+}

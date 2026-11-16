@@ -1,0 +1,21 @@
+{
+  "nome": "Floreira rosa, branca e amarela",
+  "fotos": [
+    "floreira-rosa-branca-amarela"
+  ],
+  "descricao": "Arranjo comprido com flores de cera em tons suaves de rosa, branco e amarelo, para uma mesa ou um cantinho especial.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 180
+}

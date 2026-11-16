@@ -1,0 +1,21 @@
+{
+  "nome": "Fonte de fumo com flores",
+  "fotos": [
+    "fonte-fumo-flores"
+  ],
+  "descricao": "Fonte de fumo decorativa com flores artesanais, para criar um ambiente relaxante.",
+  "preco": 24,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1260
+}

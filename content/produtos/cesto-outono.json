@@ -1,0 +1,23 @@
+{
+  "nome": "Cesto de outono",
+  "fotos": [
+    "cesto-outono"
+  ],
+  "descricao": "Cesto com abóboras, pinhas, flores e tons quentes, para trazer o outono para dentro de casa.",
+  "preco": 12,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "outono"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 860
+}

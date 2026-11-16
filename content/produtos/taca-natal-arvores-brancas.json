@@ -1,0 +1,23 @@
+{
+  "nome": "Taça de Natal com árvores brancas",
+  "fotos": [
+    "taca-natal-arvores-brancas"
+  ],
+  "descricao": "Arranjo natalício simples e delicado, numa taça, com árvores e pequenas figuras de Natal.",
+  "preco": 19,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 380
+}

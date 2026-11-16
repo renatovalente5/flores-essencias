@@ -1,0 +1,21 @@
+{
+  "nome": "Tela emoldurada com flores",
+  "fotos": [
+    "tela-emoldurada-flores"
+  ],
+  "descricao": "Tela emoldurada com flores artesanais aplicadas, para decorar uma parede.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1530
+}

@@ -1,0 +1,23 @@
+{
+  "nome": "Centro de mesa de Natal com velas",
+  "fotos": [
+    "centro-mesa-natal-velas"
+  ],
+  "descricao": "Centros de mesa de Natal feitos à mão, com velas, pinhas e peças decorativas em cera. Há vários modelos.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "centro-mesa-natal-velas",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 740
+}

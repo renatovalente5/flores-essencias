@@ -1,0 +1,23 @@
+{
+  "nome": "Vela de Natal em copo de vidro",
+  "fotos": [
+    "vela-natal-copo-vidro"
+  ],
+  "descricao": "Vela artesanal num copo de vidro, com uma pequena árvore em cera.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 820
+}

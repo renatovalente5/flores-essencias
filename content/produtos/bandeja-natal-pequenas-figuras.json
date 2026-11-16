@@ -1,0 +1,23 @@
+{
+  "nome": "Bandeja de Natal com pequenas figuras",
+  "fotos": [
+    "bandeja-natal-pequenas-figuras"
+  ],
+  "descricao": "Arranjo natalício numa bandeja de madeira, cheio de pequenos elementos que lembram a magia do Natal.",
+  "preco": 19,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 370
+}

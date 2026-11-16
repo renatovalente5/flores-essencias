@@ -1,0 +1,23 @@
+{
+  "nome": "Taça de Natal com luzes",
+  "fotos": [
+    "taca-natal-luzes"
+  ],
+  "descricao": "Arranjo natalício com flores e detalhes feitos à mão, pequenas luzes e aromas de café e chocolate.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 630
+}

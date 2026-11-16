@@ -1,0 +1,21 @@
+{
+  "nome": "Orquídea em cera",
+  "fotos": [
+    "orquidea-cera"
+  ],
+  "descricao": "Peça inspirada numa orquídea, cheia de pormenores, para oferecer ou para um apontamento especial em casa.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 840
+}

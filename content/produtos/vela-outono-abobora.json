@@ -1,0 +1,23 @@
+{
+  "nome": "Vela de outono com abóbora",
+  "fotos": [
+    "vela-outono-abobora"
+  ],
+  "descricao": "Vela artesanal em copo de vidro, inspirada no outono, com uma pequena abóbora em destaque.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "outono"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 890
+}

@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo branco e dourado com anjinho",
+  "fotos": [
+    "arranjo-branco-dourado-anjinho"
+  ],
+  "descricao": "Arranjo em tons de branco e dourado, com um anjinho e uma pequena estrela.",
+  "preco": 14,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 60
+}

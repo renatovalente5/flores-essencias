@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa de flores laranja e bordeaux",
+  "fotos": [
+    "caixa-flores-laranja-bordeaux"
+  ],
+  "descricao": "Arranjo numa caixa branca, com flores em tons de laranja e bordeaux e pequenos apontamentos naturais.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 960
+}

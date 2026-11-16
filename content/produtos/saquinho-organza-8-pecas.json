@@ -1,0 +1,21 @@
+{
+  "nome": "Saquinho de organza com 8 peças perfumadas",
+  "fotos": [
+    "saquinho-organza-8-pecas"
+  ],
+  "descricao": "Saquinho de organza com 8 pequenas peças de cera perfumada, para oferecer, pôr nas gavetas ou perfumar a casa.",
+  "preco": 5,
+  "precoDesde": false,
+  "precoNota": "o saquinho com 8 peças",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 280
+}

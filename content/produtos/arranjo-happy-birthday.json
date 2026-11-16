@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo «Happy Birthday»",
+  "fotos": [
+    "arranjo-happy-birthday"
+  ],
+  "descricao": "Suculentas e flores em tons de lilás e cinzento numa caixa redonda, com o topo «Happy Birthday».",
+  "preco": 10,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "aniversario",
+  "ocasioes": [
+    "aniversario"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1610
+}

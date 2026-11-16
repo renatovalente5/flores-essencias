@@ -1,0 +1,21 @@
+{
+  "nome": "Velas florais em pote dourado",
+  "fotos": [
+    "velas-florais-pote-dourado"
+  ],
+  "descricao": "Arranjo de velas florais em tons de rosa velho e branco, num pote dourado.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 770
+}

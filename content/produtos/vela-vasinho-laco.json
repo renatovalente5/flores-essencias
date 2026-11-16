@@ -1,0 +1,25 @@
+{
+  "nome": "Vela em vasinho com laço",
+  "fotos": [
+    "vela-vasinho-laco",
+    "vela-vasinho-laco-2",
+    "vela-vasinho-laco-3"
+  ],
+  "descricao": "Velas artesanais em pequenos vasos decorados com laços, com vários motivos, como a Sagrada Família ou gnomos.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 220
+}

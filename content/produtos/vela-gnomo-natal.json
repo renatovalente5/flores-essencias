@@ -1,0 +1,23 @@
+{
+  "nome": "Vela gnomo de Natal",
+  "fotos": [
+    "vela-gnomo-natal"
+  ],
+  "descricao": "Pequena vela em forma de gnomo branco, de gorro comprido e barba, feita à mão pelo Martim. Boa para lembranças de Natal.",
+  "preco": 2,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 100
+}

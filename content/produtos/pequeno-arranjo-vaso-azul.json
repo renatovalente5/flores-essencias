@@ -1,0 +1,21 @@
+{
+  "nome": "Pequeno arranjo em vaso azul",
+  "fotos": [
+    "pequeno-arranjo-vaso-azul"
+  ],
+  "descricao": "Pequeno arranjo feito à mão, com flores cor-de-rosa e uma borboleta, num vaso azul.",
+  "preco": 10,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1210
+}

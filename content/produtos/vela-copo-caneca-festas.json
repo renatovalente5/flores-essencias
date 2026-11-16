@@ -1,0 +1,26 @@
+{
+  "nome": "Vela decorada em copo ou caneca para festas",
+  "fotos": [
+    "vela-copo-caneca-festas",
+    "vela-copo-caneca-festas-2",
+    "vela-copo-caneca-festas-3"
+  ],
+  "descricao": "Velas artesanais em copos e canecas decorados, para aniversários, batizados, chás de bebé e lembranças de eventos. Podem ser personalizadas.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "aniversario",
+  "ocasioes": [
+    "aniversario",
+    "batizado"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 610
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Saco «Thank you» com flores",
+  "fotos": [
+    "saco-thank-you-flores"
+  ],
+  "descricao": "Flores em tons de azul-claro e branco num saco lilás com a mensagem «Thank you».",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1500
+}

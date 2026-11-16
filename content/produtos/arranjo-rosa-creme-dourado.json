@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo rosa, creme e dourado",
+  "fotos": [
+    "arranjo-rosa-creme-dourado"
+  ],
+  "descricao": "Flores em tons de rosa, creme e dourado, num vaso branco.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1050
+}

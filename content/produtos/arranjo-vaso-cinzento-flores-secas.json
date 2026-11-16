@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo em vaso cinzento com flores secas",
+  "fotos": [
+    "arranjo-vaso-cinzento-flores-secas"
+  ],
+  "descricao": "Flores em tons suaves com apontamentos brilhantes e flores secas, num vaso canelado cinzento.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 640
+}

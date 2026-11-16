@@ -1,0 +1,21 @@
+{
+  "nome": "Mini arranjo floral",
+  "fotos": [
+    "mini-arranjo-floral"
+  ],
+  "descricao": "Mini arranjo floral criado à mão, com cada flor trabalhada ao pormenor.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 700
+}

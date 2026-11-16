@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa com Nossa Senhora, terço e flores",
+  "fotos": [
+    "caixa-nossa-senhora-terco-flores"
+  ],
+  "descricao": "Caixa redonda que abre para mostrar uma imagem de Nossa Senhora com terço, rodeada de flores em cera em tons de rosa e branco. Uma lembrança para ocasiões religiosas ou para surpreender alguém querido.",
+  "preco": 17,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "caixa-nossa-senhora-terco-flores",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 40
+}

@@ -1,0 +1,19 @@
+{
+  "nome": "Porta-cartões (3D)",
+  "fotos": [],
+  "descricao": "Porta-cartões com dois compartimentos, para cartões de visita ou pequenos objetos, feito na impressora 3D do Martim.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "artigos-3d",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1340
+}

@@ -1,0 +1,22 @@
+{
+  "nome": "Cesto de frutas decorativas",
+  "fotos": [
+    "cesto-frutas-decorativas",
+    "cesto-frutas-decorativas-2"
+  ],
+  "descricao": "Composição de frutas artesanais, como uvas, limões e morangos, num cesto; boa para a decoração de verão.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1300
+}

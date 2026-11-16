@@ -1,0 +1,22 @@
+{
+  "nome": "Fonte com Ganesha e flores",
+  "fotos": [
+    "fonte-ganesha-flores",
+    "fonte-ganesha-flores-2"
+  ],
+  "descricao": "Fonte decorativa com Ganesha, rodeada de flores artesanais em cera. Pode ser personalizada, conforme a disponibilidade.",
+  "preco": 45,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1290
+}

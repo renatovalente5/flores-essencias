@@ -1,0 +1,23 @@
+{
+  "nome": "Cesto de Natal com flores em cera",
+  "fotos": [
+    "cesto-natal-flores-cera"
+  ],
+  "descricao": "Arranjo natalício num cesto, com flores em cera em tons de vermelho, rosa e branco e pequenos detalhes de Natal.",
+  "preco": 18,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "cesto-natal-flores-cera",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 130
+}

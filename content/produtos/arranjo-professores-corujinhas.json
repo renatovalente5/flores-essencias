@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de agradecimento para professores",
+  "fotos": [
+    "arranjo-professores-corujinhas"
+  ],
+  "descricao": "Arranjos com corujinhas e flores em tons de rosa, para agradecer a quem ensina, cuida e acompanha.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "professores"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1120
+}

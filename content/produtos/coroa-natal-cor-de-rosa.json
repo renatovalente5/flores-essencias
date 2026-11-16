@@ -1,0 +1,23 @@
+{
+  "nome": "Coroa de Natal cor-de-rosa",
+  "fotos": [
+    "coroa-natal-cor-de-rosa"
+  ],
+  "descricao": "Coroa natalícia feita à mão pelo Martim, com flores em tons de rosa, pequenos pinheiros e outros detalhes.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 170
+}

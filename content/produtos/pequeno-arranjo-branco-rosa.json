@@ -1,0 +1,21 @@
+{
+  "nome": "Pequeno arranjo branco e rosa",
+  "fotos": [
+    "pequeno-arranjo-branco-rosa"
+  ],
+  "descricao": "Pequeno arranjo com flores em tons de branco e rosa.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1420
+}

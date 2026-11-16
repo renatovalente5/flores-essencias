@@ -1,0 +1,21 @@
+{
+  "nome": "Nossa Senhora em cera",
+  "fotos": [
+    "nossa-senhora-cera"
+  ],
+  "descricao": "Imagem de Nossa Senhora feita artesanalmente em cera, para um cantinho especial da casa ou para oferecer como gesto de carinho e fé.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 330
+}

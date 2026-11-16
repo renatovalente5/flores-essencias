@@ -1,0 +1,21 @@
+{
+  "nome": "Nossa Senhora com terço prateado e flores azuis",
+  "fotos": [
+    "nossa-senhora-terco-prateado-flores-azuis"
+  ],
+  "descricao": "Imagem de Nossa Senhora com um terço prateado e flores em tons suaves de azul, branco e amarelo. Para oferecer ou para um cantinho de oração.",
+  "preco": 11,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "nossa-senhora-terco-prateado-flores-azuis",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 390
+}

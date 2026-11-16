@@ -1,0 +1,24 @@
+{
+  "nome": "Caixa musical de Natal com wax melts",
+  "fotos": [
+    "caixa-musical-natal-wax-melts",
+    "caixa-musical-natal-wax-melts-2"
+  ],
+  "descricao": "Caixa de Natal com música, preenchida com wax melts ou peças perfumadas. As peças e os aromas podem ser escolhidos.",
+  "preco": 9,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": true
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 30
+}

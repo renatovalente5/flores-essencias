@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de rosas com laço vermelho",
+  "fotos": [
+    "arranjo-rosas-laco-vermelho"
+  ],
+  "descricao": "Rosas em tons de rosa com detalhes vermelhos e apontamentos dourados, num vaso branco com laço vermelho.",
+  "preco": 17,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 120
+}

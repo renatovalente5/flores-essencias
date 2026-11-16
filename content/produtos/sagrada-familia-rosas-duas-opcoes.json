@@ -1,0 +1,24 @@
+{
+  "nome": "Sagrada Família com rosas (duas opções)",
+  "fotos": [
+    "sagrada-familia-rosas-duas-opcoes",
+    "sagrada-familia-rosas-duas-opcoes-2"
+  ],
+  "descricao": "Pequeno arranjo com uma imagem da Sagrada Família e flores artesanais, sobre uma base de madeira. Há duas versões à escolha.",
+  "preco": 7,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 670
+}

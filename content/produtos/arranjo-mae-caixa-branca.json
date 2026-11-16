@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo «Mãe» em caixa branca",
+  "fotos": [
+    "arranjo-mae-caixa-branca"
+  ],
+  "descricao": "Flores em tons de rosa e branco numa caixa branca com a palavra «Mãe» e laço.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "dia-da-mae"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1560
+}

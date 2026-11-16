@@ -1,0 +1,23 @@
+{
+  "nome": "Árvore de Natal branca e dourada",
+  "fotos": [
+    "arvore-natal-branca-dourada"
+  ],
+  "descricao": "Árvore de Natal delicada em tons de branco e dourado, para um aparador, uma mesa ou um cantinho especial.",
+  "preco": 14,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 70
+}

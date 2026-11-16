@@ -1,0 +1,21 @@
+{
+  "nome": "Três rosas pêssego com laço",
+  "fotos": [
+    "tres-rosas-pessego-laco"
+  ],
+  "descricao": "Três rosas artesanais em cera, em tons de rosa-pêssego, com apontamentos amarelos e dourados, num vaso branco com laço.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 190
+}

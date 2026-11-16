@@ -1,0 +1,21 @@
+{
+  "nome": "Axolote articulado rosa (3D)",
+  "fotos": [
+    "axolote-articulado-rosa-3d"
+  ],
+  "descricao": "Axolote articulado impresso em 3D pelo Martim, cheio de pormenores, em cor-de-rosa.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "artigos-3d",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 310
+}

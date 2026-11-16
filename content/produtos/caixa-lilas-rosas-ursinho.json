@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa lilás com rosas e ursinho",
+  "fotos": [
+    "caixa-lilas-rosas-ursinho"
+  ],
+  "descricao": "Caixa redonda lilás com rosas em tons claros, um ursinho e laço.",
+  "preco": 12.5,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1550
+}

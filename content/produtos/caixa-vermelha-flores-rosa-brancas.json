@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa vermelha com flores rosa e brancas",
+  "fotos": [
+    "caixa-vermelha-flores-rosa-brancas"
+  ],
+  "descricao": "Arranjo numa caixa redonda vermelha, com flores em tons de rosa e branco e apontamentos de vermelho.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 80
+}

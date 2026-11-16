@@ -1,0 +1,21 @@
+{
+  "nome": "Mini arranjo com Nossa Senhora e terço",
+  "fotos": [
+    "mini-arranjo-nossa-senhora-terco"
+  ],
+  "descricao": "Pequeno arranjo com uma imagem de Nossa Senhora em cera, terço e flores, num vaso. Há versões em várias cores, como rosa e verde.",
+  "preco": 7,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": true,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 970
+}

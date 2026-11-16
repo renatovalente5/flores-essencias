@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa preta com rosas brancas e ursinho",
+  "fotos": [
+    "caixa-preta-rosas-brancas-ursinho"
+  ],
+  "descricao": "Rosas brancas e um ursinho numa caixa preta com laço.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1570
+}

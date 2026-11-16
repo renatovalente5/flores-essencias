@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa azul com suculentas e ursinho",
+  "fotos": [
+    "caixa-azul-suculentas-ursinho"
+  ],
+  "descricao": "Caixa redonda azul com suculentas, flores e um ursinho, finalizada com laço.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1470
+}

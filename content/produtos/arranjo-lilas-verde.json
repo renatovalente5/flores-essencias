@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo lilás e verde",
+  "fotos": [
+    "arranjo-lilas-verde"
+  ],
+  "descricao": "Arranjo em tons de lilás e verde, com borboleta e laço.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1060
+}

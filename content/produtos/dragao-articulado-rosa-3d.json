@@ -1,0 +1,21 @@
+{
+  "nome": "Dragão articulado rosa (3D)",
+  "fotos": [
+    "dragao-articulado-rosa-3d"
+  ],
+  "descricao": "Dragão articulado impresso em 3D pelo Martim, em tom de rosa e cheio de pormenores. As articulações permitem movimentar o corpo e criar diferentes posições.",
+  "preco": 15.9,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "artigos-3d",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1370
+}

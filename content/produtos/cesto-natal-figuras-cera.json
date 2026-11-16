@@ -1,0 +1,23 @@
+{
+  "nome": "Cesto de Natal com figuras em cera",
+  "fotos": [
+    "cesto-natal-figuras-cera"
+  ],
+  "descricao": "Arranjo com flores em cores quentes e pequenas figuras natalícias em cera, num cesto com laço vermelho.",
+  "preco": 19,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 250
+}

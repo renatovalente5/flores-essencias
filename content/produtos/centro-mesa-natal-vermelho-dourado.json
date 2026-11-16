@@ -1,0 +1,23 @@
+{
+  "nome": "Centro de mesa de Natal vermelho e dourado",
+  "fotos": [
+    "centro-mesa-natal-vermelho-dourado"
+  ],
+  "descricao": "Centro de mesa com flores de cera feitas à mão, pequenos pinheiros, pinhas e detalhes em vermelho e dourado, para a mesa de Natal.",
+  "preco": 20,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 240
+}

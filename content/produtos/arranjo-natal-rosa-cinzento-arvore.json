@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de Natal rosa e cinzento com árvore",
+  "fotos": [
+    "arranjo-natal-rosa-cinzento-arvore"
+  ],
+  "descricao": "Flores em tons de rosa, branco e cinzento, apontamentos vermelhos e uma pequena árvore de Natal, numa floreira escura.",
+  "preco": 14,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 290
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Nossa Senhora na cúpula com luzes",
+  "fotos": [
+    "arranjo-nossa-senhora-cupula-luzes"
+  ],
+  "descricao": "Imagem de Nossa Senhora em cera dentro de uma cúpula de vidro, iluminada por pequenas luzes.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 400
+}

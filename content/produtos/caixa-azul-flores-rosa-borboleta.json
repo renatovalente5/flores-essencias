@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa azul com flores rosa e borboleta",
+  "fotos": [
+    "caixa-azul-flores-rosa-borboleta"
+  ],
+  "descricao": "Arranjo em tons suaves de rosa e branco, numa caixa azul-clara com laço e borboleta.",
+  "preco": 10,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1140
+}

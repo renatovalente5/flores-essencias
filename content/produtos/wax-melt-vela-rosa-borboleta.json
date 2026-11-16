@@ -1,0 +1,21 @@
+{
+  "nome": "Wax melt ou vela rosa com borboleta",
+  "fotos": [
+    "wax-melt-vela-rosa-borboleta"
+  ],
+  "descricao": "Peça em cera rosa com uma borboleta, em versão wax melt ou vela. Há noutras cores, à escolha.",
+  "preco": 2.5,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": true,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 160
+}

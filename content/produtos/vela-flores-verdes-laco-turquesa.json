@@ -1,0 +1,21 @@
+{
+  "nome": "Vela com flores verdes e laço turquesa",
+  "fotos": [
+    "vela-flores-verdes-laco-turquesa"
+  ],
+  "descricao": "Velinha artesanal com flores em tons de verde e um laço azul-turquesa.",
+  "preco": 7,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 210
+}

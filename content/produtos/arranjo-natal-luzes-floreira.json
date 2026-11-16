@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de Natal com luzes em floreira",
+  "fotos": [
+    "arranjo-natal-luzes-floreira"
+  ],
+  "descricao": "Flores em tons suaves, apontamentos dourados, elementos natalícios e pequenas luzes, numa floreira.",
+  "preco": 19,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 430
+}

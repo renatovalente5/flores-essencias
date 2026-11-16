@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo com menina em tons de rosa",
+  "fotos": [
+    "arranjo-menina-rosa"
+  ],
+  "descricao": "Arranjo com uma menina de expressão serena e flores em tons de rosa com apontamentos de vermelho. Bom para uma cómoda, secretária ou para oferecer.",
+  "preco": 10,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 10
+}

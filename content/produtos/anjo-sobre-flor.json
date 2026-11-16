@@ -1,0 +1,21 @@
+{
+  "nome": "Anjo sobre flor",
+  "fotos": [
+    "anjo-sobre-flor"
+  ],
+  "descricao": "Pequeno anjo repousado sobre uma flor em cera. Uma lembrança cheia de ternura e significado.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "anjo-sobre-flor",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 750
+}

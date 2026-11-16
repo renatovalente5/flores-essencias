@@ -1,0 +1,19 @@
+{
+  "nome": "Arranjo compacto em tons de rosa",
+  "fotos": [],
+  "descricao": "Arranjo compacto com flores em tons de rosa e pequenos apontamentos naturais.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1400
+}

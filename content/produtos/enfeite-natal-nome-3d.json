@@ -1,0 +1,23 @@
+{
+  "nome": "Enfeite de Natal com nome (3D)",
+  "fotos": [
+    "enfeite-natal-nome-3d"
+  ],
+  "descricao": "Bola de Natal recortada, com flocos de neve e o nome à escolha, para pendurar na árvore.",
+  "preco": 4.5,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": true,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "enfeite-natal-nome-3d",
+  "categoria": "artigos-3d",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 270
+}

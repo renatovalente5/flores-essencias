@@ -1,0 +1,23 @@
+{
+  "nome": "Calendário do Advento de 24 gavetas",
+  "fotos": [
+    "calendario-advento-24-gavetas"
+  ],
+  "descricao": "Calendário com 24 gavetinhas cheias de pequenas surpresas, com wax melts e peças perfumadas, para descobrir um cheirinho diferente em cada dia até ao Natal.",
+  "preco": 15.99,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "calendario-advento-24-gavetas",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 50
+}

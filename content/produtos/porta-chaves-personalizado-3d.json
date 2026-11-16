@@ -1,0 +1,21 @@
+{
+  "nome": "Porta-chaves personalizado (3D)",
+  "fotos": [
+    "porta-chaves-personalizado-3d"
+  ],
+  "descricao": "Porta-chaves personalizados em 3D, com nomes, letras ou outros detalhes à escolha.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": true,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "porta-chaves-personalizado-3d",
+  "categoria": "artigos-3d",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1390
+}

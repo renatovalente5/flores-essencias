@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa de flores brancas e rosa",
+  "fotos": [
+    "caixa-flores-brancas-rosa"
+  ],
+  "descricao": "Caixa redonda com grandes flores em tons de branco e rosa.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1070
+}

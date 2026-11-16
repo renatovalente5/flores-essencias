@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "titulo": "Flores & Essências — Arranjos e velas em cera, feitos à mão pelo Martim",
+    "descricao": "Arranjos, velas, wax melts e lembranças em cera com óleos essenciais, feitos à mão pelo Martim. Encomendas pelo WhatsApp; as vendas ajudam as terapias dele."
+  },
+  "capa": {
+    "titulo": "Flores que perfumam, feitas à mão pelo Martim",
+    "texto": "Arranjos, velas e lembranças em cera com óleos essenciais. Cada encomenda ajuda as terapias do Martim.",
+    "botao": {
+      "texto": "Ver a loja",
+      "ligacao": "/loja/"
+    },
+    "botao2": {
+      "texto": "Conhecer o Martim",
+      "ligacao": "/a-nossa-historia/"
+    },
+    "foto": "arranjo-rosas-laco-vermelho",
+    "video": ""
+  },
+  "categorias": {
+    "titulo": "O que fazemos"
+  },
+  "destaque": {
+    "ligado": true,
+    "ocasiao": "natal",
+    "titulo": "Natal na Flores & Essências",
+    "texto": "Arranjos, calendários do Advento e pequenas lembranças para a época."
+  },
+  "novidades": {
+    "titulo": "Feitos esta semana",
+    "quantas": 8
+  },
+  "historia": {
+    "titulo": "Uma marca que nasceu de uma vela",
+    "texto": "O Martim é um jovem com autismo. Para acalmar a ansiedade, ele e a mãe, Tatiana, começaram a fazer velas aromáticas juntos. A rotina ganhou voz, e o projeto tornou-se a Flores & Essências.",
+    "citacao": "Tu sabes que eu acredito e confio.",
+    "autor": "O Martim, no «Dois às 10» (TVI)",
+    "fotos": [
+      "historia-martim-mae-banca",
+      "historia-martim-sorriso"
+    ],
+    "botao": "Ler a história"
+  },
+  "bastidores": {
+    "titulo": "Nos bastidores",
+    "texto": "Do atelier aos correios, cada encomenda passa pelas mãos do Martim.",
+    "videos": [
+      "bastidores-atelier",
+      "bastidores-ctt",
+      "bastidores-mae",
+      "bastidores-encomendas"
+    ]
+  },
+  "comoEncomendar": {
+    "titulo": "Como encomendar",
+    "itens": [
+      {
+        "titulo": "Pelo WhatsApp",
+        "texto": "Escolhe as peças e envia a encomenda numa mensagem.",
+        "icone": "contactos"
+      },
+      {
+        "titulo": "Cores e aromas à escolha",
+        "texto": "Chocolate, baunilha, maçã, canela e muitos mais.",
+        "icone": "arranjos"
+      },
+      {
+        "titulo": "Em mão ou por CTT",
+        "texto": "Entregamos em mão ou enviamos pelos CTT.",
+        "icone": "entregas"
+      },
+      {
+        "titulo": "Cada compra ajuda",
+        "texto": "As vendas revertem para as terapias do Martim.",
+        "icone": "clientes"
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "nome": "Cãozinho em cera",
+  "fotos": [
+    "caozinho-cera",
+    "caozinho-cera-2"
+  ],
+  "descricao": "Cãozinho branco em cera, pequeno nos detalhes e cheio de ternura. Também aparece com uma placa «Adoro-te».",
+  "preco": 9,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1030
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Redoma com a Sagrada Família",
+  "fotos": [
+    "redoma-sagrada-familia"
+  ],
+  "descricao": "Pequena redoma decorativa de vidro com a imagem da Sagrada Família em cera.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1320
+}

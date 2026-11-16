@@ -1,0 +1,23 @@
+{
+  "nome": "Taça de Natal rosa com árvore",
+  "fotos": [
+    "taca-natal-rosa-arvore"
+  ],
+  "descricao": "Flores delicadas e detalhes natalícios numa taça branca, com aromas de café e chocolate.",
+  "preco": 14,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 650
+}

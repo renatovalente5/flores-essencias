@@ -1,0 +1,21 @@
+{
+  "nome": "Arco com nuvem e nome personalizado",
+  "fotos": [
+    "arco-nuvem-nome-personalizado"
+  ],
+  "descricao": "Peça delicada em forma de arco com uma nuvem, com o nome à escolha.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": true,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "aniversario",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1190
+}

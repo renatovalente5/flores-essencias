@@ -1,0 +1,21 @@
+{
+  "nome": "Miminho em caixinha",
+  "fotos": [
+    "miminho-caixinha"
+  ],
+  "descricao": "Pequeno miminho de flores numa caixinha, em tons de rosa ou de azul e branco.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1460
+}

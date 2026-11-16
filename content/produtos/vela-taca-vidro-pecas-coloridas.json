@@ -1,0 +1,21 @@
+{
+  "nome": "Vela em taça de vidro com peças coloridas",
+  "fotos": [
+    "vela-taca-vidro-pecas-coloridas"
+  ],
+  "descricao": "Vela artesanal em taça de vidro, coberta de pequenas peças de cera coloridas. O vídeo mostra também versões em caneca e em copo.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "vela-taca-vidro-pecas-coloridas",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 720
+}

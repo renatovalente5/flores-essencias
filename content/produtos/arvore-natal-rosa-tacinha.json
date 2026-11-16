@@ -1,0 +1,23 @@
+{
+  "nome": "Árvore de Natal rosa em tacinha",
+  "fotos": [
+    "arvore-natal-rosa-tacinha"
+  ],
+  "descricao": "Pequena árvore de Natal em tons de rosa numa tacinha branca com laço dourado. Uma lembrança de Natal ou para o amigo secreto.",
+  "preco": 7,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 510
+}

@@ -1,0 +1,23 @@
+{
+  "nome": "Sagrada Família em cera (presépio)",
+  "fotos": [
+    "sagrada-familia-cera-presepio"
+  ],
+  "descricao": "Sagrada Família feita artesanalmente em cera, para a decoração de Natal ou para oferecer a alguém querido.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 320
+}

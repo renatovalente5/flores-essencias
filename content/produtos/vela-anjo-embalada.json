@@ -1,0 +1,26 @@
+{
+  "nome": "Vela anjo embalada (lembrança)",
+  "fotos": [
+    "vela-anjo-embalada"
+  ],
+  "descricao": "Vela em forma de anjo, embalada e pronta a oferecer como lembrança em batizados, comunhões, casamentos ou aniversários.",
+  "preco": 2,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "eventos",
+  "ocasioes": [
+    "batizado",
+    "comunhao",
+    "casamento",
+    "aniversario"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1200
+}

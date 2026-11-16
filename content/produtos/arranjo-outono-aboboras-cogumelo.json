@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de outono com abóboras e cogumelo",
+  "fotos": [
+    "arranjo-outono-aboboras-cogumelo"
+  ],
+  "descricao": "Arranjo em tons quentes, com flores, abóboras e um cogumelo, numa base em forma de tronco.",
+  "preco": 17,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "outono"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 350
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa rosa e branca com laço",
+  "fotos": [
+    "caixa-rosa-branca-laco"
+  ],
+  "descricao": "Composição em tons suaves de rosa e branco, numa caixa com laço.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1000
+}

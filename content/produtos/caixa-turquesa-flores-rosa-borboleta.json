@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa turquesa com flores rosa e borboleta",
+  "fotos": [
+    "caixa-turquesa-flores-rosa-borboleta"
+  ],
+  "descricao": "Flores em tons de rosa e branco numa caixa turquesa com laço e borboleta.",
+  "preco": 10,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1630
+}

@@ -1,0 +1,30 @@
+{
+  "nome": "Nossa Senhora com arranjo floral (grande)",
+  "fotos": [
+    "nossa-senhora-arranjo-floral-grande",
+    "nossa-senhora-arranjo-floral-grande-2",
+    "nossa-senhora-arranjo-floral-grande-3",
+    "nossa-senhora-arranjo-floral-grande-4",
+    "nossa-senhora-arranjo-floral-grande-5",
+    "nossa-senhora-arranjo-floral-grande-6",
+    "nossa-senhora-arranjo-floral-grande-7",
+    "nossa-senhora-arranjo-floral-grande-8",
+    "nossa-senhora-arranjo-floral-grande-9",
+    "nossa-senhora-arranjo-floral-grande-10"
+  ],
+  "descricao": "Imagem de Nossa Senhora de Fátima, ou de Nossa Senhora com o Menino, rodeada de flores artesanais perfumadas. Cada peça é única; a versão rosa-pêssego mede 43 cm.",
+  "preco": 40,
+  "precoDesde": true,
+  "precoNota": "40 € a 55 €, conforme o modelo",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "nossa-senhora-arranjo-floral-grande",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1240
+}

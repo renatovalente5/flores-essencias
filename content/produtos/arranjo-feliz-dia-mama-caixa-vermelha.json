@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo «Feliz Dia da Mamã» (caixa vermelha)",
+  "fotos": [
+    "arranjo-feliz-dia-mama-caixa-vermelha"
+  ],
+  "descricao": "Flores em tons de rosa e castanho numa caixa vermelha, com o topo «Feliz Dia da Mamã».",
+  "preco": 12.5,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "dia-da-mae"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1510
+}

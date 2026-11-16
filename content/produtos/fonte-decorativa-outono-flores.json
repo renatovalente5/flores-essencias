@@ -1,0 +1,23 @@
+{
+  "nome": "Fonte decorativa de outono com flores",
+  "fotos": [
+    "fonte-decorativa-outono-flores"
+  ],
+  "descricao": "Composição artesanal com flores em tons quentes e uma fonte decorativa.",
+  "preco": 50,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "outono"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1130
+}

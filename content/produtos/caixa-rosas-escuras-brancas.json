@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa de rosas escuras e brancas",
+  "fotos": [
+    "caixa-rosas-escuras-brancas"
+  ],
+  "descricao": "Arranjo com flores em tons escuros e branco e apontamentos naturais, numa caixa branca com laço.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 990
+}

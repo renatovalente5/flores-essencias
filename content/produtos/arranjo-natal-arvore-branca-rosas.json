@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de Natal com árvore branca e rosas",
+  "fotos": [
+    "arranjo-natal-arvore-branca-rosas"
+  ],
+  "descricao": "Arranjo com uma árvore de Natal branca, rosas em tons de rosa e branco e apontamentos vermelhos, feito à mão pelo Martim.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 20
+}

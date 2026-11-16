@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo verde e branco com borboletas",
+  "fotos": [
+    "arranjo-verde-branco-borboletas"
+  ],
+  "descricao": "Flores verdes e brancas com borboletas e um laço verde, para trazer um pouco de primavera para casa.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 920
+}

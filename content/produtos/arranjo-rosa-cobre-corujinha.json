@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo rosa e cobre com corujinha",
+  "fotos": [
+    "arranjo-rosa-cobre-corujinha"
+  ],
+  "descricao": "Rosas em tons de creme e rosa acobreado, apontamentos brilhantes e uma corujinha, numa caixa branca com laço.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 410
+}

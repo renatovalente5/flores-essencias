@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de Halloween com fantasminhas",
+  "fotos": [
+    "arranjo-halloween-fantasminhas"
+  ],
+  "descricao": "Arranjo com fantasminhas, abóboras e tons delicados, numa abóbora: um Halloween nada assustador.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "halloween"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 480
+}

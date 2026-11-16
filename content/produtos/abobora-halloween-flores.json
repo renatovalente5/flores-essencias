@@ -1,0 +1,21 @@
+{
+  "nome": "Abóbora de Halloween com flores",
+  "fotos": [],
+  "descricao": "Arranjo de flores em cera dentro de uma abóbora de Halloween. Parecem doces, mas não se comem.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "halloween"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 530
+}

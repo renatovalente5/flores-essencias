@@ -1,0 +1,22 @@
+{
+  "nome": "Nossa Senhora de Fátima na redoma com luz",
+  "fotos": [
+    "nossa-senhora-fatima-redoma-luz",
+    "nossa-senhora-fatima-redoma-luz-2"
+  ],
+  "descricao": "Imagem de Nossa Senhora de Fátima protegida por uma cúpula de vidro e iluminada por uma luz suave. Uma peça de fé para oferecer ou guardar com carinho.",
+  "preco": 25,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 660
+}

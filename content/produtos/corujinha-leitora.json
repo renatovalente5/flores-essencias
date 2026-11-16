@@ -1,0 +1,23 @@
+{
+  "nome": "Corujinha leitora",
+  "fotos": [
+    "corujinha-leitora"
+  ],
+  "descricao": "Coruja em cera a ler um livro, cheia de pormenores. Um miminho para amantes de livros, professores ou estudantes.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "professores"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 880
+}

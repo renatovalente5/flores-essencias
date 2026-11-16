@@ -1,0 +1,23 @@
+{
+  "nome": "Sapatinho de bebé em cera",
+  "fotos": [
+    "sapatinho-bebe-cera"
+  ],
+  "descricao": "Sapatinho em cera, uma lembrança doce para celebrar a chegada de um bebé ou um batizado.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "eventos",
+  "ocasioes": [
+    "batizado"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 780
+}

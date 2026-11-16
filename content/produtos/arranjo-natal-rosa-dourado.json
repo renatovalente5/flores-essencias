@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de Natal rosa e dourado",
+  "fotos": [
+    "arranjo-natal-rosa-dourado"
+  ],
+  "descricao": "Arranjo com tons delicados de rosa, apontamentos dourados e pequenos elementos natalícios.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 470
+}

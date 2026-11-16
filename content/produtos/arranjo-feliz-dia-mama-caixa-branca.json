@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo «Feliz Dia da Mamã» (caixa branca)",
+  "fotos": [
+    "arranjo-feliz-dia-mama-caixa-branca"
+  ],
+  "descricao": "Flores em tons de bordeaux, rosa e branco numa caixa branca, com o topo «Feliz Dia da Mamã».",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "dia-da-mae"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1540
+}

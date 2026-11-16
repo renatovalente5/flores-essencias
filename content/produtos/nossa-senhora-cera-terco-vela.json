@@ -1,0 +1,21 @@
+{
+  "nome": "Nossa Senhora em cera com terço e vela",
+  "fotos": [
+    "nossa-senhora-cera-terco-vela"
+  ],
+  "descricao": "Imagem de Nossa Senhora em cera com um terço, acompanhada de uma pequena vela. Para oferecer ou guardar num cantinho especial da casa.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 710
+}

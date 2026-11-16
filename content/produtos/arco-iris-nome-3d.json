@@ -1,0 +1,19 @@
+{
+  "nome": "Arco-íris com nome (3D)",
+  "fotos": [],
+  "descricao": "Decoração em arco-íris feita em 3D pelo Martim, personalizada com o nome e as cores à escolha. Para o quarto de uma criança ou para oferecer.",
+  "preco": 19,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": true,
+    "cores": true,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "artigos-3d",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1330
+}

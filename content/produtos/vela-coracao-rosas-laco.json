@@ -1,0 +1,21 @@
+{
+  "nome": "Vela com coração de rosas e laço de cetim",
+  "fotos": [
+    "vela-coracao-rosas-laco"
+  ],
+  "descricao": "Vela artesanal com um coração de rosas, numa taça branca com laço em cetim.",
+  "preco": 6,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 150
+}

@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de outono com abóboras e pinhas",
+  "fotos": [
+    "arranjo-outono-aboboras-pinhas"
+  ],
+  "descricao": "Abóboras, flores, pinhas e folhas em tons quentes, numa composição inspirada no outono.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "outono"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 790
+}

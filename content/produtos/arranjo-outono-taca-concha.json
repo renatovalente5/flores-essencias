@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de outono em taça concha",
+  "fotos": [
+    "arranjo-outono-taca-concha"
+  ],
+  "descricao": "Flores em tons de laranja, caramelo e dourado, numa taça em forma de concha.",
+  "preco": 14,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "outono"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 800
+}

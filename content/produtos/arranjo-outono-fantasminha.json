@@ -1,0 +1,24 @@
+{
+  "nome": "Arranjo de outono com fantasminha",
+  "fotos": [
+    "arranjo-outono-fantasminha"
+  ],
+  "descricao": "Flores, tons quentes e elementos de outono, com um fantasminha pronto para o Halloween.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "arranjo-outono-fantasminha",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "outono",
+    "halloween"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1180
+}

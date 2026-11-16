@@ -1,0 +1,21 @@
+{
+  "nome": "Nossa Senhora com flores amarelas e pêssego",
+  "fotos": [
+    "nossa-senhora-flores-amarelas-pessego"
+  ],
+  "descricao": "Imagem de Nossa Senhora rodeada de flores em cera e pequenos detalhes, numa caixa creme. Pode fazer-se noutras cores.",
+  "preco": 17,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": true,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "religioso",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 140
+}

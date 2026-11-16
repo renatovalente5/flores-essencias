@@ -1,0 +1,22 @@
+{
+  "nome": "Caixa de velas florais",
+  "fotos": [
+    "caixa-velas-florais",
+    "caixa-velas-florais-2"
+  ],
+  "descricao": "Coleção de velas em forma de flor, feitas à mão pelo Martim, apresentadas numa caixa.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1270
+}

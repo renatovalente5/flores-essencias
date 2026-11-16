@@ -1,0 +1,21 @@
+{
+  "nome": "Caixa transparente com flores lilás e rosa",
+  "fotos": [
+    "caixa-transparente-flores-lilas-rosa"
+  ],
+  "descricao": "Flores em tons de lilás e rosa numa caixa transparente com laço.",
+  "preco": 12.5,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1480
+}

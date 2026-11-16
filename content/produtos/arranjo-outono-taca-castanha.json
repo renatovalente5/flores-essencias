@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de outono em taça castanha",
+  "fotos": [
+    "arranjo-outono-taca-castanha"
+  ],
+  "descricao": "Arranjo com flores, folhas e os tons quentes do outono.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "outono"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 850
+}

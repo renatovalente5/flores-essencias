@@ -1,0 +1,21 @@
+{
+  "nome": "Calendário do Advento de 12 ou 24 dias",
+  "fotos": [],
+  "descricao": "Calendário do Advento com pequenas figuras artesanais em cera, uma surpresa por dia até ao Natal. Há uma versão de 12 dias e outra de 24 dias.",
+  "preco": 8.99,
+  "precoDesde": true,
+  "precoNota": "12 dias: 8,99 €; 24 dias: 13,99 €",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 420
+}

@@ -1,0 +1,23 @@
+{
+  "nome": "Caneca natalícia de cappuccino com vela",
+  "fotos": [
+    "caneca-natal-cappuccino-vela"
+  ],
+  "descricao": "Caneca de Natal com Pai Natal e uma vela artesanal com aroma a café, decorada a lembrar um cappuccino com chantilly.",
+  "preco": 10,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [
+    "natal"
+  ],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 230
+}

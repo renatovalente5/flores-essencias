@@ -1,0 +1,23 @@
+{
+  "nome": "Arranjo de outono em tons quentes",
+  "fotos": [
+    "arranjo-outono-tons-quentes"
+  ],
+  "descricao": "Arranjo artesanal com tons quentes, folhas outonais e pequenos detalhes brilhantes.",
+  "preco": 16,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [
+    "outono"
+  ],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 500
+}

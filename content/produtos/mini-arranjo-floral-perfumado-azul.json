@@ -1,0 +1,21 @@
+{
+  "nome": "Mini arranjo floral perfumado azul",
+  "fotos": [
+    "mini-arranjo-floral-perfumado-azul"
+  ],
+  "descricao": "Mini arranjo floral perfumado com rosas azuis e laço, num pote branco.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1310
+}

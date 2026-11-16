@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo de rosas em tons de rosa e malva",
+  "fotos": [
+    "arranjo-rosas-rosa-malva"
+  ],
+  "descricao": "Composição delicada de flores em tons de rosa e malva, num pote branco.",
+  "preco": 12,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 900
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo floral rosa em vaso geométrico",
+  "fotos": [
+    "arranjo-floral-rosa-vaso-geometrico"
+  ],
+  "descricao": "Arranjo floral em tons de rosa, num vaso branco geométrico.",
+  "preco": 12,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1250
+}

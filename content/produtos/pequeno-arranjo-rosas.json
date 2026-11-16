@@ -1,0 +1,21 @@
+{
+  "nome": "Pequeno arranjo de rosas em cera",
+  "fotos": [
+    "pequeno-arranjo-rosas"
+  ],
+  "descricao": "Pequeno arranjo de rosas em cera, feito à mão pelo Martim. Uma prenda simples e diferente, que não custa uma fortuna.",
+  "preco": 9,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": true,
+  "publicado": true,
+  "ordem": 90
+}

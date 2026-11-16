@@ -1,0 +1,21 @@
+{
+  "nome": "Floreira amarela, branca e rosa com laço",
+  "fotos": [
+    "floreira-amarela-branca-rosa-laco"
+  ],
+  "descricao": "Arranjo com flores em tons de amarelo, branco e rosa, numa floreira com laço dourado.",
+  "preco": 13,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "floreira-amarela-branca-rosa-laco",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 260
+}

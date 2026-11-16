@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo branco e rosa em vaso canelado",
+  "fotos": [
+    "arranjo-branco-rosa-vaso-canelado"
+  ],
+  "descricao": "Flores em tons de branco e rosa num vaso canelado, para decorar um quarto ou como centro de mesa.",
+  "preco": 15,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1520
+}

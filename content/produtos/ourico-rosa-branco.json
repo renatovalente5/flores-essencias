@@ -1,0 +1,21 @@
+{
+  "nome": "Ouriço rosa e branco",
+  "fotos": [
+    "ourico-rosa-branco"
+  ],
+  "descricao": "Pequeno ouriço em tons de rosa e branco, para um cantinho especial ou para oferecer.",
+  "preco": 7,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 910
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Mini arranjo em caixinha redonda",
+  "fotos": [
+    "mini-arranjo-caixinha-redonda"
+  ],
+  "descricao": "Pequeno arranjo de flores numa caixinha redonda, em tons de azul e branco ou de rosa.",
+  "preco": 10,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1450
+}

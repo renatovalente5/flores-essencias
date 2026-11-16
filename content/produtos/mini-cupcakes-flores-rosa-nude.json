@@ -1,0 +1,21 @@
+{
+  "nome": "Mini cupcakes de flores rosa e nude",
+  "fotos": [
+    "mini-cupcakes-flores-rosa-nude"
+  ],
+  "descricao": "Mini arranjos com flores em tons de rosa, branco e nude.",
+  "preco": 8,
+  "precoDesde": false,
+  "precoNota": "cada",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 950
+}

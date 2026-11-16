@@ -1,0 +1,21 @@
+{
+  "nome": "Vela poste de barbearia (por encomenda)",
+  "fotos": [
+    "vela-poste-barbearia"
+  ],
+  "descricao": "Peça em cera feita por encomenda, inspirada no poste das barbearias, com riscas vermelhas, azuis e brancas. Um exemplo de peça criada a partir da ideia de um cliente.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "prendas",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 460
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Arranjo com placa «Avós»",
+  "fotos": [
+    "arranjo-placa-avos"
+  ],
+  "descricao": "Arranjo de flores em tons de amarelo e branco com uma placa «Avós», para oferecer aos avós.",
+  "preco": null,
+  "precoDesde": false,
+  "precoNota": "",
+  "personalizacao": {
+    "nome": false,
+    "cores": false,
+    "aroma": false
+  },
+  "video": "",
+  "categoria": "arranjos",
+  "ocasioes": [],
+  "novidade": false,
+  "publicado": true,
+  "ordem": 1430
+}
