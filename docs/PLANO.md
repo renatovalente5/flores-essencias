@@ -1,7 +1,7 @@
 # Flores & Essências — plano e decisões
 
-Escrito a 16 nov 2026, no fim da fase 1 (a base técnica). Não sou advogado: o que está em «O que a lei
-pede» é a leitura dos diplomas citados.
+Escrito a 16 nov 2026, no fim da fase 1 (a base técnica), e posto em dia no fim da fase 2 (o aspeto).
+Não sou advogado: o que está em «O que a lei pede» é a leitura dos diplomas citados.
 
 ## 1. Decisões
 
@@ -9,19 +9,17 @@ pede» é a leitura dos diplomas citados.
 
 - **Sem pagamentos no site.** A encomenda faz-se no site e segue pelo WhatsApp (351933007227), com a
   mensagem já escrita; a encomenda fica feita quando os donos a confirmam por lá.
-- **O aspeto é o da proposta B, «Destaques»** (escolhida pelo dono a 16 nov 2026; `propostas/b/`). Na
-  fase 1 a página inicial já tem a estrutura dela: a capa num cartão de cantos redondos (28 px) com o
-  texto num painel creme por cima do canto de baixo, à esquerda (por baixo, no telemóvel); as categorias
-  em círculos logo a seguir; o Natal numa fila com setas; «Feitos esta semana» em grelha; a história com
-  as duas fotografias (a da banca e a do sorriso por cima); os bastidores em vídeos 9:16; «Como
-  encomendar» em quatro cartões; e o rodapé na faixa terracota, com o logótipo numa placa clara. As
-  variáveis do CSS já têm os valores da B (creme #F8F0E4, tinta #3B2A25, tinta suave #6B554B, terracota
-  #A9512F, cartões #FFFAF3).
+- **O aspeto é o da proposta B, «Destaques»** (escolhida pelo dono a 16 nov 2026; `propostas/b/`), em
+  todas as páginas (ver 4): a capa num cartão de cantos redondos (28 px) com o texto num painel creme por
+  cima do canto de baixo, à esquerda (por baixo, no telemóvel); as categorias em círculos logo a seguir;
+  o Natal numa fila com setas; «Feitos esta semana» em grelha; a história com as duas fotografias (a da
+  banca e a do sorriso por cima); os bastidores em vídeos 9:16; «Como encomendar» em quatro cartões; e o
+  rodapé na faixa terracota, com o logótipo numa placa clara. As cores são as da B (creme #F8F0E4, tinta
+  #3B2A25, tinta suave #6B554B, terracota #A9512F, cartões #FFFAF3).
 - **Letras: Young Serif nos títulos e Outfit no texto, servidas pelo próprio site** (nada do Google
-  Fonts). A Outfit veio da cópia que já havia no Mac. **A Young Serif não havia, e não a descarreguei
-  sem autorização**: até os dois ficheiros chegarem a `src/fontes/` (`youngserif-latin.woff2` e
-  `youngserif-latin-ext.woff2`, ver o `LEIA.md` dela), os títulos estão na Georgia. O build escreve o
-  `@font-face` das letras que lá estiverem.
+  Fonts). A Outfit veio da cópia que já havia no Mac; a Young Serif é a do pacote
+  `@fontsource/young-serif` 5.3.0 (OFL-1.1), que o Renato pôs em `src/fontes/` (ver o `LEIA.md`). O
+  build escreve o `@font-face` das letras que lá estiverem.
 - **Da Dream Art veio só o invisível**: o gerador, as regras dos dados, as imagens, os testes, os scripts
   da encomenda, da loja e da procura, o Worker e a `legal-comum`. Os modelos, o CSS e os textos são
   novos. O build pára se o nome, o dono ou a terra da Dream Art (ou a Mimices) aparecerem num ficheiro
@@ -73,10 +71,16 @@ pede» é a leitura dos diplomas citados.
 - **31 dos publicados não têm preço**: na pré-visualização aparecem com «Preço por confirmar» (e vão na
   encomenda com «preço a confirmar»); em produção ficam de fora, e o build lista-os. Em produção ficariam
   124 artigos.
-- **Fotografias:** 190 dos produtos e 4 da história. O preço escrito por cima das fotografias antigas foi
-  recortado em 22; 3 ficaram de fora (o preço estava no meio da peça). O texto alternativo de cada uma é
-  a primeira frase da descrição (as segundas fotografias dizem «fotografia 2 de 3»): na fase 2, ou no
-  painel, vale a pena escrever as das capas à mão.
+- **Fotografias:** 190 dos produtos e 4 da história, **nenhuma com texto ou preço por cima**. O preço das
+  fotografias antigas foi cortado pela medida da caixa preta de cada uma; as legendas «Opção 1» e
+  «Opção 2» (Sagrada Família) e o logótipo por cima de duas foram tirados; 3 ficaram de fora (o preço
+  estava no meio da peça). O que ainda se lê nalgumas é da própria peça (a caixa «Merry Christmas», a
+  placa «Bênção, paz, proteção», o nome no enfeite). O texto alternativo da primeira fotografia de cada
+  artigo (as dos cartões) e das quatro da história está escrito à mão, a olhar para elas; as outras dizem
+  «fotografia 2 de 3».
+- **O dragão articulado (3D)** usa a fotografia DfSlrzlMnZV cortada por cima do texto que lá estava (as
+  outras imagens dele também tinham texto): é a menos má. **O porta-cartões (3D)** não tem nenhuma limpa
+  (a única tem o título e o preço por cima): está escondido até haver outra.
 - **Vídeos** (sem som, 720 px e 20 s no máximo, com a capa): 18 de produtos e 14 dos bastidores. Ficaram
   de fora os vídeos de produtos com o preço, os contactos antigos ou um pedido de um cliente escritos por
   cima.
@@ -114,20 +118,60 @@ lei pede.
 O cartaz «odisseias» aparece ao fundo do vídeo dos CTT (bastidores): é o balcão dos correios, não uma
 peça; ficou, mas troca-se se o Renato preferir.
 
-## 4. Fase 2 (o aspeto)
+## 4. Fase 2 (feita a 16 nov 2026): a cara da B em todas as páginas
 
-- A cara da B em todas as páginas: a loja e as pastilhas, a ficha (a galeria, as escolhas, as duas
-  linhas), a encomenda (as linhas, o formulário, o «enviada»), os contactos, a história (as fotografias e
-  a fila dos vídeos), as páginas de texto e a 404; o menu e a procura (as entradas e as saídas).
-- A Young Serif (ver acima), e a revisão das letras e dos tamanhos com ela.
-- Os pontinhos de cor da B (os enfeites da capa e dos títulos), que ficaram de fora da fase 1.
-- Os ícones das categorias têm 150 px (as capas dos destaques): num ecrã retina ficam um pouco moles nos
-  círculos do computador. Se houver capas maiores no Instagram, refazê-los.
-- Os textos alternativos das fotografias principais, à mão.
-- Capturas para o dono (telemóvel e computador) antes de dar por acabado; a prova outra vez
-  (`node scripts/provar.mjs`), e o teclado e o zoom no Safari do simulador do iPhone.
-- Depois: o painel (com `src/lib/regras.mjs` byte a byte), o repositório, o domínio, o `publicar.yml`,
-  o Search Console e o IndexNow.
+- **A página inicial é a `propostas/b`**, com o conteúdo do `content/`: os pontinhos coloridos com conta
+  (quatro na capa, junto ao título no telemóvel e junto ao canto da fotografia no computador; e o ponto
+  rosa da citação); os círculos das categorias com 88 px (o desenho com 80: o ícone tem 150 px e fica
+  nítido num ecrã retina).
+- **A loja e as categorias:** as pastilhas em cima e os artigos no creme da página, sem faixa nem moldura
+  (a página do Natal igual, sem as pastilhas). As pastilhas continuam a trocar o painel sem a página andar.
+- **A ficha:** duas colunas a partir dos 720 px (a galeria fica presa ao descer), as fotografias com
+  cantos de 24 px (a miniatura do vídeo com a capa dele), a categoria numa pastilha, as escolhas, «Juntar à
+  encomenda» e, por baixo, só duas linhas: a entrega e «Feito à mão pelo Martim» (nos 3D, «Feito pelo
+  Martim, na impressora 3D»). Por baixo desta, em letra pequena, o nome, a morada e o email de quem faz a
+  peça: a lei pede-os na própria oferta (Regulamento (UE) 2023/988, art. 19.º).
+- **A encomenda:** as peças e o formulário em cartões #FFFAF3, os campos a 16 px ou mais. **O verde do
+  WhatsApp só nos botões que enviam a encomenda** («Encomendar pelo WhatsApp» e, depois de enviada, «Abrir
+  o WhatsApp» e «Enviar outra vez»): #1A7F45, com o branco a 5,04:1 (o #25D366 da marca, com letra
+  branca, não chega a 2:1). O resto do site, e o WhatsApp dos contactos, é terracota.
+- **A nossa história:** o texto numa coluna confortável (a primeira frase maior), as quatro fotografias, a
+  citação em grande e os 12 vídeos dos bastidores numa fila com setas no computador. **A citação é a da
+  página inicial** (`content/inicio.json`, a frase e o autor) e o modelo põe-na logo a seguir à secção que
+  a conta (a da televisão): sem marcador novo, o texto da página não mudou.
+- **Contactos** (o WhatsApp num cartão, os outros caminhos noutro), **Como encomendar** (os quatro passos
+  numerados em cartões, e as notas da entrega, do pagamento e do prazo), **as legais** (uma coluna ao
+  centro, de 46rem, com a letra a 17 px e a entrelinha a 1,65; o quadro da privacidade rola de lado no
+  telemóvel) e **a 404** (ao centro, com as categorias e «Ver a loja»).
+- **O movimento da B:** o entrar ao descer (o que tem `data-revelar` e começa abaixo do primeiro ecrã), os
+  botões a afundar um pouco quando se carrega e as setas das filas. Com «reduzir movimento» nada mexe; sem
+  JavaScript está tudo à vista.
+- **Um marcador de texto sozinho num parágrafo** (`{{portes}}`, `{{pagamento}}`) fica no seu `<p>`; só os
+  blocos (o quadro, a figura, os botões, as listas) saem dele.
+- **Os ganchos estáveis** para os testes e para o painel (`data-produto`, `data-categoria`, `data-nome`,
+  `data-preco`, `data-ficha`): ver o README. O modelo dos dados e o `src/lib/regras.mjs` não mudaram.
+- **A prova:** o build e os 45 testes; no browser (Chromium e WebKit), a encomenda até ao wa.me, as
+  categorias sem a página andar, nenhum transbordo a 320, 360, 375, 390 e 414 px nas 174 páginas (mais a
+  encomenda com peças e o menu e a procura abertos), os alvos de toque com 44 px, nenhuma letra abaixo de
+  12 px, os campos a 16 px e o entrar ao descer. Os contrastes estão no topo do `site.css` e o build
+  mede-os (texto a 4,5:1).
+- **As capturas para o dono:** `node scripts/capturas.mjs` (computador 1440×900 e telemóvel 390×844 ×2,
+  com «reduzir movimento») em `docs/capturas/`, fora do git; a loja sai em partes de 6000 px.
+
+### O que fica por decidir (o Renato e o dono)
+
+- A fotografia do dragão (a cortada) e o porta-cartões escondido sem fotografia limpa (ver 2).
+- A linha pequena da ficha com o nome, a morada e o email de quem faz: é a lei; pode ir para outro sítio
+  da ficha, mas não sair dela.
+- «Feito pelo Martim, na impressora 3D» nas peças 3D (em vez de «feito à mão»).
+- O verde do WhatsApp (#1A7F45) nos três botões que enviam a encomenda.
+- A citação da história em grande, logo a seguir à secção da televisão (repete a frase dita no texto).
+
+### Depois
+
+- O teclado e o zoom no Safari do simulador do iPhone (não se fez nesta fase).
+- O painel (com `src/lib/regras.mjs` byte a byte), o repositório, o domínio, o `publicar.yml`, o Search
+  Console e o IndexNow.
 
 ## 5. O que a lei pede (resumo)
 
