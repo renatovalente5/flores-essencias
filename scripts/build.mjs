@@ -4,7 +4,7 @@
 // do painel), as imagens do scripts/imagens.py, a biblioteca legal-comum e as guardas do fim. Por cima,
 // os modelos e o CSS próprios (a página inicial com a estrutura da proposta B, «Destaques»).
 //
-//   node scripts/build.mjs                       local, em http://localhost:4880/
+//   node scripts/build.mjs                       local, em http://localhost:4910/
 //   node scripts/build.mjs --base=/flores-essencias   pré-visualização numa subpasta (GitHub Pages)
 //   node scripts/build.mjs --dominio             o domínio ANTES de abrir: na raiz, com o _headers, mas
 //                                                fechado aos motores de busca e com o que falta
@@ -47,7 +47,7 @@ const semImagens = args.includes('--sem-imagens');
    houver, escreve-se aqui (sem «https://» nem «www.»): o canonical, o sitemap e os cartões de partilha
    seguem-no. */
 const DOMINIO = '';
-const ORIGEM = dominio ? `https://${DOMINIO}` : (base ? 'https://renatovalente5.github.io' : 'http://localhost:4880');
+const ORIGEM = dominio ? `https://${DOMINIO}` : (base ? 'https://renatovalente5.github.io' : 'http://localhost:4910');
 
 const erros = [];
 const avisos = [];

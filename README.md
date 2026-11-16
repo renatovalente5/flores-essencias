@@ -20,7 +20,7 @@ confirmam por lá.
 
 ```bash
 python3 scripts/imagens.py        # as versões web das fotografias e das capas dos vídeos (Pillow), em .cache/imagens
-node scripts/build.mjs            # o site em _site/ (python3 -m http.server 4880 --directory _site)
+node scripts/build.mjs            # o site em _site/ (python3 -m http.server 4910 --directory _site)
 node scripts/build.mjs --producao # como no domínio: PÁRA se faltar um dado que a lei pede (hoje pára: é o esperado)
 node scripts/testar.mjs           # os testes do gerador e da encomenda (sem browser)
 node scripts/provar.mjs           # a prova no browser (Chromium e WebKit), com um servidor temporário
