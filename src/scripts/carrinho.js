@@ -1,0 +1,358 @@
+/* Flores & Essências — a encomenda.
+   Não há pagamentos no site: a encomenda junta as peças (com as escolhas de cada uma: o nome, as
+   cores, o aroma), soma os portes da entrega escolhida e, no fim, abre o WhatsApp com a encomenda
+   escrita. Nada sai do aparelho da pessoa até ela enviar a mensagem. No browser
+   («flores-essencias:encomenda») fica só a encomenda — as peças, as escolhas, as quantidades e a
+   entrega — e, depois de abrir o WhatsApp, a hora a que o abriu, para a página dizer «Encomenda
+   enviada» quando a pessoa volta; nunca o nome nem a morada (a política de privacidade promete isto).
+   Os preços nunca se guardam: lêem-se sempre do catálogo publicado, para um preço mudado valer logo. */
+(function () {
+  'use strict';
+  const { $, $$, esc, euros, ico, guardado, precoDe, catalogo, miniaturaHtml } = window.FE;
+  const CHAVE = 'flores-essencias:encomenda';
+  const MAX_QTD = 999;
+  const CAMPOS = ['nome', 'cores', 'aroma'];
+  const TAMANHO = { nome: 40, cores: 60, aroma: 60 };
+
+  // ---------------------------------------------------------------- estado
+  const linhaValida = (l) => l && typeof l.produto === 'string' && Number.isInteger(l.qtd) && l.qtd > 0;
+  function ler() {
+    const e = guardado.ler(CHAVE, null);
+    if (e && e.v === 1 && Array.isArray(e.linhas)) {
+      e.linhas = e.linhas.filter(linhaValida).map((l) => ({ produto: l.produto, qtd: l.qtd, pers: l.pers && typeof l.pers === 'object' ? l.pers : {} }));
+      if (typeof e.zona !== 'string') e.zona = '';
+      if (!(e.enviada && typeof e.enviada.em === 'string' && typeof e.enviada.encomenda === 'string')) delete e.enviada;
+      return e;
+    }
+    return { v: 1, linhas: [], zona: '' };
+  }
+  let estado = ler();
+  // «Leonor» e «leonor» são duas linhas: a peça leva o nome exatamente como foi escrito (os termos dizem-no)
+  const chaveLinha = (l) => JSON.stringify([l.produto, CAMPOS.map((k) => String((l.pers || {})[k] || '').trim())]);
+  /* «Encomenda enviada» vale para ESTA encomenda: mudar uma peça, a quantidade ou a entrega apaga a
+     marca (a encomenda que seguiu já não é esta), e ao fim de 14 dias também. */
+  const assinatura = () => JSON.stringify([estado.linhas.map((l) => [chaveLinha(l), l.qtd]), estado.zona]);
+  function enviada() {
+    const env = estado.enviada;
+    if (!env) return null;
+    const idade = Date.now() - Date.parse(env.em);
+    if (!estado.linhas.length || env.encomenda !== assinatura() || !(idade >= 0 && idade < 14 * 864e5)) { delete estado.enviada; return null; }
+    return env;
+  }
+  const ouvintes = [];
+  /* Grava e redesenha. Devolve a promessa do desenho (a página da encomenda espera pelo catálogo): o
+     foco que se põe depois dela cai no botão novo, e não no que o desenho deita fora. */
+  function guardar() {
+    enviada();
+    guardado.gravar(CHAVE, estado);
+    desenharConta();
+    return Promise.all(ouvintes.map((f) => f()));
+  }
+  window.addEventListener('storage', (ev) => { if (ev.key === CHAVE) { estado = ler(); desenharConta(); ouvintes.forEach((f) => f()); } });
+  // A página volta da memória do browser (o «voltar» depois do WhatsApp): lê-se outra vez.
+  window.addEventListener('pageshow', (ev) => { if (ev.persisted) { estado = ler(); desenharConta(); ouvintes.forEach((f) => f()); } });
+
+  // ---------------------------------------------------------------- contas
+  /* Cada linha: o preço da unidade (o de hoje), o total, e se é «desde» (o preço muda com o modelo)
+     ou «a confirmar» (ainda sem preço). O total da encomenda diz o mesmo: «desde 32,00 €» ou
+     «32,00 € + a confirmar». */
+  function contas(cat, linhas, zona) {
+    let pecas = 0;
+    let porConfirmar = false;
+    let desde = false;
+    const detalhe = linhas.map((l) => {
+      const p = cat.produtos[l.produto];
+      if (!p) return { linha: l, p: null };
+      const unidade = precoDe(p).atual;
+      const total = unidade === null ? null : Math.round(unidade * l.qtd * 100) / 100;
+      if (total === null) porConfirmar = true; else pecas += total;
+      if (p.desde && total !== null) desde = true;
+      return { linha: l, p, unidade, total, desde: Boolean(p.desde) };
+    });
+    const validas = detalhe.filter((d) => d.p);
+    pecas = Math.round(pecas * 100) / 100;
+    const z = (cat.zonas || []).find((x) => x.id === zona) || {};
+    let portes = 0;
+    let portesPorConfirmar = false;
+    if (z.morada && validas.length) {
+      const v = (cat.portes || {})[zona];
+      const gratis = (cat.portes || {}).gratisAPartirDe;
+      if (typeof gratis === 'number' && !porConfirmar && !desde && pecas >= gratis) portes = 0;
+      else if (typeof v === 'number') portes = v; else portesPorConfirmar = true;
+    }
+    return { detalhe, validas, pecas, porConfirmar, desde, portes, portesPorConfirmar, morada: Boolean(z.morada), total: Math.round((pecas + portes) * 100) / 100 };
+  }
+  const valorPecas = (c) => (c.porConfirmar ? (c.pecas ? `${c.desde ? 'desde ' : ''}${euros(c.pecas)} + a confirmar` : 'a confirmar') : `${c.desde ? 'desde ' : ''}${euros(c.pecas)}`);
+  function valorTotal(c) {
+    if (c.porConfirmar) return 'a confirmar';
+    if (c.morada && c.portesPorConfirmar) return `${c.desde ? 'desde ' : ''}${euros(c.pecas)} + portes`;
+    return `${c.desde ? 'desde ' : ''}${euros(c.total)}`;
+  }
+
+  // ---------------------------------------------------------------- o saco do cabeçalho
+  /* O número no saco: as peças diferentes da encomenda, sem as que saíram da loja, quando o catálogo já
+     chegou (essas não entram na encomenda). */
+  let ultimaConta = null;
+  function desenharConta() {
+    const cat = window.FE.catalogoJa();
+    const n = cat ? estado.linhas.filter((l) => cat.produtos[l.produto]).length : estado.linhas.length;
+    const saco = $('#saco');
+    const conta = saco && $('[data-conta]', saco);
+    if (!saco || !conta) return;
+    conta.hidden = n === 0;
+    conta.textContent = n > 99 ? '99+' : String(n);
+    saco.setAttribute('aria-label', n ? `A encomenda: ${n} ${n === 1 ? 'peça' : 'peças'}` : 'A encomenda');
+    ultimaConta = n;
+  }
+
+  // ---------------------------------------------------------------- juntar (a ficha)
+  /* Depois de enviada, uma peça nova começa outra encomenda: a que seguiu pelo WhatsApp não se repete
+     na mensagem seguinte. Devolve { nova } para o recado o dizer. */
+  function juntar({ produto, pers = {}, qtd = 1 }) {
+    const nova = Boolean(enviada());
+    if (nova) { estado = { v: 1, linhas: [], zona: estado.zona }; ultimaMensagem = ''; }
+    const limpo = Object.fromEntries(CAMPOS.map((k) => [k, String(pers[k] || '').trim().replace(/\s+/g, ' ').slice(0, TAMANHO[k])]).filter(([, v]) => v));
+    const linha = { produto, pers: limpo, qtd: Math.max(1, Math.min(MAX_QTD, qtd)) };
+    const igual = estado.linhas.find((l) => chaveLinha(l) === chaveLinha(linha));
+    if (igual) igual.qtd = Math.min(MAX_QTD, igual.qtd + linha.qtd);
+    else estado.linhas.push(linha);
+    guardar();
+    return { nova };
+  }
+
+  // ---------------------------------------------------------------- a página da encomenda
+  const pagina = $('[data-encomenda]');
+  const form = pagina && $('[data-encomenda-form]', pagina);
+  let ultimaMensagem = '';
+
+  /* As escolhas de uma linha, pela ordem da mensagem: o nome, as cores, o aroma. */
+  function pormenores(d) {
+    const out = [];
+    for (const k of d.p.pers || []) {
+      const v = (d.linha.pers || {})[k.id];
+      if (v) out.push([k.rotulo, v]);
+    }
+    return out;
+  }
+  const textoLinha = (d) => (d.total === null ? 'preço a confirmar' : `${d.desde ? 'desde ' : ''}${euros(d.total)}`);
+
+  function linhaHtml(cat, d, i) {
+    if (!d.p) {
+      return `<li class="linha linha--saiu"><span class="linha__foto"></span><div><p class="linha__nome">Peça que já não está à venda</p><p class="linha__un">Saiu da loja e não entra na encomenda.</p></div><div class="linha__fundo"><button class="botao-icone" type="button" data-tirar="${i}" aria-label="Tirar da encomenda">${ico('lixo')}</button></div></li>`;
+    }
+    const p = d.p;
+    const nome = esc(p.nome);
+    const extras = pormenores(d).map(([k, v]) => `<li>${esc(k)}: <strong>${esc(v)}</strong></li>`).join('');
+    const un = d.unidade === null ? 'Preço por confirmar' : `${d.desde ? 'Desde ' : ''}${euros(d.unidade)} / unidade`;
+    return `<li class="linha">
+      <a class="linha__foto" href="${esc(p.url)}" tabindex="-1" aria-hidden="true">${miniaturaHtml(cat, p.img, 144)}</a>
+      <div>
+        <p class="linha__nome"><a href="${esc(p.url)}">${nome}</a></p>
+        ${extras ? `<ul class="linha__pormenores" role="list">${extras}</ul>` : ''}
+        <p class="linha__un">${un}</p>
+      </div>
+      <div class="linha__fundo">
+        <div class="passo-qtd" data-linha="${i}">
+          <button type="button" data-menos aria-label="Menos um: ${nome}"${d.linha.qtd <= 1 ? ' disabled' : ''}>${ico('menos')}</button>
+          <input type="number" inputmode="numeric" min="1" max="${MAX_QTD}" value="${d.linha.qtd}" aria-label="Quantidade: ${nome}">
+          <button type="button" data-mais aria-label="Mais um: ${nome}"${d.linha.qtd >= MAX_QTD ? ' disabled' : ''}>${ico('mais')}</button>
+        </div>
+        <button class="botao-icone" type="button" data-tirar="${i}" aria-label="Tirar da encomenda: ${nome}">${ico('lixo')}</button>
+        <span class="linha__total">${d.total === null ? 'a confirmar' : `${d.desde ? 'desde ' : ''}${euros(d.total)}`}</span>
+      </div>
+    </li>`;
+  }
+
+  function resumoHtml(c) {
+    const portes = !c.morada ? 'sem portes' : (c.portesPorConfirmar ? 'a confirmar' : euros(c.portes));
+    return `<div><dt>Peças</dt><dd>${valorPecas(c)}</dd></div>
+      <div><dt>Portes</dt><dd>${portes}</dd></div>
+      <div class="resumo__total"><dt>Total</dt><dd>${valorTotal(c)}</dd></div>`;
+  }
+
+  // « hoje, às 21:34» ou « a 12 de outubro, às 21:34» (em Lisboa)
+  function quando(iso) {
+    const d = new Date(iso);
+    const dia = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Lisbon', year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
+    const hora = new Intl.DateTimeFormat('pt-PT', { timeZone: 'Europe/Lisbon', hour: '2-digit', minute: '2-digit' }).format(d);
+    if (dia === window.FE.hojeLisboa()) return ` hoje, às ${hora}`;
+    return ` a ${new Intl.DateTimeFormat('pt-PT', { timeZone: 'Europe/Lisbon', day: 'numeric', month: 'long' }).format(d)}, às ${hora}`;
+  }
+
+  async function desenharPagina() {
+    if (!pagina) return;
+    const carregar = $('[data-encomenda-carregar]', pagina);
+    const cheia = $('[data-encomenda-cheia]', pagina);
+    const vazia = $('[data-encomenda-vazia]', pagina);
+    let cat;
+    try { cat = await catalogo(); } catch (_) {
+      carregar.textContent = 'Não conseguimos abrir a encomenda. Verifica a ligação e recarrega a página.';
+      return;
+    }
+    carregar.hidden = true;
+    const radios = $$('input[name="zona"]', form);
+    if (!radios.some((r) => r.value === estado.zona)) estado.zona = radios[0] ? radios[0].value : '';
+    radios.forEach((r) => { r.checked = r.value === estado.zona; });
+    const vazio = !estado.linhas.length;
+    cheia.hidden = vazio;
+    vazia.hidden = !vazio;
+    if (vazio) return;
+    const c = contas(cat, estado.linhas, estado.zona);
+    // as linhas redesenham-se por inteiro: o foco volta ao controlo equivalente da linha nova
+    const ativo = document.activeElement;
+    const passo = ativo && ativo.closest ? ativo.closest('[data-linhas] [data-linha]') : null;
+    const foco = passo && { i: passo.dataset.linha, tipo: ['data-mais', 'data-menos'].find((a) => ativo.hasAttribute(a)) };
+    $('[data-linhas]', pagina).innerHTML = c.detalhe.map((d, i) => linhaHtml(cat, d, i)).join('');
+    const sitio = foco && $(`[data-linha="${foco.i}"]`, pagina);
+    if (sitio) { const alvo = foco.tipo ? $(`[${foco.tipo}]`, sitio) : null; (alvo && !alvo.disabled ? alvo : $('input', sitio)).focus(); }
+    $('[data-resumo]', form).innerHTML = resumoHtml(c);
+    const zona = (cat.zonas || []).find((z) => z.id === estado.zona) || {};
+    $('[data-so-envio]', form).hidden = !zona.morada;
+    $$('[data-obrigatorio-envio]', form).forEach((i) => { i.required = Boolean(zona.morada); });
+    $$('[data-so-em-mao]', form).forEach((x) => { x.hidden = Boolean(zona.morada); });
+    // a nota dos portes «a confirmar» (como se calculam), só num envio sem portes escritos
+    $$('[data-so-portes-a-confirmar]', form).forEach((x) => { x.hidden = !(zona.morada && typeof (cat.portes || {})[estado.zona] !== 'number'); });
+    // Já abriu o WhatsApp com esta encomenda: a página diz isso (também quando a pessoa volta mais
+    // tarde, ou recarrega), em vez de pedir os dados outra vez.
+    const env = enviada();
+    $('[data-por-enviar]', form).hidden = Boolean(env);
+    $('[data-enviada]', form).hidden = !env;
+    if (env) {
+      $('[data-enviada-quando]', form).textContent = quando(env.em);
+      /* Depois de recarregar, a mensagem já não existe (o nome e a morada nunca se guardam): em vez de
+         um WhatsApp vazio, «Enviar outra vez» volta ao formulário. */
+      const continuar = $('[data-continuar]', form);
+      continuar.href = `https://wa.me/${cat.whatsapp}?text=${encodeURIComponent(ultimaMensagem)}`;
+      continuar.hidden = !ultimaMensagem;
+      $('[data-alterar]', form).hidden = !ultimaMensagem;
+      $('[data-reenviar]', form).hidden = Boolean(ultimaMensagem);
+    }
+  }
+
+  // ---------------------------------------------------------------- a mensagem do WhatsApp
+  /* A mensagem que a pessoa envia: as peças (quantidade, nome, preço e as escolhas), a entrega e os
+     portes, o total, a forma de pagamento (quando os donos a disserem), o nome e a morada. O *negrito*
+     e os «- » (lista) são do WhatsApp. */
+  function mensagem(cat, c, dados) {
+    const z = (cat.zonas || []).find((x) => x.id === estado.zona) || cat.zonas[0];
+    const linhas = ['Olá! Quero fazer esta encomenda:', ''];
+    for (const d of c.validas) {
+      linhas.push(`*${d.linha.qtd} × ${d.p.nome}* — ${textoLinha(d)}`);
+      for (const [k, v] of pormenores(d)) linhas.push(`- ${k}: ${v}`);
+      linhas.push('');
+    }
+    linhas.push(`Peças: ${valorPecas(c)}`);
+    if (!z.morada) linhas.push(`Entrega: ${z.nome}`);
+    else linhas.push(`Entrega: ${z.nome} — portes ${c.portesPorConfirmar ? 'a confirmar' : euros(c.portes)}`);
+    if (c.porConfirmar) linhas.push('*Total: a confirmar convosco*');
+    else linhas.push(`*Total: ${valorTotal(c)}*`);
+    if (cat.pagamento) linhas.push(`Pagamento: ${cat.pagamento}`);
+    linhas.push('');
+    linhas.push(`Nome: ${dados.nome}`);
+    if (z.morada) linhas.push(`Morada: ${[dados.morada, [dados.codigoPostal, dados.localidade].filter(Boolean).join(' ')].filter(Boolean).join(', ')}`);
+    return linhas.join('\n').replace(/\n{3,}/g, '\n\n');
+  }
+
+  /* ABRIR O WHATSAPP. No telemóvel, a própria página segue para o wa.me (uma ligação universal: abre
+     logo a aplicação). No computador, um separador novo (o WhatsApp Web ou a aplicação); se o browser o
+     recusar, abre-se aqui mesmo. O window.open é chamado dentro do toque, sem esperas antes: por isso o
+     envio usa o catálogo já carregado. */
+  const telemovel = window.matchMedia('(hover: none) and (pointer: coarse)');
+  function abrirWhatsApp(url) {
+    if (telemovel.matches) { window.location.href = url; return; }
+    const janela = window.open(url, '_blank');
+    if (janela) { try { janela.opener = null; } catch (_) { /* já é de outra origem */ } } else window.location.href = url;
+  }
+
+  if (pagina && form) {
+    const erro = $('[data-erro-encomenda]', form);
+    const botaoEnviar = $('button[type="submit"]', form);
+    const focar = (sel) => { const t = $(sel, pagina); if (t) { t.tabIndex = -1; t.focus(); } };
+    /* A frase do erro junto ao primeiro campo que falta (junto do botão ficava fora do ecrã, no
+       telemóvel); os outros erros junto do botão. */
+    const errar = (texto, campo = null) => {
+      erro.textContent = texto;
+      const sitio = campo && campo.closest('.campo');
+      if (sitio) sitio.append(erro); else botaoEnviar.before(erro);
+      erro.hidden = false;
+      if (campo) campo.focus();
+    };
+
+    // as acções nas linhas (o desenho devolve o foco ao botão equivalente da linha nova)
+    pagina.addEventListener('click', (ev) => {
+      const tirar = ev.target.closest('[data-tirar]');
+      if (tirar) {
+        estado.linhas.splice(Number(tirar.dataset.tirar), 1);
+        guardar().then(() => focar(estado.linhas.length ? '#t-encomenda' : '.vazio__titulo'));
+        window.FE.recado('<span class="recado__texto">A peça saiu da encomenda.</span>');
+        return;
+      }
+      const b = ev.target.closest('[data-linha] [data-mais], [data-linha] [data-menos]');
+      if (b) {
+        const l = estado.linhas[Number(b.closest('[data-linha]').dataset.linha)];
+        if (!l) return;
+        l.qtd = Math.max(1, Math.min(MAX_QTD, l.qtd + (b.hasAttribute('data-mais') ? 1 : -1)));
+        guardar();
+      }
+    });
+    // a quantidade escrita à mão (30 lembranças não se fazem com o «+»)
+    pagina.addEventListener('change', (ev) => {
+      const input = ev.target.closest('[data-linha] input');
+      if (input) {
+        const l = estado.linhas[Number(input.closest('[data-linha]').dataset.linha)];
+        if (!l) return;
+        l.qtd = Math.max(1, Math.min(MAX_QTD, parseInt(input.value, 10) || 1));
+        // o desenho espera que o Tab acabe: a meio, deitava fora o campo de onde o foco estava a sair
+        window.setTimeout(guardar, 0);
+        return;
+      }
+      if (ev.target.name === 'zona') { estado.zona = ev.target.value; guardar(); }
+    });
+    form.addEventListener('input', (ev) => { if (ev.target.hasAttribute && ev.target.hasAttribute('aria-invalid')) ev.target.removeAttribute('aria-invalid'); erro.hidden = true; });
+
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      erro.hidden = true;
+      $$('[aria-invalid]', form).forEach((i) => i.removeAttribute('aria-invalid'));
+      let cat = window.FE.catalogoJa();
+      if (!cat) {
+        try { cat = await catalogo(); } catch (_) { errar('Não conseguimos carregar a loja. Verifica a ligação e tenta outra vez.'); return; }
+      }
+      const c = contas(cat, estado.linhas, estado.zona);
+      if (!c.validas.length) { errar('A encomenda está vazia.'); return; }
+      const faltam = ['nome', 'morada', 'codigoPostal', 'localidade'].map((n) => form.elements[n]).filter((i) => i && i.required && !i.value.trim());
+      if (faltam.length) {
+        faltam.forEach((i) => i.setAttribute('aria-invalid', 'true'));
+        const nomes = faltam.map((i) => $(`label[for="${i.id}"]`, form).firstChild.textContent.trim().toLowerCase());
+        errar(`Falta preencher: ${nomes.join(', ')}.`, faltam[0]);
+        return;
+      }
+      const dados = Object.fromEntries(['nome', 'morada', 'codigoPostal', 'localidade'].map((n) => [n, form.elements[n] ? form.elements[n].value.trim().replace(/\s+/g, ' ') : '']));
+      ultimaMensagem = mensagem(cat, c, dados);
+      const url = `https://wa.me/${cat.whatsapp}?text=${encodeURIComponent(ultimaMensagem)}`;
+      // A marca «enviada» grava-se antes de abrir: no telemóvel a página pode sair logo a seguir.
+      estado.enviada = { em: new Date().toISOString(), encomenda: assinatura() };
+      const desenho = guardar();
+      abrirWhatsApp(url);
+      desenho.then(() => focar('#t-enviada'));
+    });
+    // «Alterar a encomenda» (e «Enviar outra vez», depois de recarregar): o formulário outra vez.
+    const alterar = () => { delete estado.enviada; guardar().then(() => focar('#t-encomenda')); };
+    $('[data-alterar]', form).addEventListener('click', alterar);
+    $('[data-reenviar]', form).addEventListener('click', alterar);
+    // «Fazer outra encomenda»: a encomenda fica vazia.
+    $('[data-esvaziar]', form).addEventListener('click', () => {
+      estado = { v: 1, linhas: [], zona: estado.zona };
+      ultimaMensagem = '';
+      form.reset();
+      guardar().then(() => focar('.vazio__titulo'));
+    });
+    ouvintes.push(desenharPagina);
+  }
+
+  window.FE.carrinho = { juntar, linhas: () => estado.linhas.slice(), ultimaConta: () => ultimaConta };
+  desenharConta();
+  desenharPagina();
+  // com peças no saco, conta-as outra vez quando o catálogo chegar
+  if (estado.linhas.length) (window.requestIdleCallback || ((f) => window.setTimeout(f, 1200)))(() => { catalogo().then(desenharConta, () => {}); });
+})();
