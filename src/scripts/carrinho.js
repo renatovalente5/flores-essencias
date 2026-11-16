@@ -242,8 +242,8 @@
       linhas.push('');
     }
     linhas.push(`Peças: ${valorPecas(c)}`);
-    if (!z.morada) linhas.push(`Entrega: ${z.nome}`);
-    else linhas.push(`Entrega: ${z.nome} — portes ${c.portesPorConfirmar ? 'a confirmar' : euros(c.portes)}`);
+    if (!z.morada) linhas.push(`Entrega: ${z.curto}`);
+    else linhas.push(`Entrega: ${z.curto} — portes ${c.portesPorConfirmar ? 'a confirmar' : euros(c.portes)}`);
     if (c.porConfirmar) linhas.push('*Total: a confirmar convosco*');
     else linhas.push(`*Total: ${valorTotal(c)}*`);
     if (cat.pagamento) linhas.push(`Pagamento: ${cat.pagamento}`);

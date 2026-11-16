@@ -63,9 +63,10 @@ function anotar(nivel, texto) {
 }
 /** Pára a publicação: a lista no registo e, no CI, uma anotação por problema (10 no máximo). `tecnico`:
  *  um defeito do gerador, e não do conteúdo — a anotação di-lo. */
-function parar(titulo, lista, { tecnico = false } = {}) {
+function parar(titulo, lista, { tecnico = false, nota = '' } = {}) {
   console.error(`\n${titulo}\n`);
   for (const e of lista) console.error(`  ✗ ${e}`);
+  if (nota) console.error(`\n${nota}`);
   for (const e of [...new Set(lista)].slice(0, 10)) anotar('error', tecnico ? `${e} (Só o Renato pode corrigir.)` : e);
   process.exit(1);
 }
@@ -95,7 +96,11 @@ const hoje = hojeEmLisboa();
 const listaRegras = R.problemas(dadosRegras, { hoje, producao });
 for (const p of listaRegras.filter((x) => x.classe === 'bloqueia')) erros.push(`${p.ecra}: ${p.mensagem}`);
 if (dominio && !DOMINIO) erros.push('Gerador: falta o domínio do site (DOMINIO, em scripts/build.mjs): sem ele, o canonical, o sitemap e os cartões de partilha não têm para onde apontar.');
-if (erros.length) parar(`A publicação parou: ${erros.length} ${erros.length === 1 ? 'problema' : 'problemas'} no conteúdo.`, erros);
+/* Em produção, o que fica de fora por falta de preço diz-se também quando a publicação pára: é a outra
+   lista que os donos têm de ver. */
+const semPrecoEmProducao = listaRegras.filter((p) => /:preco:producao$/.test(p.chave)).map((p) => p.slug);
+const notaSemPreco = semPrecoEmProducao.length ? `E, quando publicar, ${semPrecoEmProducao.length} artigos ficam fora do site por não terem preço: ${semPrecoEmProducao.join(', ')}` : '';
+if (erros.length) parar(`A publicação parou: ${erros.length} ${erros.length === 1 ? 'problema' : 'problemas'} no conteúdo.`, erros, { nota: notaSemPreco });
 
 /* Os avisos das regras, juntos quando são muitos do mesmo género (a lista inteira está no painel). */
 const lembretesArtigos = new Map();

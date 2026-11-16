@@ -75,17 +75,32 @@ def guardar(im, destino, formato):
     os.replace(tmp, destino)
 
 
+def medidas(origem):
+    """A largura e a altura como a fotografia se vê (com a rotação do EXIF), sem a descodificar."""
+    with Image.open(origem) as im:
+        w, h = im.size
+        if im.getexif().get(0x0112, 1) in (5, 6, 7, 8):
+            w, h = h, w
+    return w, h
+
+
 def versoes(nome, origem):
-    """AVIF + WebP nas larguras que a fotografia aguenta (nunca se aumenta)."""
-    im = abrir(origem).convert('RGB')
+    """AVIF + WebP nas larguras que a fotografia aguenta (nunca se aumenta). Se as versões já estão
+    todas na cache, a fotografia nem se abre (é o que faz uma construção sem nada novo ser rápida)."""
     h = resumo(origem)
-    larguras = [w for w in LARGURAS if w < im.width] + [im.width]
-    for w in larguras:
-        alto = round(im.height * w / im.width)
-        reduzida = im if w == im.width else im.resize((w, alto), Image.LANCZOS)
-        for fmt in FORMATOS:
-            guardar(reduzida, os.path.join(CACHE, f'{nome}-{h}-{w}.{fmt}'), fmt)
-    return {'largura': im.width, 'altura': im.height, 'resumo': h, 'larguras': larguras,
+    largura, altura = medidas(origem)
+    larguras = [w for w in LARGURAS if w < largura] + [largura]
+    destinos = {(w, fmt): os.path.join(CACHE, f'{nome}-{h}-{w}.{fmt}') for w in larguras for fmt in FORMATOS}
+    if not all(os.path.exists(d) for d in destinos.values()):
+        im = abrir(origem).convert('RGB')
+        for w in larguras:
+            if all(os.path.exists(destinos[(w, fmt)]) for fmt in FORMATOS):
+                continue
+            alto = round(im.height * w / im.width)
+            reduzida = im if w == im.width else im.resize((w, alto), Image.LANCZOS)
+            for fmt in FORMATOS:
+                guardar(reduzida, destinos[(w, fmt)], fmt)
+    return {'largura': largura, 'altura': altura, 'resumo': h, 'larguras': larguras,
             'formatos': list(FORMATOS)}
 
 

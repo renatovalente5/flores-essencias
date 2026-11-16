@@ -404,7 +404,7 @@ export function encomenda(ctx) {
   <p class="vazio" data-encomenda-carregar>A abrir a encomenda…</p>
   <noscript><p class="nota">A encomenda precisa de JavaScript. Podes sempre encomendar pelo <a href="${ctx.whatsapp('Olá! Gostava de fazer uma encomenda.')}">WhatsApp</a>.</p></noscript>
 </section>`;
-  return { caminho: '/encomenda/', titulo: 'A tua encomenda', descricao: 'Revê as peças, escolhe a entrega e envia-nos a encomenda pelo WhatsApp.', conteudo, classe: 'pagina-encomenda', indexar: false };
+  return { caminho: '/encomenda/', titulo: 'A tua encomenda', descricao: 'Revê as peças, escolhe a entrega e envia-nos a encomenda pelo WhatsApp.', conteudo, classe: 'pagina-encomenda', indexar: false, jsonld: [migalhasLd(ctx, [{ nome: 'Início', caminho: '/' }, { nome: 'A tua encomenda', caminho: '/encomenda/' }])] };
 }
 
 // ---------------------------------------------------------------- páginas de texto
