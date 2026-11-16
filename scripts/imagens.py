@@ -8,7 +8,7 @@ Lê:
   media/marca/logo.png         o logótipo inteiro (o cartão de partilha da página inicial)
   media/marca/logo-simbolo.png o símbolo (a chama na vela): os ícones da aba e do ecrã inicial
   media/marca/logo-horizontal.png  o símbolo ao lado do nome: o cabeçalho
-  media/marca/logo-horizontal-branco.png  o mesmo em branco, para o rodapé (scripts/logo-branco.py)
+  media/marca/logo-horizontal-branco.png  o mesmo em branco, para o rodapé (scripts/logo-grosso.py, que faz também o -cabecalho)
   media/icones/*.png           os ícones das categorias e das secções (as capas dos destaques)
   content/produtos/*.json      para saber a primeira fotografia de cada artigo (o cartão de partilha)
 
@@ -166,7 +166,8 @@ def cartao_logotipo(logo):
 PECAS_DA_MARCA = {
     # media/marca/<nome>.png: as alturas em px que o site pede (1x, 2x, 3x)
     'logo-horizontal': (40, 50, 80, 100, 150),   # o cabeçalho (40 e 50 px)
-    'logo-horizontal-branco': (64, 72, 128, 144, 216),     # o rodapé terracota (scripts/logo-branco.py)
+    'logo-horizontal-cabecalho': (40, 50, 80, 100, 150),   # o cabeçalho, com o traço mais grosso (scripts/logo-grosso.py)
+    'logo-horizontal-branco': (64, 72, 128, 144, 216),     # o rodapé terracota (scripts/logo-grosso.py)
 }
 
 

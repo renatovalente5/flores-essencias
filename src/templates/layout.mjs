@@ -34,7 +34,7 @@ function cabecalho(ctx, caminho) {
   const nome = ctx.site.marca;
   return `<header class="topo" id="topo">
   <div class="topo__barra contentor">
-    <a class="topo__marca" href="${ctx.url('/')}"${caminho === '/' ? ' aria-current="page"' : ''}>${logotipo(ctx, { alto: 50, classe: 'topo__logo', alt: `${nome} — página inicial`, prioridade: true, tamanhos: `(min-width: 860px) ${Math.round((ctx.manifesto.marca['logo-horizontal'].w * 50) / ctx.manifesto.marca['logo-horizontal'].h)}px, ${Math.round((ctx.manifesto.marca['logo-horizontal'].w * 40) / ctx.manifesto.marca['logo-horizontal'].h)}px` })}</a>
+    <a class="topo__marca" href="${ctx.url('/')}"${caminho === '/' ? ' aria-current="page"' : ''}>${logotipo(ctx, { peca: 'logo-horizontal-cabecalho', alto: 50, classe: 'topo__logo', alt: `${nome} — página inicial`, prioridade: true, tamanhos: `(min-width: 860px) ${Math.round((ctx.manifesto.marca['logo-horizontal-cabecalho'].w * 50) / ctx.manifesto.marca['logo-horizontal-cabecalho'].h)}px, ${Math.round((ctx.manifesto.marca['logo-horizontal-cabecalho'].w * 40) / ctx.manifesto.marca['logo-horizontal-cabecalho'].h)}px` })}</a>
     <nav class="topo__nav" aria-label="Principal">
       <ul role="list">
         ${PRINCIPAIS.filter(([c]) => ctx.existe(c)).map(([c, t]) => `<li><a href="${ctx.url(c)}"${marca(caminho, c)}>${esc(t)}</a></li>`).join('\n        ')}

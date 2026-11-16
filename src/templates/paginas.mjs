@@ -51,8 +51,9 @@ export function organizacao(ctx) {
 }
 
 // ---------------------------------------------------------------- página inicial
-/* A PÁGINA INICIAL (a proposta B): a capa num cartão grande de cantos redondos, com o texto num painel
-   creme (por cima do canto de baixo, à esquerda, no computador; por baixo no telemóvel); as categorias
+/* A PÁGINA INICIAL (a proposta B): a capa com o arranjo num cartão de cantos redondos e, por cima do
+   canto, o Martim e a mãe (16 nov 2026, «melhora a imagem e tenta também meter o Martim aí»); o texto ao
+   lado no computador e por baixo no telemóvel; as categorias
    em círculos, logo a seguir (como os destaques do Instagram); o Natal numa fila com setas; «Feitos esta
    semana» em grelha; a história com as duas fotografias; os bastidores numa fila de vídeos 9:16; e
    «Como encomendar» em quatro cartões. Tudo vem de content/inicio.json. */
@@ -64,10 +65,17 @@ export function inicio(ctx) {
       const poster = ctx.manifesto.posters[`video-${c.video}`];
       return `<video class="capa__video" muted loop playsinline autoplay preload="metadata" data-video${poster ? ` poster="${ctx.asset(`img/video-${c.video}-${poster.resumo}-${poster.larguras.at(-1)}.webp`)}"` : ''} aria-label="${esc(`Vídeo sem som: ${ctx.videos[c.video]?.legenda || ''}`)}"><source src="${ctx.asset(ctx.ficheiros.videos[c.video])}" type="video/mp4"></video>`;
     })()
-    : imagem(ctx, c.foto, { classe: 'capa__foto', tamanhos: '(min-width: 1360px) 922px, (min-width: 960px) calc(72vw - 58px), calc(100vw - 32px)', prioridade: true, ate: 1600 });
+    : imagem(ctx, c.foto, { classe: 'capa__foto', tamanhos: '(min-width: 960px) 500px, calc(100vw - 32px)', prioridade: true, ate: 1600 });
+  /* As pessoas da marca (o Martim e a mãe) numa fotografia mais pequena, por cima do canto do arranjo. */
+  const pessoas = c.fotoPessoas && ctx.manifesto.fotos[c.fotoPessoas]
+    ? `<figure class="capa__pessoas">${imagem(ctx, c.fotoPessoas, { classe: 'capa__pessoas-foto', tamanhos: '(min-width: 960px) 240px, 38vw', prioridade: true, ate: 640 })}${c.legendaPessoas ? `<figcaption>${esc(c.legendaPessoas)}</figcaption>` : ''}</figure>`
+    : '';
   const botoes = [c.botao, c.botao2].filter((b) => b && b.texto);
   const capa = `<section class="capa contentor" aria-labelledby="capa-titulo">
-  <div class="capa__cartao">${fundoCapa}</div>
+  <div class="capa__fotos">
+    <div class="capa__cartao">${fundoCapa}</div>
+    ${pessoas}
+  </div>
   <div class="capa__painel">
     <span class="pontos pontos--capa" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <h1 id="capa-titulo">${esc(c.titulo)}</h1>

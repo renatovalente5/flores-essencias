@@ -342,19 +342,60 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 .capa { position: relative; margin-top: 12px; }
 
+/* O arranjo em retrato, sem esticar (a fotografia tem 1200 px: no computador o cartão tem 480 px de
+   largura, 960 no ecrã de retina), e o Martim e a mãe numa fotografia mais pequena por cima do canto. */
+.capa__fotos { position: relative; }
 .capa__cartao {
   position: relative;
   z-index: 0;
-  aspect-ratio: 915 / 1000;
+  aspect-ratio: 1 / 1.05;
   border-radius: var(--raio-capa);
   overflow: hidden;
   background: var(--cor-foto-vazia);
 }
 .capa__foto, .capa__foto img, .capa__video {
+  display: block;
   width: 100%;
   height: 100%;
 }
-.capa__foto img, .capa__video { object-fit: cover; object-position: 50% 45%; }
+.capa__foto img, .capa__video { object-fit: cover; object-position: 50% 40%; }
+
+.capa__pessoas {
+  position: absolute;
+  z-index: 1;
+  right: 14px;
+  bottom: 14px;
+  width: 38%;
+  max-width: 200px;
+  margin: 0;
+}
+.capa__pessoas-foto, .capa__pessoas-foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.capa__pessoas-foto img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 5px solid var(--cor-fundo);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(59, 42, 37, .22);
+}
+.capa__pessoas figcaption {
+  position: absolute;
+  right: -4px;
+  bottom: -12px;
+  width: max-content;
+  padding: 4px 10px;
+  white-space: nowrap;
+  border-radius: 999px;
+  background: var(--cor-fundo);
+  color: var(--cor-tinta);
+  font-size: .75rem;
+  font-weight: 500;
+  line-height: 1.3;
+  box-shadow: 0 4px 12px rgba(59, 42, 37, .12);
+}
 
 .capa__painel { position: relative; padding-top: 24px; }
 
@@ -380,7 +421,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .capa__botoes .botao { flex: 1 1 auto; }
 
 /* Os pontinhos: no telemóvel, à direita da primeira linha do título (que lhes deixa o lugar: o
-   ::before flutua só nessa linha); no computador, por cima do painel, junto ao canto da fotografia. */
+   ::before flutua só nessa linha); no computador, por cima do título. */
 .pontos--capa { top: 22px; right: 4px; width: 72px; height: 30px; }
 .capa h1::before { content: ""; float: right; width: 84px; height: .9em; }
 @media (min-width: 600px) and (max-width: 959.98px) {
@@ -392,62 +433,37 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .capa__botoes .botao { flex: 0 0 auto; }
 }
 
-@media (min-width: 720px) and (max-width: 959.98px) {
-  .capa__cartao { aspect-ratio: 16 / 10; }
+@media (min-width: 600px) and (max-width: 959.98px) {
+  .capa__cartao { aspect-ratio: 16 / 11; }
+  .capa__pessoas { width: 26%; right: 20px; bottom: 20px; }
   .capa__painel { max-width: 620px; padding-top: 28px; }
 }
 
-/* No computador: a fotografia enche o cartão e o texto fica num painel creme sobreposto ao canto de
-   baixo, à esquerda (com os cantos de dentro arredondados). */
+/* No computador: o texto à esquerda e, à direita, o arranjo com o Martim e a mãe a sair do canto. */
 @media (min-width: 960px) {
   .capa {
-    --esq: 28%;
-    --sobre: clamp(132px, 12.5vw, 180px);
-    --alt: clamp(520px, 100vh - 240px, 660px);
-    margin-top: 24px;
+    --alt: clamp(500px, 100vh - 230px, 620px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(32px, 4vw, 64px);
+    margin-top: 28px;
   }
   @supports (height: 100svh) {
-    .capa { --alt: clamp(520px, 100svh - 240px, 660px); }
+    .capa { --alt: clamp(500px, 100svh - 230px, 620px); }
   }
+  .capa__fotos { grid-column: 2; grid-row: 1; padding: 0 0 36px 130px; }
+  .capa__cartao { height: var(--alt); aspect-ratio: 4 / 5; }
+  .capa__pessoas { right: auto; left: 0; bottom: 0; width: 230px; max-width: none; }
+  .capa__pessoas-foto img { border-width: 6px; border-radius: 24px; }
+  .capa__pessoas figcaption { right: auto; left: 50%; translate: -50% 0; padding: 5px 12px; font-size: .875rem; }
 
-  .capa__cartao {
-    height: var(--alt);
-    margin-left: var(--esq);
-    aspect-ratio: auto;
-  }
-  .capa__foto img, .capa__video { object-position: 50% 24%; }
-
-  .capa__painel {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    bottom: 0;
-    width: calc(var(--esq) + var(--sobre));
-    padding: 44px 48px 0 0;
-    background: var(--cor-fundo);
-    border-top-right-radius: var(--raio-capa);
-  }
-  .capa__painel::before,
-  .capa__painel::after {
-    content: "";
-    position: absolute;
-    width: var(--raio-capa);
-    height: var(--raio-capa);
-    background: radial-gradient(circle at 100% 0, transparent calc(var(--raio-capa) - .6px), var(--cor-fundo) var(--raio-capa));
-    pointer-events: none;
-  }
-  .capa__painel::before { bottom: 100%; right: calc(var(--sobre) - var(--raio-capa)); }
-  .capa__painel::after { bottom: 0; left: 100%; }
-
-  .capa h1 { font-size: clamp(2.75rem, 1rem + 3vw, 3.25rem); }
+  .capa__painel { grid-column: 1; grid-row: 1; padding-top: 0; }
+  .capa h1 { font-size: clamp(2.75rem, 1rem + 3vw, 3.5rem); }
   .capa h1::before { content: none; }
-  .capa__painel p { max-width: 30em; }
+  .capa__painel p { max-width: 30em; font-size: 1.0625rem; }
 
-  .pontos--capa {
-    top: auto;
-    bottom: calc(100% + 22px);
-    right: calc(var(--sobre) + 30px);
-  }
+  .pontos--capa { top: -54px; right: auto; left: 2px; }
 }
 
 /* --- Categorias (os destaques do Instagram): círculos de 88 px, no máximo ------------ */

@@ -689,7 +689,7 @@ export const LIMITES_INICIO = Object.freeze({ bastidores: [0, 8], comoEncomendar
 export function fotosDoInicio(h) {
   if (!eObjecto(h)) return [];
   const out = [];
-  if (eObjecto(h.capa)) out.push(h.capa.foto);
+  if (eObjecto(h.capa)) out.push(h.capa.foto, h.capa.fotoPessoas);
   if (eObjecto(h.historia) && Array.isArray(h.historia.fotos)) out.push(...h.historia.fotos);
   return out.filter((x) => typeof x === 'string');
 }
@@ -753,6 +753,9 @@ export function problemasDoInicio(valor, { fotos = null, videos = null, icones =
   umaLigacao('capa.botao.ligacao', true);
   if (eObjecto(h.capa.botao2) && !vazio(h.capa.botao2.texto)) umaLigacao('capa.botao2.ligacao', true);
   umaFoto('capa.foto', h.capa.foto);
+  // A segunda fotografia da capa (16 nov 2026, «tenta também meter o Martim aí»): opcional, as pessoas da marca.
+  if (!vazio(h.capa.fotoPessoas)) umaFoto('capa.fotoPessoas', h.capa.fotoPessoas);
+  if (!vazio(h.capa.legendaPessoas)) umTexto('capa.legendaPessoas', TAMANHOS.inicioCurto, false);
   if (!vazio(h.capa.video)) umVideo('capa.video', h.capa.video);
 
   // --- o destaque da época ---------------------------------------------------------------------------

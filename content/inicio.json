@@ -15,7 +15,9 @@
       "ligacao": "/a-nossa-historia/"
     },
     "foto": "arranjo-rosas-laco-vermelho",
-    "video": ""
+    "video": "",
+    "fotoPessoas": "martim-e-a-mae-na-banca",
+    "legendaPessoas": "O Martim e a mãe, Tatiana"
   },
   "categorias": {
     "titulo": "O que fazemos"
@@ -36,7 +38,7 @@
     "citacao": "Tu sabes que eu acredito e confio.",
     "autor": "O Martim, no «Dois às 10» (TVI)",
     "fotos": [
-      "historia-martim-mae-banca",
+      "historia-familia-banca",
       "historia-martim-sorriso"
     ],
     "botao": "Ler a história"
