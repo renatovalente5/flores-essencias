@@ -7,6 +7,7 @@ coisa e como se recortou.
 
     python3 scripts/importar.py            # escreve content/produtos/, content/fotos.json, content/videos.json e media/
     python3 scripts/importar.py --sem-videos
+    python3 scripts/importar.py --so-fotos   # só as fotografias com corte ou retoque (não toca no content/)
 
 Lê:
   _cliente/catalogo/produtos.json      os 163 produtos (nome, categoria, preço, descrição, personalizável, ocasiões…)
@@ -46,26 +47,39 @@ CORTES = {
     'DXnw2pdDGo6_01': (0, .18, 1, 1),        # «Lembranças 1.5, cor à escolha» em cima
     'Dbs7GX3sOyn_01': (0, .31, 1, 1),        # «Valor 24€»
     'DboSpaxMxiI_01': (0, .22, 1, 1),        # «Valor 45€»
-    'DYC76LgDAcl_01': (0, 0, 1, .79),        # «10€» em baixo
     'DX1RicRjLwB_01': (0, .28, 1, 1),        # «Um miminho 6€»
-    'DXnxdErjJBv_01': (0, 0, 1, .89),        # «12,5€»
-    'DXnxKdtjD2R_01': (0, 0, 1, .885),       # «15€»
-    'DXnxGNtjEEO_01': (0, .14, 1, 1),        # «12,5»
+    'DXnxGNtjEEO_01': (0, .15, 1, 1),        # «12,5»
     'DXnw7WOjB7I_01': (0, .33, 1, 1),        # «15€» entre as asas do saco
-    'DXl706aDN4L_01': (0, 0, 1, .87),        # «12,50»
     'DXkfmBuDKAh_01': (0, .18, 1, 1),        # «Decoração quarto ou centro de mesa 15»
     'DXc2vbdDLIq_01': (0, .19, 1, 1),        # «15€»
-    'DXcHo7TDGMs_01': (0, 0, 1, .87),        # «12.50»
-    'DXXc2nyDDjg_01': (0, 0, 1, .85),        # «15€»
-    'DXXcw16jPTJ_01': (0, 0, 1, .84),        # «15€»
-    'DXXcr1bDOD1_01': (0, 0, 1, .91),        # «15€»
-    'DXAq2XaDKfa_01': (0, .13, 1, 1),        # «15€»
-    'DW_cA7xjF0O_01': (0, 0, .775, 1),       # «10€» à direita
-    'DW_bjTNDPqI_01': (0, 0, 1, .72),        # «10€» sobre a caixa
+    'DW_cA7xjF0O_01': (0, 0, .765, 1),       # «10€» à direita
     'DfSlrzlMnZV_01': (0, 0, 1, .755),       # «Valor da peça: 15,90€»
+    # (fase 2, 16 nov 2026) os cortes medidos na caixa preta do preço (a 1.ª passagem deixava a ponta dela)
+    'DYC76LgDAcl_01': (0, 0, 1, .71),        # «10€» em baixo
+    'DXnxdErjJBv_01': (0, 0, 1, .845),        # «12,5€»
+    'DXnxKdtjD2R_01': (0, 0, 1, .81),        # «15€»
+    'DXl706aDN4L_01': (0, 0, 1, .805),        # «12,50»
+    'DXcHo7TDGMs_01': (0, 0, 1, .795),        # «12.50»
+    'DXXc2nyDDjg_01': (0, 0, 1, .795),        # «15€»
+    'DXXcw16jPTJ_01': (0, 0, 1, .785),        # «15€»
+    'DXXcr1bDOD1_01': (0, 0, 1, .86),        # «15€»
+    'DXAq2XaDKfa_01': (0, .15, 1, 1),        # «15€»
+    'DW_bjTNDPqI_01': (0, 0, 1, .655),        # «10€» sobre a caixa
+    # (fase 2) o logótipo por cima da fotografia e as legendas «Opção»: nada escrito por cima nos cartões
+    'DeECuwUMPUO_01': (0, .22, 1, 1),        # o logótipo no canto de cima
+    'Ddw_rzGM_FV_01': (0, .25, 1, 1),        # o logótipo no canto de cima
+    'DeKbEnojCHi_02': (0, 0, 1, .82),        # «Opção 2» em baixo
+    # uma linha preta de 2 px em cima do original
+    'DcQvrVfMrLt_01': (0, .004, 1, 1),
+    'Db6dIP2MySA_01': (0, .004, 1, 1),
     # a história
     'DfwhP6kMx40_01': (0, 0, 1, .62),        # o texto do vídeo em baixo
     'DZo5bDAMEFp_01': (0, .14, .70, 1),      # o texto em cima, o quadro com os apresentadores e a pessoa à direita
+}
+# O texto por cima de um fundo desfocado, onde um corte levaria a peça: apaga-se só o texto (o inpaint do
+# OpenCV preenche os píxeis claros das letras com o fundo à volta). (x0, y0, x1, y1) em fracções.
+RETOQUES = {
+    'DeKbEnojCHi_01': [(.05, .095, .38, .195)],   # «Opção 1» em cima, sobre as luzes de Natal desfocadas
 }
 # o preço está no meio da peça (ou há outra fotografia limpa): a fotografia fica de fora
 OMITIR = {'DW_b1GdjGnA_01', 'DXnxV2vjJh6_01', 'DXfFNd9CCjU_01'}
@@ -118,10 +132,27 @@ ICONES_ORIGEM = {'religioso': '01-religioso', 'prendas': '02-prendas', 'eventos'
 NOVIDADES_DESDE = '2026-11-09'   # «Feitos esta semana»: a semana antes da importação
 
 
+def retocar(im, caixas):
+    """Apaga o texto claro dentro das caixas (só os píxeis das letras, alargados), com o fundo à volta."""
+    import cv2
+    import numpy as np
+    a = np.array(im)
+    mascara = np.zeros(a.shape[:2], np.uint8)
+    for x0, y0, x1, y1 in caixas:
+        X0, Y0, X1, Y1 = round(x0 * im.width), round(y0 * im.height), round(x1 * im.width), round(y1 * im.height)
+        caixa = a[Y0:Y1, X0:X1]
+        claros = (caixa.min(axis=2) > 200).astype(np.uint8) * 255
+        mascara[Y0:Y1, X0:X1] = cv2.dilate(claros, np.ones((9, 9), np.uint8))
+    b = cv2.inpaint(cv2.cvtColor(a, cv2.COLOR_RGB2BGR), mascara, 9, cv2.INPAINT_TELEA)
+    return Image.fromarray(cv2.cvtColor(b, cv2.COLOR_BGR2RGB))
+
+
 def guardar_foto(origem, nome):
-    """Abre, recorta (CORTES), reduz o lado maior a LADO_MAXIMO e grava media/fotos/<nome>.jpg."""
+    """Abre, retoca (RETOQUES), recorta (CORTES), reduz o lado maior a LADO_MAXIMO e grava media/fotos/<nome>.jpg."""
     codigo = os.path.splitext(os.path.basename(origem))[0]
     im = ImageOps.exif_transpose(Image.open(origem)).convert('RGB')
+    if codigo in RETOQUES:
+        im = retocar(im, RETOQUES[codigo])
     if codigo in CORTES:
         x0, y0, x1, y1 = CORTES[codigo]
         im = im.crop((round(x0 * im.width), round(y0 * im.height), round(x1 * im.width), round(y1 * im.height)))
@@ -152,7 +183,29 @@ def video(origem, nome, sem_videos):
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', '0.5', '-i', destino, '-frames:v', '1', '-q:v', '3', capa], check=True)
 
 
+def so_fotos():
+    """Refaz só as fotografias com corte ou retoque (com os mesmos nomes), sem tocar no content/: o
+    conteúdo já é dos donos (e do painel)."""
+    catalogo = json.load(open(os.path.join(CLIENTE, 'catalogo', 'produtos.json'), encoding='utf-8'))
+    feitas = 0
+    for p in catalogo:
+        boas = [f for f in p['fotos'] if os.path.splitext(f)[0] not in OMITIR]
+        for i, f in enumerate(boas):
+            codigo = os.path.splitext(f)[0]
+            if codigo in CORTES or codigo in RETOQUES:
+                guardar_foto(os.path.join(MEDIA_IG, f), p['slug'] if i == 0 else f'{p["slug"]}-{i + 1}')
+                feitas += 1
+    for nome, (codigo, _, _) in FOTOS_HISTORIA.items():
+        if codigo in CORTES or codigo in RETOQUES:
+            guardar_foto(os.path.join(MEDIA_IG, codigo + '.jpg'), nome)
+            feitas += 1
+    print(f'fotografias refeitas: {feitas}')
+
+
 def principal():
+    if '--so-fotos' in sys.argv:
+        so_fotos()
+        return
     sem_videos = '--sem-videos' in sys.argv
     for d in (FOTOS, VIDEOS, ICONES, MARCA, PRODUTOS):
         os.makedirs(d, exist_ok=True)
