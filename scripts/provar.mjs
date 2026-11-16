@@ -9,9 +9,15 @@
 // 2. As categorias da loja trocam SEM A PÁGINA ANDAR: toca-se numa pastilha por coordenadas (um dedo
 //    não rola até ao elemento, o page.tap sim), a fila fica no mesmo sítio do ecrã, a página não
 //    recarrega (uma marca na window), e o «voltar» devolve a categoria de antes.
-// 3. Nenhum transbordo a 320, 375 e 414 px em todas as páginas do sitemap (e nas que estão fora dele:
-//    a encomenda, as legais e a 404), com o menu e a procura abertos na página inicial; e nenhum erro
-//    na consola.
+// 3. Nenhum transbordo a 320, 360, 375, 390 e 414 px em todas as páginas do sitemap (e nas que estão
+//    fora dele: a encomenda, as legais e a 404), na encomenda com peças e com o menu e a procura
+//    abertos; e nenhum erro na consola.
+// 4. No telemóvel, em todas essas páginas (e na encomenda com peças, no menu e na procura): os alvos de
+//    toque com 44 px (as ligações dentro do texto ficam como texto, como a WCAG deixa), nenhuma letra
+//    abaixo de 12 px e os campos a 16 px ou mais (abaixo disso o iPhone aproxima a página).
+// 5. O entrar ao descer (como na proposta B): com o movimento ligado, o que está abaixo do primeiro
+//    ecrã começa escondido e, descendo até ao fim, fica tudo à vista (nada preso a meio). Sem
+//    JavaScript não há nada escondido (os testes conferem que o HTML não traz o «revelar»).
 //
 // O servidor é um `python3 -m http.server` temporário, numa porta livre, que pára no fim (também com um
 // erro ou um Ctrl-C): não fica nenhum servidor esquecido.
@@ -26,7 +32,7 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = path.join(RAIZ, '_site');
 const PLAYWRIGHT = process.env.PLAYWRIGHT || '/Users/renatovalente/Websites/carimbo/node_modules/playwright';
 const { chromium, webkit } = createRequire(import.meta.url)(PLAYWRIGHT);
-const LARGURAS = [320, 375, 414];
+const LARGURAS = [320, 360, 375, 390, 414];
 
 let falhas = 0;
 const falhou = (t) => { falhas++; console.error(`  ✗ ${t}`); };
@@ -175,6 +181,41 @@ async function provarSeparadores(browser, nomeMotor, telemovel) {
   await ctx.close();
 }
 
+// ---------------------------------------------------------------- 4. os alvos, a letra e os campos
+/* Corre na página: o que se vê e se toca. Um alvo é uma ligação, um botão ou um campo; as ligações
+   «inline» (no meio de uma frase) não contam, e um botão de rádio conta com a etiqueta que o envolve. */
+function medirToque() {
+  const visivel = (e) => {
+    if (e.closest('.so-leitor, [hidden], dialog:not([open])')) return false;
+    const r = e.getBoundingClientRect();
+    const cs = getComputedStyle(e);
+    return r.width > 1 && r.height > 1 && cs.visibility !== 'hidden' && cs.display !== 'none';
+  };
+  const nome = (e) => `${e.tagName.toLowerCase()}${e.className && typeof e.className === 'string' ? `.${e.className.trim().split(/\s+/).join('.')}` : ''}${e.getAttribute('href') ? `[${e.getAttribute('href').slice(0, 40)}]` : ''}`;
+  const alvos = [];
+  for (const e of document.querySelectorAll('a[href], button, input:not([type="hidden"]), select, textarea')) {
+    if (!visivel(e) || e.classList.contains('saltar')) continue;
+    if (e.tagName === 'A' && getComputedStyle(e).display === 'inline') continue;
+    const caixa = e.matches('input[type="radio"], input[type="checkbox"]') && e.closest('label') ? e.closest('label') : e;
+    const r = caixa.getBoundingClientRect();
+    if (r.width < 43.5 || r.height < 43.5) alvos.push(`${nome(e)} ${Math.round(r.width)}×${Math.round(r.height)}`);
+  }
+  const letras = [];
+  for (const e of document.querySelectorAll('body *')) {
+    if (!visivel(e) || e.closest('svg')) continue;
+    if (![...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) continue;
+    const t = parseFloat(getComputedStyle(e).fontSize);
+    if (t < 12) letras.push(`${nome(e)} ${t}px`);
+  }
+  const campos = [];
+  for (const e of document.querySelectorAll('input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]), select, textarea')) {
+    if (!visivel(e)) continue;
+    const t = parseFloat(getComputedStyle(e).fontSize);
+    if (t < 16) campos.push(`${nome(e)} ${t}px`);
+  }
+  return { alvos, letras, campos };
+}
+
 // ---------------------------------------------------------------- 3. nenhum transbordo
 async function provarTransbordo(browser, nomeMotor) {
   const ctx = await contexto(browser, { largura: 375 });
@@ -183,6 +224,11 @@ async function provarTransbordo(browser, nomeMotor) {
   p.on('pageerror', (e) => erros.set(p.url(), String(e)));
   p.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource/.test(m.text())) erros.set(p.url(), m.text()); });
   const largos = [];
+  const toque = { alvos: new Map(), letras: new Map(), campos: new Map() };
+  const medeToque = async (onde) => {
+    const r = await p.evaluate(medirToque);
+    for (const k of Object.keys(toque)) for (const x of r[k]) if (!toque[k].has(x)) toque[k].set(x, onde);
+  };
   const mede = () => p.evaluate(() => {
     const w = document.documentElement.clientWidth;
     if (document.documentElement.scrollWidth <= w) return null;
@@ -193,6 +239,7 @@ async function provarTransbordo(browser, nomeMotor) {
   for (const c of PAGINAS) {
     await p.setViewportSize({ width: 375, height: 812 });
     await p.goto(`${ORIGEM}${c}`, { waitUntil: 'load' });
+    await medeToque(c);
     for (const w of LARGURAS) {
       await p.setViewportSize({ width: w, height: 812 });
       const r = await mede();
@@ -210,6 +257,7 @@ async function provarTransbordo(browser, nomeMotor) {
     await p.waitForSelector('[data-encomenda-cheia]:not([hidden]) [data-so-envio]:not([hidden])');
     const r = await mede();
     if (r) largos.push(`/encomenda/ (com peças) a ${w}: ${r}`);
+    if (w === 375) await medeToque('/encomenda/ (com peças)');
   }
   await p.evaluate(() => localStorage.clear());
   // na página inicial, com o menu e com a procura abertos
@@ -219,18 +267,49 @@ async function provarTransbordo(browser, nomeMotor) {
     await p.click('#abrir-menu');
     const menu = await p.evaluate(() => { const m = document.querySelector('#menu'); return m.hidden ? 'fechado' : (m.scrollWidth > m.clientWidth ? `${m.scrollWidth}px` : ''); });
     if (menu) largos.push(`o menu a ${w}: ${menu}`);
+    if (w === 375) await medeToque('o menu aberto');
     await p.click('#abrir-menu');
     await p.click('#abrir-procura');
     await p.fill('#procura input[name="q"]', 'nossa senhora');
     await p.waitForSelector('#procura .resultado');
     const proc = await p.evaluate(() => { const d = document.querySelector('#procura'); const i = d.querySelector('.procura__interior'); return [d, i].some((e) => e.scrollWidth > e.clientWidth + 1) ? `${i.scrollWidth}px` : ''; });
     if (proc) largos.push(`a procura a ${w}: ${proc}`);
+    if (w === 375) await medeToque('a procura aberta');
     await p.keyboard.press('Escape');
   }
   if (largos.length) falhou(`${nomeMotor}: transbordo em ${largos.length} sítios:\n      ${largos.slice(0, 20).join('\n      ')}`);
-  else passou(`${nomeMotor}: nenhum transbordo a ${LARGURAS.join(', ')} px em ${PAGINAS.length} páginas (${doSitemap.length} do sitemap), nem no menu e na procura`);
+  else passou(`${nomeMotor}: nenhum transbordo a ${LARGURAS.join(', ')} px em ${PAGINAS.length} páginas (${doSitemap.length} do sitemap), na encomenda com peças, no menu e na procura`);
+  const lista = (m) => [...m].slice(0, 12).map(([x, onde]) => `${x} (${onde})`).join('\n      ');
+  if (toque.alvos.size) falhou(`${nomeMotor}: alvos de toque com menos de 44 px (${toque.alvos.size}):\n      ${lista(toque.alvos)}`);
+  else passou(`${nomeMotor}: no telemóvel, todos os alvos de toque com 44 px ou mais (as ligações no meio do texto ficam como texto)`);
+  if (toque.letras.size) falhou(`${nomeMotor}: letra abaixo de 12 px (${toque.letras.size}):\n      ${lista(toque.letras)}`);
+  else passou(`${nomeMotor}: no telemóvel, nenhuma letra abaixo de 12 px`);
+  if (toque.campos.size) falhou(`${nomeMotor}: campos abaixo de 16 px (${toque.campos.size}):\n      ${lista(toque.campos)}`);
+  else passou(`${nomeMotor}: no telemóvel, os campos a 16 px ou mais`);
   if (erros.size) falhou(`${nomeMotor}: erros na consola em ${erros.size} páginas: ${[...erros].slice(0, 5).map(([u, e]) => `${u.replace(ORIGEM, '')}: ${e}`).join(' | ')}`);
   await ctx.close();
+}
+
+// ---------------------------------------------------------------- 5. o entrar ao descer
+async function provarMovimento(browser, nomeMotor) {
+  const falhasAntes = falhas;
+  for (const telemovel of [true, false]) {
+    const largura = telemovel ? 390 : 1280;
+    const ctx = await browser.newContext({ viewport: { width: largura, height: telemovel ? 844 : 900 }, isMobile: telemovel, hasTouch: telemovel, reducedMotion: 'no-preference', locale: 'pt-PT' });
+    const p = await ctx.newPage();
+    for (const c of ['/', '/loja/religioso/', '/a-nossa-historia/', '/como-encomendar/']) {
+      await p.goto(`${ORIGEM}${c}`, { waitUntil: 'load' });
+      const escondidos = await p.evaluate(() => document.querySelectorAll('.revelar').length);
+      if (c === '/' && !escondidos) falhou(`${nomeMotor} ${largura}: na página inicial nada entra ao descer`);
+      const alto = await p.evaluate(() => document.documentElement.scrollHeight);
+      for (let y = 0; y <= alto; y += 300) { await p.evaluate((yy) => window.scrollTo(0, yy), y); await p.waitForTimeout(40); }
+      await p.waitForTimeout(1600);
+      const presos = await p.evaluate(() => [...document.querySelectorAll('[data-revelar]')].filter((e) => parseFloat(getComputedStyle(e).opacity) < 0.99).map((e) => e.className || e.tagName));
+      if (presos.length) falhou(`${nomeMotor} ${largura} ${c}: ${presos.length} ficaram por mostrar (${presos.slice(0, 3).join(', ')})`);
+    }
+    await ctx.close();
+  }
+  if (falhas === falhasAntes) passou(`${nomeMotor}: o entrar ao descer — começa escondido abaixo do ecrã e, descendo, fica tudo à vista (telemóvel e computador)`);
 }
 
 try {
@@ -242,6 +321,7 @@ try {
       await provarSeparadores(browser, nomeMotor, telemovel);
     }
     await provarTransbordo(browser, nomeMotor);
+    await provarMovimento(browser, nomeMotor);
     await browser.close();
   }
 } finally {

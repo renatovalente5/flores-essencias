@@ -350,7 +350,9 @@ function publicados(pasta, producao = false) {
   const n = R.neutralizar(dados, R.problemas(dados, { hoje: hojeEmLisboa(), producao }));
   return Object.entries(n.artigos).map(([slug, a]) => ({ slug, ...a })).filter((a) => a.publicado !== false && Array.isArray(a.fotos) && a.fotos.length);
 }
-const precoDaFicha = (pasta, slug) => /<p class="ficha__preco[^"]*">([\s\S]*?)<\/p>/.exec(lerSaida(pasta, `produtos/${slug}/index.html`))?.[1] || '';
+const precoDaFicha = (pasta, slug) => /<p class="ficha__preco[^"]*"[^>]*>([\s\S]*?)<\/p>/.exec(lerSaida(pasta, `produtos/${slug}/index.html`))?.[1] || '';
+/* O cartão de um artigo, com os ganchos estáveis (data-produto, data-categoria). */
+const RE_CARTAO = /<li class="produto" data-produto="([a-z0-9-]+)" data-categoria="([a-z0-9-]+)"(?: data-revelar)?>([\s\S]*?)<\/li>/g;
 const DOMINIO_DE_ENSAIO = 'ensaio.pt';
 /* O domínio do ensaio (o build.mjs da cópia): a produção não constrói sem um. */
 const comDominio = (p) => {
@@ -485,7 +487,11 @@ await construcao('uma ficha por artigo publicado (com o nome no h1); as categori
   const { pasta } = construida('agora');
   const pub = publicados(pasta);
   assert.deepEqual(existeSaida(pasta, 'produtos') ? fs.readdirSync(path.join(pasta, '_site/produtos')).sort() : [], pub.map((p) => p.slug).sort());
-  for (const p of pub) assert.ok(lerSaida(pasta, `produtos/${p.slug}/index.html`).includes(`<h1 class="ficha__nome">${esc(p.nome)}</h1>`), `${p.slug}: o título não é o nome`);
+  for (const p of pub) {
+    const html = lerSaida(pasta, `produtos/${p.slug}/index.html`);
+    assert.ok(html.includes(`<h1 class="ficha__nome" data-nome>${esc(p.nome)}</h1>`), `${p.slug}: o título não é o nome`);
+    assert.ok(html.includes(`<section class="ficha contentor" data-ficha="${p.slug}" data-categoria="${p.categoria}">`), `${p.slug}: os ganchos da ficha`);
+  }
   const todas = paginasHtml(pasta).map((x) => x.html).join('\n');
   for (const c of JSON.parse(ler(pasta, 'content/categorias.json'))) {
     const temArtigos = pub.some((p) => p.categoria === c.slug);
@@ -504,18 +510,22 @@ await construcao('a loja e cada categoria: as pastilhas em cima e, por baixo, o 
     const painel = main.slice(main.indexOf('data-loja-painel'));
     assert.ok(main.indexOf('class="pastilhas"') > 0 && main.indexOf('class="pastilhas"') < main.indexOf('data-loja-painel'), `${rel}: as pastilhas não estão por cima do painel`);
     assert.ok(painel.includes(`<h1>${esc(c ? c.nome : 'Loja')}</h1>`), `${rel}: o título não está no painel`);
-    assert.equal((painel.match(/<li class="produto">/g) || []).length, c ? pub.filter((p) => p.categoria === c.slug).length : pub.length, `${rel}: os artigos`);
+    const cartoes = [...painel.matchAll(RE_CARTAO)];
+    assert.equal(cartoes.length, c ? pub.filter((p) => p.categoria === c.slug).length : pub.length, `${rel}: os artigos`);
+    if (c) assert.ok(cartoes.every((m) => m[2] === c.slug), `${rel}: um cartão com a categoria errada`);
     assert.match(main, new RegExp(`<a href="/flores-essencias/loja/${c ? `${c.slug}/` : ''}" aria-current="page">`), `${rel}: a pastilha não está marcada`);
   }
 });
 await construcao('o cartão do artigo não compra: a fotografia, o nome, o preço e a mesma seta em todos; nenhum botão de juntar fora da ficha', () => {
   const { pasta } = construida('agora');
   for (const { rel, html } of paginasHtml(pasta)) {
-    for (const m of html.matchAll(/<li class="produto">([\s\S]*?)<\/li>/g)) {
-      assert.match(m[1], /class="produto__foto"/, rel);
-      assert.match(m[1], /class="produto__ligacao" href="\/flores-essencias\/produtos\/[a-z0-9-]+\/"/, rel);
-      assert.match(m[1], /<span class="produto__seta" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-seta"\/><\/svg><\/span>/, rel);
-      assert.doesNotMatch(m[1], /<button|data-juntar/, `${rel}: um cartão com um botão`);
+    assert.equal((html.match(/<li class="produto"/g) || []).length, [...html.matchAll(RE_CARTAO)].length, `${rel}: um cartão sem os ganchos`);
+    for (const m of html.matchAll(RE_CARTAO)) {
+      assert.match(m[3], /class="produto__foto"/, rel);
+      assert.match(m[3], new RegExp(`<h[23] class="produto__nome" data-nome><a class="produto__ligacao" href="/flores-essencias/produtos/${m[1]}/"`), rel);
+      assert.match(m[3], /<p class="produto__preco[^"]*" data-preco="(?:\d+\.\d\d|por-confirmar)"/, `${rel}: o preço sem o gancho`);
+      assert.match(m[3], /<span class="produto__seta" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-seta"\/><\/svg><\/span>/, rel);
+      assert.doesNotMatch(m[3], /<button|data-juntar/, `${rel}: um cartão com um botão`);
     }
     if (!rel.startsWith('produtos/')) assert.doesNotMatch(html, /data-juntar-form/, `${rel}: juntar à encomenda fora da ficha`);
   }
@@ -528,7 +538,7 @@ await construcao('a página inicial (a estrutura da B): a capa com o h1, as cate
   assert.match(index, /<div class="capa__cartao"><picture class="capa__foto">/);
   const pub = publicados(pasta);
   for (const c of JSON.parse(ler(pasta, 'content/categorias.json')).filter((k) => pub.some((p) => p.categoria === k.slug))) {
-    assert.match(index, new RegExp(`<a class="categoria" href="/flores-essencias/loja/${c.slug}/"><span class="categoria__disco"><picture>`), `o círculo de ${c.slug}`);
+    assert.match(index, new RegExp(`<a class="categoria" href="/flores-essencias/loja/${c.slug}/" data-categoria="${c.slug}"><span class="categoria__disco"><picture>`), `o círculo de ${c.slug}`);
   }
   // a ordem das secções
   const ordem = ['class="capa ', 'class="categorias ', 'id="destaque-titulo"', 'id="novidades-titulo"', 'id="historia-titulo"', 'id="bastidores-titulo"', 'id="encomendar-titulo"'].map((t) => index.indexOf(t));
@@ -543,7 +553,11 @@ await construcao('a página inicial (a estrutura da B): a capa com o h1, as cate
   const hist = index.slice(index.indexOf('class="historia__fotos"'), index.indexOf('class="historia__texto"'));
   assert.equal((hist.match(/<picture class="historia__foto2?">/g) || []).length, 2, 'a história leva as duas fotografias');
   assert.equal((index.match(/<li class="video">/g) || []).length, h.bastidores.videos.length);
-  assert.equal((index.match(/<li class="passo">/g) || []).length, h.comoEncomendar.itens.length);
+  assert.equal((index.match(/<li class="passo"[ >]/g) || []).length, h.comoEncomendar.itens.length);
+  // os pontinhos da capa (só enfeite) e o entrar ao descer (só com JavaScript: no HTML, tudo à vista)
+  assert.match(index, /<span class="pontos pontos--capa" aria-hidden="true">(?:<i><\/i>){4}<\/span>/);
+  assert.ok((index.match(/ data-revelar/g) || []).length >= 8, 'o entrar ao descer');
+  assert.doesNotMatch(index, /class="[^"]*\brevelar\b/, 'o «revelar» só o põe o JavaScript');
   assert.match(index, /"@type":"WebSite"/);
   assert.match(index, /"@type":"Store"/);
   assert.match(index, /<title>Flores &amp; Essências — Arranjos e velas em cera, feitos à mão pelo Martim<\/title>/);
@@ -552,13 +566,21 @@ await construcao('o destaque da época: com ele ligado, a página da ocasião (/
   const { pasta } = construida('agora');
   const pub = publicados(pasta).filter((p) => (p.ocasioes || []).includes('natal'));
   const html = lerSaida(pasta, 'natal/index.html');
-  assert.equal((html.match(/<li class="produto">/g) || []).length, pub.length);
+  assert.equal([...html.matchAll(RE_CARTAO)].length, pub.length);
   const desligado = copia('destaque-desligado', (p) => json(p, 'content/inicio.json', (h) => { h.destaque.ligado = false; }));
   const r = construir(desligado);
   assert.equal(r.codigo, 0, r.saida);
   assert.ok(!existeSaida(desligado, 'natal'), 'a página do Natal ficou');
   for (const { rel, html: x } of paginasHtml(desligado)) assert.ok(!x.includes('/flores-essencias/natal/'), `${rel} liga ao Natal`);
   assert.ok(!lerSaida(desligado, 'index.html').includes('id="destaque-titulo"'));
+});
+await construcao('o verde do WhatsApp só nos botões que enviam a encomenda; o resto do site é terracota', () => {
+  const { pasta } = construida('agora');
+  for (const { rel, html } of paginasHtml(pasta)) {
+    const verdes = [...html.matchAll(/<(?:a|button) class="botao botao--whatsapp[^"]*"[^>]*>[\s\S]*?<span>([^<]*)<\/span>/g)].map((m) => m[1]);
+    if (rel === 'encomenda/index.html') assert.deepEqual(verdes, ['Encomendar pelo WhatsApp', 'Abrir o WhatsApp', 'Enviar outra vez'], rel);
+    else assert.deepEqual(verdes, [], `${rel}: um botão verde fora da encomenda`);
+  }
 });
 await construcao('a ficha: a categoria, o nome, o preço (com «desde» e a nota), a descrição, as escolhas que a peça deixa, o botão, e as duas linhas (a entrega e quem faz), sem acordeões', () => {
   const { pasta } = construida('ensaio');
@@ -580,6 +602,12 @@ await construcao('a ficha: a categoria, o nome, o preço (com «desde» e a nota
   const acabada = precoDaFicha(pasta, 'ensaio-promocao-acabada');
   assert.ok(acabada.includes(euros(10)) && !acabada.includes('<s '), acabada);
   assert.match(precoDaFicha(pasta, 'ensaio-sem-preco'), /Preço por confirmar/);
+  // o gancho do preço: o de hoje, com ponto e duas casas; «desde» e «por confirmar» ditos
+  const gancho = (slug) => /<p class="ficha__preco[^"]*"( data-preco="[^"]*"(?: data-desde)?)>/.exec(lerSaida(pasta, `produtos/${slug}/index.html`))?.[1];
+  assert.equal(gancho('ensaio-caixa'), ' data-preco="10.00" data-desde');
+  assert.equal(gancho('ensaio-promocao'), ' data-preco="8.00"');
+  assert.equal(gancho('ensaio-promocao-acabada'), ' data-preco="10.00"');
+  assert.equal(gancho('ensaio-sem-preco'), ' data-preco="por-confirmar"');
   assert.match(vela, /"@type":"Product"/);
   assert.match(vela, /"@type":"BreadcrumbList"/);
 });
@@ -839,6 +867,8 @@ await construcao('pelos CTT, com os portes por dizer: as peças, as escolhas e o
   assert.doesNotMatch(r.mensagem, NUNCA);
   assert.doesNotMatch(r.mensagem, /Pagamento/, 'sem as formas de pagamento ditas, a mensagem não as inventa');
   assert.ok(r.unicos.get('[data-linhas]').innerHTML.includes('Vela de ensaio'));
+  // o gancho estável de cada linha: o slug da peça
+  assert.deepEqual([...r.unicos.get('[data-linhas]').innerHTML.matchAll(/<li class="linha" data-produto="([a-z0-9-]+)">/g)].map((m) => m[1]), ['ensaio-vela', 'ensaio-caixa']);
   assert.ok(r.unicos.get('[data-resumo]').innerHTML.includes(`desde ${euros(38)} + portes`));
 });
 await construcao('em mão: sem portes e sem morada', async () => {
