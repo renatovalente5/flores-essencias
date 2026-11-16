@@ -1,8 +1,8 @@
 // A moldura de todas as páginas (a da proposta B, «Destaques»): UM SÓ CABEÇALHO, claro e preso em cima
 // (o logótipo, Loja, A nossa história, Contactos, a lupa e o saco; no telemóvel, o menu de ecrã
-// inteiro, fora do cabeçalho), a faixa do aviso (só com uma campanha), o rodapé curto na faixa
-// terracota (o logótipo numa placa clara, a frase, quatro ligações, o Instagram e o WhatsApp em botões
-// redondos, e em baixo o «©», os Termos, a Privacidade e o Livro de Reclamações discreto), a procura
+// inteiro, fora do cabeçalho), a faixa do aviso (só com uma campanha), o rodapé na faixa terracota (a
+// marca numa placa clara e três colunas: Loja, Ajuda e «Fala connosco»; em baixo o «©», os Termos, a
+// Privacidade e o Livro de Reclamações discreto), a procura
 // numa folha e o recado de «juntou-se à encomenda».
 import { esc, numeroWhatsApp } from './util.mjs';
 import { sprite, ico } from './icones.mjs';
@@ -54,37 +54,49 @@ function cabecalho(ctx, caminho) {
 </nav>`;
 }
 
-/* Os botões redondos das redes (o WhatsApp só como ligação, sem o número). */
-function redes(ctx) {
-  const c = ctx.site.contactos;
-  const r = [];
-  const w = wa(ctx);
-  if (c.instagram) r.push(`<a class="redondo" href="${esc(c.instagram)}" target="_blank" rel="noopener" aria-label="Instagram da ${esc(ctx.site.marca)}">${ico('instagram')}</a>`);
-  if (c.tiktok) r.push(`<a class="redondo" href="${esc(c.tiktok)}" target="_blank" rel="noopener" aria-label="TikTok da ${esc(ctx.site.marca)}">${ico('tiktok')}</a>`);
-  if (c.facebook) r.push(`<a class="redondo" href="${esc(c.facebook)}" target="_blank" rel="noopener" aria-label="Facebook da ${esc(ctx.site.marca)}">${ico('facebook')}</a>`);
-  if (w) r.push(`<a class="redondo" href="${w}" target="_blank" rel="noopener" aria-label="Enviar uma mensagem pelo WhatsApp">${ico('whatsapp')}</a>`);
-  return r.length ? `<div class="rodape__redes">${r.join('')}</div>` : '';
-}
-
-/* O RODAPÉ CURTO: o logótipo e a frase, quatro ligações, as redes; em baixo, «© ano Marca» e as
-   legais. Nunca o nome do dono, o NIF nem a morada (vão nos Contactos, nos Termos e na Privacidade). */
+/* O RODAPÉ (o Renato, 16 nov 2026: «tem pouca informação»): a marca (o logótipo numa placa clara, a
+   frase e os pontinhos dos ícones), e três colunas com título — a Loja (as categorias e o Natal), a
+   Ajuda (as páginas) e «Fala connosco» (o WhatsApp e o Instagram, com o nome à vista e sem o número).
+   Em baixo, «© ano Marca» e as legais. Nunca o nome do dono, o NIF nem a morada (vão nos Contactos,
+   nos Termos e na Privacidade); as garantias da encomenda ficam só no fim da página inicial. */
 function rodape(ctx) {
   const ligacao = (caminho, texto) => (ctx.existe(caminho) ? `<li><a href="${ctx.url(caminho)}">${esc(texto)}</a></li>` : '');
+  const c = ctx.site.contactos;
+  const w = wa(ctx);
+  const arroba = (c.instagram || '').replace(/\/+$/, '').split('/').pop();
+  const falar = [
+    w ? `<li><a class="rodape__contacto" href="${w}" target="_blank" rel="noopener">${ico('whatsapp')}<span>Enviar mensagem<small>WhatsApp</small></span></a></li>` : '',
+    c.instagram ? `<li><a class="rodape__contacto" href="${esc(c.instagram)}" target="_blank" rel="noopener">${ico('instagram')}<span>@${esc(arroba)}<small>Instagram</small></span></a></li>` : '',
+    c.tiktok ? `<li><a class="rodape__contacto" href="${esc(c.tiktok)}" target="_blank" rel="noopener">${ico('tiktok')}<span>TikTok<small>As lives do Martim</small></span></a></li>` : '',
+    c.facebook ? `<li><a class="rodape__contacto" href="${esc(c.facebook)}" target="_blank" rel="noopener">${ico('facebook')}<span>Facebook</span></a></li>` : '',
+  ].join('');
   return `<footer class="rodape">
   <div class="rodape__cima contentor">
     <div class="rodape__marca">
       <a class="rodape__placa" href="${ctx.url('/')}">${logotipo(ctx, { alto: 50, alt: `${ctx.site.marca} — página inicial` })}</a>
-      <p>${esc(ctx.site.assinatura || '')}</p>
+      <p class="rodape__frase">${esc(ctx.site.assinatura || '')}</p>
+      <span class="rodape__pontos" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     </div>
-    <nav class="rodape__nav" aria-label="Rodapé">
+    <nav class="rodape__coluna" aria-labelledby="rodape-loja">
+      <h2 class="rodape__titulo" id="rodape-loja">Loja</h2>
       <ul role="list">
-        ${ligacao('/loja/', 'Loja')}
-        ${ligacao('/a-nossa-historia/', 'A nossa história')}
+        ${categoriasComArtigos(ctx).map((cat) => ligacao(`/loja/${cat.slug}/`, cat.nome)).join('\n        ')}
+        ${ligacao('/natal/', 'Natal')}
+      </ul>
+    </nav>
+    <nav class="rodape__coluna" aria-labelledby="rodape-ajuda">
+      <h2 class="rodape__titulo" id="rodape-ajuda">Ajuda</h2>
+      <ul role="list">
         ${ligacao('/como-encomendar/', 'Como encomendar')}
+        ${ligacao('/encomenda/', 'A tua encomenda')}
+        ${ligacao('/a-nossa-historia/', 'A nossa história')}
         ${ligacao('/contactos/', 'Contactos')}
       </ul>
     </nav>
-    ${redes(ctx)}
+    ${falar ? `<div class="rodape__coluna rodape__coluna--falar">
+      <h2 class="rodape__titulo">Fala connosco</h2>
+      <ul role="list">${falar}</ul>
+    </div>` : ''}
   </div>
   <div class="rodape__baixo contentor">
     <p>© ${ctx.hoje.slice(0, 4)} ${esc(ctx.site.marca)}</p>
